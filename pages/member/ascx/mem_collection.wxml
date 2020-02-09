@@ -1,0 +1,24 @@
+<wxs module="MemberWxs" src='../../../wxs/member.wxs' ></wxs>
+<wxs module="CommonWxs" src='../../../wxs/common.wxs' ></wxs>
+
+<template name='mc'>
+  <view class='mem_ascx_collection_view'>
+    <view class='mem_ascx_collection_main'>
+      <view class='mem_ascx_collection_group' wx:for="{{collectlist}}" wx:key="collectlist" data-nav="{{item.cotype}}" data-objid="{{item.coid}}" bindtap='turnToDetail'>
+        <view class='mem_ascx_colgroup_left'>
+          <view class='mem_ascx_colgroup_logo'>
+            <image class='mem_ascx_colgroup_logoimg' src="{{item.Logo}}" mode='aspectFit'></image>
+          </view>
+        </view>
+        <view class='mem_ascx_colgroup_right'>
+          <view class='mem_ascx_colgroup_title'>{{item.Name}}</view>
+          <view class='mem_ascx_colgroup_detail oneline'>
+            {{CommonWxs.changeBackBr(item.Intro)}}
+          </view>
+          <view class='mem_ascx_colgroup_type'>类型：{{MemberWxs.returnTypeName(item.cotype)}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='mem_ascx_collection_viewbreak'></view>
+</template>

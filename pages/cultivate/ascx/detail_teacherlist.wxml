@@ -1,0 +1,36 @@
+<wxs module="CommonWxs" src='../../../wxs/common.wxs' ></wxs>
+
+<template name='dt'>
+  <view class='cul_ascx_teacherlist_view'>
+    <view class='cul_ascx_intro_view'>
+      <view class='cul_ascx_intro_titleview'>
+        <view class='cul_ascx_intro_headtitleline'></view>
+        <view class='cul_ascx_intro_headtitle'>机构简介</view>
+      </view>
+      <view class='cul_ascx_intro_purposecontent'>
+        <text>{{CommonWxs.changeBackBr(culdetail.CultivateDescription)}}</text>
+      </view>
+    </view>
+    <view class='cul_ascx_teacher_view'>
+      <view class='cul_ascx_teacher_titleview'>
+        <view class='cul_ascx_teacher_headtitleline'></view>
+        <view class='cul_ascx_teacher_headtitle'>师资力量</view>
+      </view>
+      <view class='cul_ascx_teacher_list'>
+        <view class='cul_ascx_teacher_listgroup' wx:for="{{teacherslist}}" wx:key="teacherslist" data-spread="{{item.Spread}}" data-idx="{{index}}" bindtap='setTeacherIntro'>
+          <view class='cul_ascx_teacher_groupleft'>
+            <view class='cul_ascx_group_headurl'>
+              <image src="https://testwx.taoraise.com/images/program/cultivate/{{culdetail.ID}}/{{item.TeacherHeadUrl}}" class='cul_ascx_group_headurlimg'></image>
+            </view>
+          </view>
+          <view class='cul_ascx_teacher_groupright'>
+            <view class='cul_ascx_teacher_grouptitle'>{{item.TeacherName}}</view>
+            <view class='cul_ascx_teacher_groupeducation'>学历：{{item.TeacherEducation}}</view>
+            <view class='cul_ascx_teacher_groupage'>教龄：{{item.TeacherCareerYear}}年</view>
+            <view class="cul_ascx_teacher_groupexperience{{item.Spread?'':' twoline'}}">经验：{{item.TeacherExperience}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

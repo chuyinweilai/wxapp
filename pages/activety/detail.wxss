@@ -1,0 +1,33 @@
+/* pages/activity/detail.wxss */
+.main_view{
+  width: 750rpx;
+  max-width: 750rpx;
+  overflow-x: hidden;
+}
+.act_detail_head{
+  width: 700rpx;
+  margin: 0px auto;
+  padding-top: 20rpx;
+  border-top: solid 1px #f8f9fa
+}
+.act_head_title{
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 60rpx;
+}
+.act_head_info{
+  font-size: 28rpx;
+  color: #808080;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: solid 1px #f8f9fa;
+  display: flex;
+}
+.act_head_address{
+  max-width: 200rpx;
+  margin-right: 50rpx;
+}
+.act_head_time{
+  max-width: 200rpx;
+}

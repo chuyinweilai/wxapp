@@ -1,0 +1,65 @@
+// 设置条件的样式
+function setConditionContent(cc, cindex) {
+  if (cc.indexOf(cindex) > -1) {
+    return ' screenselect'
+  }
+}
+function setConditionContentAscx(cc, cindex) {
+  if (cc.indexOf(cindex) > -1) {
+    return ' ascxscreenselect'
+  }
+}
+
+function setConditionTitle(ct, cindex) {
+  if (ct.indexOf(cindex) > -1) {
+    return ' selected'
+  }
+}
+
+function chooseConditionScreen(cs, cindex) {
+  if (cs.indexOf(cindex) > -1) {
+    return ''
+  } else {
+    return 'display'
+  }
+}
+
+function setConditionIcon(ci, cindex) {
+  if (ci.indexOf(cindex) > -1) {
+    return 'down_select'
+  } else {
+    return 'up'
+  }
+}
+
+//cul-detail,计算导航下划线的宽度
+countDetailNavWidth = function (e) {
+  var thiswidth = '';
+  if (e == "dt") {
+    thiswidth = '0%';
+  } else if (e == "dc") {
+    thiswidth = '33.33%';
+  } else {
+    thiswidth = '66.66%';
+  }
+  return thiswidth;
+}
+
+//admissionslist判断icon
+judgeSchoolIcon = function (e) {
+  if (e == '' || e == null) {
+    return '../../images/icon/icon_schooldefault.jpg'
+  } else {
+    return 'http://www.taoraise.com' + e
+  }
+}
+
+module.exports = {
+  setConditionContent: setConditionContent,
+  setConditionTitle: setConditionTitle,
+  chooseConditionScreen: chooseConditionScreen,
+  setConditionIcon: setConditionIcon,
+  setConditionContentAscx: setConditionContentAscx,
+  countDetailNavWidth: countDetailNavWidth,
+  judgeSchoolIcon: judgeSchoolIcon,
+}

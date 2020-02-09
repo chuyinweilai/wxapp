@@ -1,0 +1,98 @@
+.cul_ascx_teacherlist_view{
+  background: #f8f9fa;
+}
+.cul_ascx_intro_view{
+  background: #ffffff;
+  margin-top: 25rpx;
+  padding-bottom: 20rpx;
+}
+.cul_ascx_intro_titleview{
+  display: flex;
+}
+.cul_ascx_intro_headtitleline{
+  width: 4rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.cul_ascx_intro_headtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.cul_ascx_intro_purposecontent{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  line-height: 56rpx;
+}
+.cul_ascx_teacher_view{
+  background: #ffffff;
+  margin-top: 25rpx;
+  padding-top: 25rpx;
+  margin-bottom: 40rpx;
+}
+.cul_ascx_teacher_titleview{
+  display: flex;
+}
+.cul_ascx_teacher_headtitleline{
+  width: 4rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.cul_ascx_teacher_headtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.cul_ascx_teacher_list{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.cul_ascx_teacher_listgroup{
+  display: flex;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+  border: solid 1px #f8f9fa;
+  color: #545454;
+}
+.cul_ascx_teacher_groupleft{
+  margin-left: 10rpx;
+}
+.cul_ascx_group_headurl{
+  width: 180rpx;
+  height: 222rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.cul_ascx_group_headurlimg{
+  width: 180rpx;
+  height: 222rpx;
+}
+.cul_ascx_teacher_groupright{
+  margin-left: 20rpx;
+  line-height: 40rpx;
+}
+.cul_ascx_teacher_grouptitle{
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #000000;
+  height: 60rpx;
+}
+.cul_ascx_teacher_groupeducation{
+
+}
+.cul_ascx_teacher_groupage{
+
+}
+.cul_ascx_teacher_groupexperience{
+
+}

@@ -1,0 +1,26 @@
+<template name='dc'>
+  <view class='cul_ascx_course_view'>
+    <view class='cul_ascx_course_view'>
+      <view class='cul_ascx_course_titleview'>
+        <view class='cul_ascx_course_headtitleline'></view>
+        <view class='cul_ascx_course_headtitle'>课程介绍</view>
+      </view>
+      <view class='cul_ascx_course_purposecontent'>
+        <view class='cul_ascx_course_group' wx:for="{{courselist}}" wx:key="courselist" bindtap='confirmOrder' data-fee="{{item.Fee}}" data-name="{{item.CourseName}}">
+          <view class='cul_ascx_course_grouphead'>
+            <view class='cul_ascx_course_groupheadtitle oneline'>{{item.CourseName}}</view>
+            <view class='cul_ascx_course_groupheadfee'>￥{{item.Fee}}</view>
+            <!-- <view class='cul_ascx_course_groupheadcount'>
+              <view class='cul_ascx_course_groupheadcountminus' data-id="{{item.ID}}" data-type='minus' data-count="{{item.Count}}" bindtap='countNum'>-</view>
+              <view class='cul_ascx_course_groupheadcountnumber'>{{item.Count}}</view>
+              <view class='cul_ascx_course_groupheadcountplus' data-id="{{item.ID}}" data-type='plus' data-count="{{item.Count}}" bindtap='countNum'>+</view>
+            </view> -->
+          </view>
+          <view class='cul_ascx_course_groupfoot'>
+            <view class='cul_ascx_course_groupfootintro twoline'>{{item.CourseIntro}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

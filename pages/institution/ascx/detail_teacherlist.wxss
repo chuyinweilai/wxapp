@@ -1,0 +1,215 @@
+.ins_ascx_teacherlist_view{
+  margin-top: 20rpx;
+}
+.ins_ascx_teacherlist_condition{
+  display: flex;
+  font-size: 16px;
+  height: 60rpx;
+  border-bottom: solid 1px #f8f9fa;
+}
+.ins_ascx_teacherlist_conditiontitle{
+  width: 33.33%;
+  text-align: center;
+}
+.ins_ascx_teacherlist_iconimg{
+  width: 15rpx;
+  height: 15rpx;
+  margin-left: 6rpx;
+}
+.ins_ascx_teacherlist_groupview{
+  width: 100%;
+  padding-top: 1rpx;
+  background: #f8f9fa;
+  height: 578rpx;
+  padding-bottom: 20rpx;
+}
+.ins_ascx_teacherlist_group{
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border-radius: 20rpx;
+  background: #ffffff;
+}
+.ins_ascx_teacherlistgourp_left{
+
+}
+.ins_ascx_teacherlistgourp_left_imgview{
+  width: 162rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.ins_ascx_teacherlistgourp_headurlimg{
+  width: 162rpx;
+  height: 200rpx;
+}
+.ins_ascx_teacherlistgourp_right{
+  margin-left: 20rpx;
+  font-size: 14px;
+  width: 493rpx;
+}
+.ins_ascx_teacherlistgourp_title{
+  font-size: 16px;
+  height: 72rpx;
+  line-height: 36rpx;
+}
+.ins_ascx_teacherlistgourp_detail{
+  width: 493rpx;
+  font-size: 12px;
+  display: flex;
+  color: #ffffff;
+  height: 40rpx;
+  margin-top: 7rpx;
+}
+.ins_ascx_teacherlistgroup_detailinfo{
+  width: 370rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  line-height: 38rpx;
+}
+.ins_ascx_teacherlistgroup_career{
+  background: #86b1d1;
+  padding: 0rpx 14rpx;
+  border-radius: 10rpx;
+  margin-left: 15rpx;
+  max-width: 120rpx;
+  text-align: center;
+}
+.ins_ascx_teacherlistgroup_education{
+  background: #8f9ebd;
+  padding: 0rpx 14rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  max-width: 90rpx;
+  text-align: center;
+}
+.ins_ascx_teacherlistgroup_type{
+  background: #a6ca73;
+  padding: 0rpx 14rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  max-width: 125rpx;
+  text-align: center;
+}
+.ins_ascx_teacherlistgroup_name{
+  color:#888888;
+  line-height: 36rpx;
+  width: 123rpx;
+}
+.ins_ascx_teacherlistgourp_schoole{
+  color:#888888;
+  margin-top:4rpx;
+}
+.ins_ascx_teacherlistgourp_fee{
+  display: flex;
+  color:#ff6900;
+  margin-top: 4rpx;
+  font-size: 14px;
+}
+.ins_ascx_screen_block{
+  width:100%;
+  height: 538rpx;
+  position:fixed;
+  z-index:2;
+  background:#a3a3a3;
+  opacity:0.6;
+}
+.ins_ascx_screen_view{
+  z-index: 10;
+  background: #ffffff;
+  width:100%;
+  position: absolute;
+}
+.ins_ascx_screen_condition{
+  width: 92%;
+  margin: 0px auto;
+  margin-bottom: 10rpx;
+  border-top: solid 1px #f8f9fa;
+  border-bottom: solid 1px #f8f9fa;
+}
+.ins_ascx_condition_group{
+  display: flex;
+  font-size: 16px;
+  margin: 30rpx 0rpx;
+}
+.ins_ascx_condition_groupdisplay{
+  display: none;
+}
+.ins_ascx_condition_title{
+  width: 120rpx;
+  height: 56rpx;
+  margin-right: 25rpx;
+  text-align: center;
+  line-height: 56rpx;
+  border-radius: 28rpx;
+  color: #545454;
+  border: solid 1px #f8f9fa;
+}
+.ins_ascx_condition_title4{
+  width: 210rpx;
+  height: 56rpx;
+  margin-right: 25rpx;
+  text-align: center;
+  line-height: 56rpx;
+  border-radius: 28rpx;
+  color: #545454;
+  border: solid 1px #f8f9fa;
+}
+.ins_ascx_condition_title3{
+  width: 155rpx;
+  height: 56rpx;
+  margin-right: 25rpx;
+  text-align: center;
+  line-height: 56rpx;
+  border-radius: 28rpx;
+  color: #545454;
+  border: solid 1px #f8f9fa;
+}
+.ins_ascx_condition_feegroup{
+  width: 80%;
+  margin: 0px auto;
+  display: flex;
+  color: #545454;
+}
+.ins_ascx_condition_fee{
+  text-align: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  border: solid 1px #f8f9fa;
+  width: 33.33%;
+}
+.ins_ascx_condition_fee2{
+  text-align: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  width: 33.33%;
+}
+.ascxscreenselect{
+  color: #ffffff;
+  border: solid 1px #ff6900;
+  background: #ff6900;
+}
+.ins_ascx_condition_bottom{
+  width: 92%;
+  margin: 0px auto;
+}
+.ins_ascx_condition_btnview{
+  display: flex;
+}
+.ins_ascx_condition_btn{
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  height: 80rpx;
+  line-height: 76rpx;
+}
+.ins_ascx_teacherlist_unauthorized{
+  color: #545454;
+  font-size: 12px;
+  margin-top: 6rpx;
+  margin-left: 10rpx;
+}
+@import "../../../wxss/IphoneX.wxss";

@@ -1,0 +1,160 @@
+<!--pages/agreement/apply.wxml-->
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·第三方协议',slogon:'noslogon',fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<view class='apply_main_view'>
+  <view class='apply_main_head oneline'>
+    材料审核通过后，售后卡即生效，返现1000元3个工作日内到账
+  </view>
+  <view class='apply_head_break'></view>
+  <!-- 学员信息部分 -->
+  <view class='apply_student_view'>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line'></view></view>
+      <view class='apply_view_middle2 bold'>学员信息</view>
+      <view class='apply_view_right2'></view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>学生姓名</view>
+      <view class='apply_view_right'><input class='apply_single_input' placeholder='请输入' data-colum='name' bindinput='inputContactInfo'></input></view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>留学阶段</view>
+      <view class='apply_view_right'>
+        <picker class='apply_picker_view' data-array='{{abroad}}' data-key='abroad' bindchange="pickerchange" range="{{abroad}}">
+            {{abroadvalue?abroadvalue:''}}
+            <block wx-if="{{abroadvalue==undefined}}">
+              <image src="https://testwx.taoraise.com/images/program/icon/icon_picker.jpg" class="apply_picker_img"></image>
+            </block>
+        </picker>
+      </view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>学员性别</view>
+      <view class='apply_view_right'>
+        <picker class='apply_picker_view' data-array='{{sex}}' data-key='sex' bindchange="pickerchange" range="{{sex}}">
+            {{sexvalue?sexvalue:''}}
+            <block wx-if="{{sexvalue==undefined}}">
+              <image src="https://testwx.taoraise.com/images/program/icon/icon_picker.jpg" class="apply_picker_img"></image>
+            </block>
+        </picker>
+      </view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>家长姓名</view>
+      <view class='apply_view_right'><input class='apply_single_input' placeholder='请输入' data-colum='pname' bindinput='inputContactInfo'></input></view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>亲属关系</view>
+      <view class='apply_view_right'>
+        <picker class='apply_picker_view' data-array='{{relationship}}' data-key='relationship' bindchange="pickerchange" range="{{relationship}}">
+            {{relationshipvalue?relationshipvalue:''}}
+            <block wx-if="{{relationshipvalue==undefined}}">
+              <image src="https://testwx.taoraise.com/images/program/icon/icon_picker.jpg" class="apply_picker_img"></image>
+            </block>
+        </picker>
+      </view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>联系电话</view>
+      <view class='apply_view_right'><input class='apply_single_input' placeholder='请输入' data-colum='phone' bindinput='inputContactInfo'></input></view>
+    </view>
+  </view>
+  <!-- 学员信息部分 -->
+  <view class='apply_head_break'></view>
+  <!-- 上传图片部分 -->
+  <view class='apply_contact_view'>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line'></view></view>
+      <view class='apply_view_middle2 bold'>签约凭证</view>
+      <view class='apply_view_right2'></view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_contact_title oneline'>上传合约扫描件
+        <text class='apply_upload_text'>仅可上传一张</text>
+      </view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class="apply_upload_main{{contactimage!=''?'':' display'}}">
+        <view class='apply_upload_cancel' data-imagenav='contact' bindtap='removeImage'>×</view>
+        <view class='apply_upload_image'>
+          <image class='applt_upload_img' src="{{contacturl!=''?contacturl:''}}"></image>
+        </view>
+      </view>
+      <view class='apply_upload_main' data-imagenav='contact' bindtap='uploadImage'>
+        <image src='https://testwx.taoraise.com/images/program/icon/bg_upload_func.jpg' class='apply_upload_funcimg'></image>
+      </view>
+    </view>
+    <view class='apply_upload_view'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_contact_title oneline'>上传转账付款凭证截图
+        <text class='apply_upload_text'>仅可上传一张</text>
+      </view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class="apply_upload_main{{payimage!=''?'':' display'}}">
+        <view class='apply_upload_cancel' data-imagenav='pay' bindtap='removeImage'>×</view>
+        <view class='apply_upload_image'>
+          <image class='applt_upload_img' src="{{payurl!=''?payurl:''}}"></image>
+        </view>
+      </view>
+      <view class='apply_upload_main' data-imagenav='pay' bindtap='uploadImage'>
+        <image src='https://testwx.taoraise.com/images/program/icon/bg_upload_func.jpg' class='apply_upload_funcimg'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 上传图片部分 -->
+  <view class='apply_head_break'></view>
+  <!-- 返现信息部分 -->
+  <view class='apply_contact_view2'>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line'></view></view>
+      <view class='apply_view_middle2 bold'>返现信息</view>
+      <view class='apply_view_right2'></view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class="apply_view_middle{{verification_bank?'':' verificationFail'}}">银行卡号</view>
+      <view class="apply_view_right{{verification_bank?'':' verificationFail'}}"><input class='apply_single_input' placeholder='请输入' data-colum='bankcard' bindinput='inputContactInfo'></input></view>
+    </view>
+    <view class="apply_info_group{{verification_bank?'display':''}}">
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='bank_verification_view'>
+        <view class='verification_icon_view'><image src='../../images/icon/icon_verification.jpg' class='verification_icon_img'></image></view>
+        <view class='verification_content_view'>银行账号为11~12位数</view>
+      </view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='apply_view_middle'>持卡人姓名</view>
+      <view class='apply_view_right'><input class='apply_single_input' placeholder='请输入' data-colum='cardowner' bindinput='inputContactInfo'></input></view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='bank_name_titlenoline'>银行名称（含支行名称）</view>
+    </view>
+    <view class='apply_info_group'>
+      <view class='apply_view_left'><view class='apply_left_line2'></view></view>
+      <view class='bank_name_title'><input class='apply_br_input' placeholder='请输入' data-colum='bankname' bindinput='inputContactInfo'></input></view>
+    </view>
+    <!-- 返现信息部分 -->
+  </view>
+  <form bindsubmit="{{phone&&verification_bank&&bankcard?'postAgreement':''}}" report-submit='true'>
+    <view class='apply_func_commit'>
+      <button class="apply_function_sumbit{{phone&&verification_bank&&bankcard?'':'cannot'}}" form-type="submit">确认提交</button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,59 @@
+/* organization/bind/cultivate.wxss */
+.cul_bind_view{
+  width: 100%;
+  background: url('https://testwx.taoraise.com/images/program/organization/bg_bind.jpg');
+  background-size: 100% auto;
+  padding-top: 120rpx;
+}
+.cul_main_view{
+  width: 80%;
+  margin: 0px auto;
+}
+.cul_bind_group{
+  display: flex;
+  padding-bottom: 14rpx;
+  margin-bottom: 70rpx;
+  border-bottom: solid 1px #c9c9c9;
+}
+.cul_bind_left{
+  margin-right: 40rpx;
+}
+.cul_bind_img{
+  width: 36rpx;
+  height: 36rpx;
+}
+.cul_bind_phoneimg{
+  padding-left: 5rpx;
+  margin-right: 5rpx;
+  width: 26rpx;
+  height: 36rpx;
+}
+.cul_bind_right{
+
+}
+.cul_bind_input{
+  width: 400rpx;
+  font-size: 16px;
+}
+.cul_bind_button{
+  margin-top: 100rpx;
+  padding-bottom: 150rpx;
+}
+.cul_button_view{
+  width: 100%;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: #c5c5c5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 34rpx;
+  font-size: 16px;
+  color: #ffffff;
+}
+.inputWriten{
+  border-bottom: solid 2px #ff6900;
+}
+.canPost{
+  background: #ff6900;
+}

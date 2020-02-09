@@ -1,0 +1,167 @@
+.ins_ascx_intro_view{
+  width: 100%;
+  background: #f8f9fa;
+  padding-bottom: 30rpx;
+}
+.ins_ascx_intro_viewbreak{
+  width: 100%;
+  height: 30rpx;
+}
+.ins_ascx_intro_purpose{
+  background: #ffffff;
+  padding: 30rpx 0rpx;
+  font-size: 20px;
+}
+.ins_ascx_intro_purposehead{
+  display: flex;
+}
+.ins_ascx_intro_headtitleline{
+  width: 8rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_ascx_intro_headtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.ins_ascx_intro_purposecontent{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.ins_ascx_intro_advantage{
+  background: #ffffff;
+  padding: 30rpx 0rpx;
+  font-size: 20px;
+}
+.ins_ascx_intro_advantagehead{
+  display: flex;
+}
+.ins_ascx_intro_advantageheadtitleline{
+  width: 8rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_ascx_intro_advantageheadtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.ins_ascx_intro_advantagecontent{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.ins_ascx_intro_service{
+  background: #ffffff;
+  padding: 30rpx 0rpx;
+  font-size: 20px;
+}
+.ins_ascx_intro_servicehead{
+  display: flex;
+}
+.ins_ascx_intro_serviceheadtitleline{
+  width: 8rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_ascx_intro_serviceheadtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.ins_ascx_intro_servicecontent{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.ins_ascx_intro_plan{
+  color: #888888;
+  text-align: center;
+}
+.ins_ascx_intro_plantext{
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100rpx;
+}
+.ins_ascx_intro_gpa{
+  background: #f8f9fa;
+  padding: 20rpx 30rpx 30rpx 30rpx;
+}
+.ins_ascx_intro_gpatitle{
+  display: flex;
+}
+.ins_ascx_intro_gpatext{
+  margin-top: 14rpx;
+  color: #888888;
+}
+.ins_ascx_intro_extra{
+  background: #f8f9fa;
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx 30rpx 30rpx;
+}
+.ins_ascx_intro_extratitle{
+  display: flex;
+}
+.ins_ascx_intro_extratext{
+  margin-top: 14rpx;
+  color: #888888;
+}
+.ins_ascx_intro_comprehensive{
+  background: #f8f9fa;
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx 30rpx 30rpx;
+}
+.ins_ascx_intro_comprehensivetitle{
+  display: flex;
+}
+.ins_ascx_intro_comprehensivetext{
+  margin-top: 14rpx;
+  color: #888888;
+}
+.ins_ascx_intro_selection{
+  color: #888888;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.ins_ascx_intro_selectiontext{
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100rpx;
+}
+.ins_ascx_intro_apply{
+  color: #888888;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.ins_ascx_intro_applytext{
+  color: #000000;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100rpx;
+}
+
+/* 页面通用 */
+.ins_ascx_intro_circle{
+  line-height: 34rpx;
+  width: 32rpx;
+}
+.ins_ascx_intro_circletitle{
+
+}
+.ins_ascx_intro_navcontent{
+  width: 86%;
+  margin: 0px auto;
+}

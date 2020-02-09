@@ -1,0 +1,88 @@
+// 设置条件的样式
+function setConditionContent(cc,cindex){
+  if(cc.indexOf(cindex) > -1){
+    return ' screenselect'
+  }
+}
+function setConditionContentAscx(cc, cindex) {
+  if (cc.indexOf(cindex) > -1) {
+    return ' ascxscreenselect'
+  }
+}
+
+function setConditionTitle(ct, cindex) {
+  if(ct.indexOf(cindex) > -1){
+    return ' selected'
+  }
+}
+
+function chooseConditionScreen(cs,cindex){
+  if (cs.indexOf(cindex) > -1) {
+    return ''
+  }else{
+    return 'display'
+  }
+}
+
+function setConditionIcon(ci, cindex) {
+  if (ci.indexOf(cindex) > -1) {
+    return 'down_select'
+  } else {
+    return 'up'
+  }
+}
+
+//ins-detail,计算导航下划线的宽度
+countDetailNavWidth = function (e) {
+  var thiswidth = '';
+  if (e == "dt") {
+    thiswidth = '0%';
+  } else if (e == "da") {
+    thiswidth = '25%';
+  } else if (e == "di") {
+    thiswidth = '50%';
+  } else {
+    thiswidth = '75%';
+  }
+  return thiswidth;
+}
+
+//admissionslist判断icon
+judgeSchoolIcon = function (e) {
+  if (e == '' || e == null) {
+    return '../../images/icon/icon_schooldefault.jpg'
+  } else {
+    return 'https://testwx.taoraise.com/images/program/school/' + e + '.jpg'
+  }
+}
+
+//判断inslist循环条件
+conditionInsList = function (value,condition){
+  var returnvalue = true
+  if(condition != ''){
+    if(value.indexOf(condition) <= -1){
+      returnvalue = false
+    }
+  }
+  return returnvalue
+}
+
+judgeInsBanner = function (insbanner){
+  if(insbanner == '' || insbanner == undefined){
+    return 'https://testwx.taoraise.com/UploadFiles/institution/design/bg.jpg'
+  }else{
+    return 'https://testwx.taoraise.com/UploadFiles/institution/logo/banner/' + insbanner
+  }
+}
+
+module.exports = {
+  setConditionContent: setConditionContent,
+  setConditionTitle: setConditionTitle,
+  chooseConditionScreen: chooseConditionScreen,
+  setConditionIcon: setConditionIcon,
+  setConditionContentAscx: setConditionContentAscx,
+  countDetailNavWidth: countDetailNavWidth,
+  judgeSchoolIcon: judgeSchoolIcon,
+  conditionInsList: conditionInsList,
+  judgeInsBanner: judgeInsBanner,
+}

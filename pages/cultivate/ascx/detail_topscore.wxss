@@ -1,0 +1,92 @@
+.ins_ascx_topscore_view{
+  background: #f8f9fa;
+}
+.ins_ascx_topscore_viewbreak{
+  width: 100%;
+  height: 30rpx;
+}
+.ins_ascx_topscore_content{
+  background: #ffffff;
+  padding: 30rpx 0rpx;
+  font-size: 20px;
+}
+.ins_ascx_topscore_contenthead{
+  display: flex;
+}
+.ins_ascx_topscore_headtitleline{
+  width: 8rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_ascx_topscore_headtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.ins_ascx_topscore_commentgroup{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+.ins_ascx_topscore_group{
+  margin-top: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom: solid 1px #f8f9fa;
+}
+.ins_ascx_topscore_info{
+  display: flex;
+}
+.ins_ascx_topscore_headurl{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  overflow: hidden;
+  margin-right: 25rpx;
+}
+.ins_ascx_topscore_headurlimg{
+  width: 90rpx;
+  height: 90rpx;
+  justify-content: center;
+  align-items: center;
+}
+.ins_ascx_topscore_right{
+
+}
+.ins_ascx_topscore_name{
+  font-size: 20px;
+  height: 50rpx;
+}
+.ins_ascx_topscore_time{
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #888888;
+}
+.ins_ascx_topscore_commentcontent{
+  margin-top: 25rpx;
+}
+.ins_ascx_topscore_headleft{
+  width: 68%;
+  display: flex;
+}
+.ins_ascx_topscore_button{
+  color: #ffffff;
+}
+.ins_ascx_topscore_buttonimg{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+.ins_ascx_topscore_btnimgview{
+  width: 200rpx;
+  height: 56rpx;
+  background: #ff6900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  letter-spacing: 4rpx;
+  border-radius: 32rpx;
+}

@@ -1,0 +1,25 @@
+<!--pages/activity/detail.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<wxs module="ActWxs" src='../../wxs/activity.wxs' ></wxs>
+
+<block wx-if="{{isIphoneX==true}}">
+  <include src='/ascx/isIphoneX_index.wxml'/>
+</block>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·活动详情',slogon:'noslogon',fillHeight:fillHeight}}" />
+
+<view class='main_view'>
+  <view class='act_detail_head'>
+    <view class='act_head_title'>{{detail[0].Title}}</view>
+    <view class='act_head_info'>
+      <view class='act_head_address oneline'>{{detail[0].Address}}</view>
+      <view class='act_head_address oneline'>{{detail[0].APeople}}</view>
+      <view class='act_head_time oneline'>{{ActWxs.changeTime(detail[0].AddTime)}}</view>
+    </view>
+  </view>
+  <template is="wxParse" data="{{wxParseData:Contents.nodes}}"/>
+</view>
+
+<import src="/ascx/foot.wxml" />
+<template is="footnav" data="{{foottype:'normal',selectnav:'ins',isIphoneX:isIphoneX}}" />

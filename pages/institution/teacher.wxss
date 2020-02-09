@@ -1,0 +1,101 @@
+/* pages/institution/teacher.wxss */
+.ins_teacher_view{
+  background: #f8f9fa;
+  margin-bottom: 30rpx;
+}
+.ins_teacher_head{
+  background: #ffffff;
+  padding-bottom: 40rpx;
+  margin-bottom: 25rpx;
+}
+.ins_teacher_headview{
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 30rpx;
+  display: flex;
+  font-size: 14px;
+  color: #888888;
+}
+.ins_teacher_headurl{
+  margin-right: 40rpx;
+}
+.ins_teacher_headurlimg{
+  width: 160rpx;
+  height: 197rpx;
+}
+.ins_teacher_right{
+  
+}
+.ins_teacher_name{
+  font-size: 16px;
+  height: 50rpx;
+  color: #000000;
+}
+.ins_teacher_career{
+
+}
+.ins_teacher_education{
+  width:  490rpx;
+}
+.ins_teacher_school{
+
+}
+.ins_teacher_fee{
+  line-height: 54rpx;
+  color: #ff6900;
+  font-size: 16px;
+  display: flex;
+}
+.ins_teacher_intro{
+  background: #ffffff;
+  margin-bottom: 24rpx;
+}
+.ins_teacher_field{
+  background: #ffffff;
+  margin-bottom: 24rpx;
+}
+.ins_teacher_experience{
+  background: #ffffff;
+  margin-bottom: 24rpx;
+}
+.ins_teacher_example{
+  background: #ffffff;
+  margin-bottom: 24rpx;
+}
+.ins_teacher_promise{
+  background: #ffffff;
+}
+
+.ins_teacher_headtext{
+  margin-right: 27px;
+}
+/* 页面通用标题样式 */
+.ins_teacher_nav_view{
+  display: flex;
+  padding-top: 25rpx;
+}
+.ins_teacher_nav_line{
+  width: 6rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_teacher_nav_title{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.ins_teacher_content{
+  width: 90%;
+  margin: 0px auto;
+  line-height: 40rpx;
+  font-size: 14px;
+  margin-top: 26rpx;
+  padding-bottom: 46rpx;
+}
+.ins_teacher_unauthorized{
+  color: #545454;
+  font-size: 12px;
+  margin-top: 6rpx;
+  margin-left: 10rpx;
+}

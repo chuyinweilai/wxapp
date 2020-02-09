@@ -1,0 +1,39 @@
+<!--pages/ranking/index.wxml-->
+<block wx-if="{{isIphoneX==true}}">
+  <include src='/ascx/isIphoneX_index.wxml'/>
+</block>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·学校排名',slogon:'noslogon',fillHeight:fillHeight}}" />
+
+<view class='main_view'>
+  <view class='rank_view_break'></view>
+  <view class='rank_group_view' data-url='2019zhdx' bindtap='previewImg'>
+    <view class='rank_group_type'>2019 US News</view>
+    <view class='rank_group_title oneline'>最佳美国大学TOP100排名（9项数据）</view>
+  </view>
+  <view class='rank_group_view' data-url='2019wlxy' bindtap='previewImg'>
+    <view class='rank_group_type'>2019 US News</view>
+    <view class='rank_group_title oneline'>最佳文理学院TOP100排名（9项数据）</view>
+  </view>
+  <view class='rank_group_view' data-url='2019sxy' bindtap='previewImg'>
+    <view class='rank_group_type'>2019 US News</view>
+    <view class='rank_group_title oneline'>美国商学院TOP50（5项数据）</view>
+  </view>
+  <view class='rank_group_view' data-url='2019fxy' bindtap='previewImg'>
+    <view class='rank_group_type'>2019 US News</view>
+    <view class='rank_group_title oneline'>美国法学院TOP50（5项数据）</view>
+  </view>
+  <view class='rank_group_view' data-url='2019gcxy' bindtap='previewImg'>
+    <view class='rank_group_type'>2019 US News</view>
+    <view class='rank_group_title oneline'>美国工程学院TOP50（5项数据）</view>
+  </view>
+  <view class='rank_group_view' data-url='2019jyxy' bindtap='previewImg'>
+    <view class='rank_group_type'>2019 US News</view>
+    <view class='rank_group_title oneline'>美国教育学院TOP50（6项数据）</view>
+  </view>
+
+</view>
+
+<import src="/ascx/foot.wxml" />
+<template is="footnav" data="{{foottype:'normal',selectnav:'ins',isIphoneX:isIphoneX}}" />

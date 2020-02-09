@@ -1,0 +1,94 @@
+<!--pages/cultivate/list.wxml-->
+<wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
+<wxs module="CulWxs" src='../../wxs/cul.wxs' ></wxs>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'语培列表',fillHeight:fillHeight}}" />
+
+<view class='cultivate_view'>
+  <view class='cultivate_head'>
+    <view class='cultivate_head_search'>
+      <view class='cultivate_search_view'>
+        <view class='cultivate_search_default'>
+          <view class="cultivate_search_default_img{{getSearchWordNotNull=='y'?' newIconSearch':''}}">
+            <image class='cultivate_search_defaultimg' src='/images/icon/iconsearch.png'></image>
+          </view>
+          <view class='word_search'>
+            <input placeholder='搜索' value="{{searchWord}}" bindinput='getSearchWord' bindfocus='clickSearchWord' bindconfirm='confirmSearchWord' />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='cultivate_head_screen'>
+      <view class="cultivate_screen_title{{CulWxs.setConditionTitle(conditiontitle,'[1]')}}" data-conditiontitle='[1]' bindtap='openCondition'>
+        培训科目
+        <image class='cultivate_sreen_iconimg' src="/images/icon/icon_{{CulWxs.setConditionIcon(conditiontitle,'[1]')}}.jpg"></image>
+      </view>
+      <!-- <view class='cultivate_screen_title'>
+        费用预算
+        <image class='cultivate_sreen_iconimg' src='/images/icon/icon_up.jpg'></image>
+      </view> -->
+      <view class="cultivate_screen_title{{CulWxs.setConditionTitle(conditiontitle,'[2]')}}" data-conditiontitle='[2]' bindtap='openCondition'>
+        教师规模
+        <image class='cultivate_sreen_iconimg' src="/images/icon/icon_{{CulWxs.setConditionIcon(conditiontitle,'[2]')}}.jpg"></image>
+      </view>
+    </view>
+  </view>
+  <view class='cultivate_list'>
+    <!-- 搜索条件内容view -->
+    <!-- 如果没有打开分类，这个cultivate_screen_view设置display -->
+    <view class="cultivate_screen_view{{conditionview=='close'?' display':''}}">
+      <view class='cultivate_screen_condition'>
+        <!-- 分类列表设置了display，只能用新的class来起到display:none，要显示，class去掉display -->
+        <view class="cultivate_condition_group{{CulWxs.chooseConditionScreen(conditiontitle,'[1]')}}">
+          <view class="cultivate_condition_title{{CulWxs.setConditionContent(conditioncontenttemp,'[1]')}}" data-cc='[1]' bindtap='setConditionScreen'>GPA</view>
+          <view class="cultivate_condition_title{{CulWxs.setConditionContent(conditioncontenttemp,'[2]')}}" data-cc='[2]' bindtap='setConditionScreen'>TOFEL</view>
+          <view class="cultivate_condition_title{{CulWxs.setConditionContent(conditioncontenttemp,'[3]')}}" data-cc='[3]' bindtap='setConditionScreen'>SAT</view>
+          <view class="cultivate_condition_title{{CulWxs.setConditionContent(conditioncontenttemp,'[4]')}}" data-cc='[4]' bindtap='setConditionScreen'>ACT</view>
+        </view>
+        <!-- <view class='cultivate_condition_group'>
+          <view class='cultivate_condition_feegroup'>
+            <view class='cultivate_condition_fee'>最低价</view>
+            <view class='cultivate_condition_fee2'>——</view>
+            <view class='cultivate_condition_fee'>最高价</view>
+          </view>
+        </view> -->
+        <view class="cultivate_condition_group{{CulWxs.chooseConditionScreen(conditiontitle,'[2]')}}">
+          <view class="cultivate_condition_title3{{CulWxs.setConditionContent(conditioncontenttemp,'[7]')}}" data-cc='[7]' bindtap='setConditionScreen'>5人以内</view>
+          <view class="cultivate_condition_title3{{CulWxs.setConditionContent(conditioncontenttemp,'[8]')}}" data-cc='[8]' bindtap='setConditionScreen'>5~10人</view>
+          <view class="cultivate_condition_title3{{CulWxs.setConditionContent(conditioncontenttemp,'[9]')}}" data-cc='[9]' bindtap='setConditionScreen'>11人以上</view>
+        </view>
+      </view>
+      <view class='cultivate_condition_bottom'>
+        <view class='cultivate_condition_btnview'>
+          <view class='cultivate_condition_btn' bindtap='resetConditionContent'>重置</view>
+          <view class='cultivate_condition_btn selected' bindtap='confirmConditionContent'>确认</view>
+        </view>
+      </view>
+    </view>
+    <scroll-view scroll-y class="cultivate_list_groupview{{isIphoneX==true?' cullistscrollview':''}}">
+      <!-- 筛选条件打开时的背景 -->
+      <view class="cultivate_screen_block{{isIphoneX==true?' cullistscrollview':''}}{{conditionview=='close'?'  display':''}}" data-conditiontitle='closeCondition' bindtap='openCondition'></view>
+      <view class='cultivate_list_gourp'>
+
+        <view class='cultivate_group' wx:for="{{thislistpush}}" wx:key="thislistpush" data-culid="{{item.ID}}" bindtap='gotoNav'>
+          <view class='cultivate_group_logo'>
+            <image class='cultivate_group_logoimg' src="https://testwx.taoraise.com/UploadFiles/cultivate/{{item.CultivateLogo}}"></image>
+          </view>
+          <view class='cultivate_group_right'>
+            <view class='cultivate_group_title'>
+              <view class='cultivate_group_titleview oneline'>{{item.CultivateName}}</view>
+              <view class="cultivate_group_newscore{{item.NewScore=='0'?'display':''}} oneline">{{item.NewScore}}条新高分！</view>
+            </view>
+            <view class='cultivate_group_intro twoline'>{{item.CultivateIntro}}</view>
+            <view class='cultivate_group_fee'>费用 <text class='cultivate_fee_number'>￥{{item.Fee}}<text class='size14 selected'> 起</text></text></view>
+          </view>
+        </view>
+
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<import src="/ascx/foot.wxml" />
+<template is="footnav" data="{{foottype:'collection',selectnav:'ins',isIphoneX:isIphoneX}}" />

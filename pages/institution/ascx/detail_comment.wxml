@@ -1,0 +1,59 @@
+<wxs module="CommonWxs" src='../../../wxs/common.wxs' ></wxs>
+
+<template name='dc'>
+  <view class='ins_ascx_comment_view'>
+    <view class='ins_ascx_comment_viewbreak'></view>
+    <view class='ins_ascx_comment_content'>
+      <view class='ins_ascx_comment_contenthead'>
+        <view class='ins_ascx_comment_headleft'>
+          <view class='ins_ascx_comment_headtitleline'></view>
+          <view class='ins_ascx_comment_headtitle'>所有评论</view>
+        </view>
+        <view class='ins_ascx_comment_button'>
+          <view class='ins_ascx_comment_btnimgview' bindtap='gotoCommemt'><image src='/images/button/btn_comment.jpg' class='ins_ascx_comment_buttonimg'></image>写评论</view>
+        </view>
+      </view>
+      <view class='ins_ascx_comment_commentgroup'>
+        <view class='ins_ascx_comment_group' wx:for-index="commentindex" wx:for="{{commentlist}}" wx:key="commentlist">
+          <view class='ins_ascx_comment_info'>
+            <view class='ins_ascx_comment_headurl'>
+              <image src="{{CommonWxs.judgeHeadUrl(item.UserHeadUrl,'institution')}}" mode='aspectFill' class='ins_ascx_comment_headurlimg'></image>
+            </view>
+            <view class='ins_ascx_comment_right'>
+              <view class='ins_ascx_comment_name'>{{item.UserName}}</view>
+              <view class='ins_ascx_comment_time'>{{item.AddTime}}</view>
+            </view>
+          </view>
+          <view class='ins_ascx_comment_commentcontent'>
+            {{item.Content}}
+          </view>
+
+          <!-- 图片展示 -->
+          <!-- <view class="function_image_default{{defaultImageGroup[commentindex].ImageUrl==''?' display':''}}">
+            <image class='function_image_defaultimg' mode='widthFix' src="{{defaultImageGroup[commentindex].ImageUrl!=''?'https://testwx.taoraise.com/UploadFiles/image/'+defaultImageGroup[commentindex].ImageUrl+'.jpg':''}}"></image>
+          </view> -->
+          <!-- 视频view -->
+          <view class="function_video_main{{item.Video!=''&&item.Video!=null?'':' display'}}">
+            <video class='video_function_main' src="{{item.Video!=''&&item.Video!=null?'https://testwx.taoraise.com/UploadFiles/video/'+item.Video+'.mp4':''}}"></video>
+          </view>
+          <!-- 音频view -->
+          <view class="function_audio_main{{item.Audio!=''&&item.Audio!=null?'':' display'}}">
+            <view class='function_audio_text' style="width:{{90+item.Duration*4}}rpx;" data-audiourl="{{'https://testwx.taoraise.com/UploadFiles/audio/'+item.Audio+'.mp3'}}" data-index="{{index}}" data-audiospace="commentlist[{{index}}].answerlistplay" bindtap="{{audiostatus}}">
+              <image class='function_audio_play' src="../../images/icon/icon_audio{{item.answerlistplay=='yes'?'on':''}}play.png"></image>
+              <view class="function_audio_duration" style="width:{{40+item.Duration*4}}rpx;">{{item.Duration}}'</view>
+            </view>
+          </view>
+          <!-- 图片view -->
+          <view class="function_image_main{{item.Image.length>0?'':'display'}}">
+            <view class="function_image_group" bindtap='previewImg' data-urlarray="{{item.Image}}" data-url="{{AnswerlistImage}}" wx:for="{{item.Image}}" wx:for-item="AnswerlistImage" wx:key='itemImage'>
+              <view class='upload_image_picture'>
+                <image class="function_img imageselect" mode='aspectFill' src="{{'https://testwx.taoraise.com/UploadFiles/image/'+AnswerlistImage+'.jpg'}}"></image>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

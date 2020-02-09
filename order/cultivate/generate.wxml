@@ -1,0 +1,89 @@
+<!--order/cultivate/generate.wxml-->
+<wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·创建订单',fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<view class='gen_main_view'>
+  <view class='gen_main_break'></view>
+  <block wx:if="{{cularray != 'Y'}}">
+    <view class='gen_class_view'>
+      <view class='gen_table_main'>
+        <view class='gen_table_left'>选择机构</view>
+        <view class='gen_table_rightselect'>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{cularray}}">
+            <view class="qa_question_typetitleword">
+              <text class='qa_question_typevalue'>{{cularray[index]}}</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='gen_class_view'>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课表信息</view>
+      <view class='gen_table_rightupload'>
+        <block wx:if="{{imageReturnID.length==0}}">
+          <view class='gen_table_upload' bindtap='uploadShedule'>上传课表</view>
+        </block>
+        <block wx:if="{{imageReturnID.length>0}}">
+          <view class='gen_table_uploaded' bindtap='previewImg'>查看课表</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='gen_class_view'>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课程内容</view>
+      <view class='gen_table_right'>
+        <input class='gen_table_input' placeholder='输入课程内容' value="{{content}}" data-input='content' bindinput='inputValue'></input>
+      </view>
+    </view>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课程时间</view>
+      <view class='gen_table_right'>
+        <input class='gen_table_inputtime' placeholder='课程时间' value="{{ctime}}" data-input='ctime' bindinput='inputValue' type='number'></input>
+        <text class='gen_text_time'>小时</text>
+      </view>
+    </view>
+  </view>
+  <view class='gen_main_break'></view>
+  <view class='gen_class_view'>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课程总价</view>
+      <view class='gen_table_right'>
+        ￥
+        <input class='gen_table_inputfee' placeholder='输入总价' value="{{fee}}" data-input='fee' bindinput='inputValue' type='number'></input>
+        元
+      </view>
+    </view>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>淘智折扣</view>
+      <view class='gen_table_right oneline'>
+        -￥{{CommonWxs.toFixedNum(discount)}}元<text class='gen_fee_text'>({{discountfold}}折)</text>
+      </view>
+    </view>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>订单总价</view>
+      <view class='gen_table_right'>
+        ￥{{CommonWxs.toFixedNum(payment)}}元
+      </view>
+    </view>
+  </view>
+  <view class='gen_class_view'>
+    <view class='gen_table_payment'>
+      <view class='gen_table_left'>实际支付</view>
+      <view class='gen_table_rightpayment'>
+        ￥{{CommonWxs.toFixedNum(payment)}}元
+      </view>
+    </view>
+  </view>
+  <view class='gen_class_button'>
+    <view class='gen_button_view' bindtap='confirmPostOrder'>提交订单</view>
+  </view>
+</view>

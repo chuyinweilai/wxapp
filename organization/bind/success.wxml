@@ -1,0 +1,15 @@
+<!--organization/bind/success.wxml-->
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·语培绑定',fillHeight:fillHeight}}" />
+
+<view class='suc_bind_view'>
+  <view class='suc_main_view'>
+    <view class='suc_binded_icon'>
+      <image src='https://testwx.taoraise.com/images/program/icon/icon_binded.jpg' mode='widthFix' class='suc_binded_iconimg'></image>
+    </view>
+    <view class='suc_bind_textview'>
+      <view class='suc_bind_text1'>已成功提交绑定请求</view>
+      <view class='suc_bind_text2'>我们会尽快审核通过</view>
+    </view>
+  </view>
+</view>

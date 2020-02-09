@@ -1,0 +1,120 @@
+<!--order/user/order.wxml-->
+<wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
+
+<block wx-if="{{windowsHeight!=0}}">
+  <view class='gen_block_main' style="height:{{windowsHeight}}rpx;"></view>
+  <view class='order_verify_view'>
+    <view class='order_verify_table'>
+      <view class='verify_table_main'>
+        <view class='verify_table_group'>
+          <view class='verify_table_left'>
+            <image src="../../images/icon/icon_vname.jpg" class='verify_left_img' mode='widthFix'></image>
+          </view>
+          <view class='verify_table_right'>
+            <input class='cul_bind_input' placeholder='点击输入姓名' value="{{name}}" data-input='name' bindinput='inputValue'></input>
+          </view>
+        </view>
+        <view class='verify_table_group'>
+          <view class='verify_table_left'>
+            <image src="../../images/icon/icon_vphone.jpg" class='verify_left_img' mode='widthFix'></image>
+          </view>
+          <view class='verify_table_right2'>
+            <view>
+              <input class='cul_bind_input' placeholder='点击输入手机号' value="{{phone}}" data-input='phone' bindinput='inputValue' type='number'></input>
+            </view>
+            <view class='verify_code_view oneline' bindtap="{{canPostVerify==true?'postVerify':''}}">
+              <block wx:if="{{canPostVerify==true}}">获取验证码</block>
+              <block wx:if="{{canPostVerify==false}}">等待{{countDownNum}}秒</block>
+            </view>
+          </view>
+        </view>
+        <view class='verify_table_group'>
+          <view class='verify_table_left'>
+            <image src="../../images/icon/icon_verify.jpg" class='verify_left_img' mode='widthFix'></image>
+          </view>
+          <view class='verify_table_right'>
+            <input class='cul_bind_input' placeholder='验证码' value="{{verify}}" data-input='verify' bindinput='inputValue' type='number'></input>
+          </view>
+        </view>
+        <view class="verify_button_view{{verify==code?'':' canNotPostOrder'}}" bindtap="{{verify==code?'postOrder':''}}">确认付款</view>
+      </view>
+    </view>
+  </view>
+</block>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·订单支付',fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<view class='gen_main_view' id='blockview'>
+  <!-- 遮挡块 -->
+  <view class='gen_main_break'></view>
+  <view class='gen_class_view'>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>订单编号</view>
+      <view class='gen_table_rightupload'>
+        <view class='gen_right_number'>{{order.OrderNumber}}</view>
+        <view class='gen_table_uploaded' bindtap='previewImg'>查看课表</view>
+      </view>
+    </view>
+  </view>
+  <view class='gen_class_view'>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课程内容</view>
+      <view class='gen_table_right2'>
+        {{order.OrderContent}}
+      </view>
+    </view>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课程时间</view>
+      <view class='gen_table_right2'>
+        {{order.ClassTime}}
+        <text class='gen_text_time'>小时</text>
+      </view>
+    </view>
+  </view>
+  <view class='gen_main_break'></view>
+  <view class='gen_class_view'>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>课程总价</view>
+      <view class='gen_table_right'>
+        ￥
+        {{order.TotalPrice}}
+        元
+      </view>
+    </view>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>淘智折扣</view>
+      <view class='gen_table_right oneline'>
+        -￥{{CommonWxs.toFixedNum(order.TotalPrice-order.Payment)}}元<text class='gen_fee_text'>({{order.TotalPrice>36000?'9':'9.5'}}折)</text>
+      </view>
+    </view>
+    <view class='gen_table_main'>
+      <view class='gen_table_left'>订单总价</view>
+      <view class='gen_table_right'>
+        ￥{{order.Payment}}元
+      </view>
+    </view>
+  </view>
+  <view class='gen_class_view'>
+    <view class='gen_table_payment'>
+      <view class='gen_payment_view'>
+        <view class='gen_table_left2'>实付款：</view>
+        <view class='gen_table_rightpayment'>
+          ￥{{order.Payment}}元
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='gen_class_button'>
+    <block wx-if="{{orderstate!='Create'}}">
+      <view class='gen_button_view' bindtap='verifyPhone'>验证手机号</view>
+    </block>
+    <block wx-if="{{orderstate=='Create'}}">
+      <button class='gen_share_button' open-type='share'>点击转发用户</button>
+    </block>
+  </view>
+</view>

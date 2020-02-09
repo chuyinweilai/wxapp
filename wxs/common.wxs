@@ -1,0 +1,84 @@
+// inslist根据下标设置背景图片颜色
+var setCountIndex = {
+  indexOfInsLogoBg: function (index) {
+    var thisIndexLogoBg = '';
+    if (index % 4 == 0) {
+      thisIndexLogoBg = 'bgbrown'
+    } else if (index % 4 == 1) {
+      thisIndexLogoBg = 'bgviolet'
+    } else if (index % 4 == 2) {
+      thisIndexLogoBg = 'bgyellow'
+    } else {
+      thisIndexLogoBg = 'bggray'
+    }
+    return thisIndexLogoBg
+  }
+}
+// 如果没有图片，用机构名称受字作为logo
+function substringTitle(title) {
+  return title.substring(0, 1)
+}
+// 机构费用美金换算
+mathFeeRound = function (val) {
+  val = val * 6.8 / 1000 //为了保留千位，除以1000
+  val = Math.ceil(val) //保留整数
+  val = val * 1000 //返回千位
+  return val
+}
+// 计算成立年限或其它计算多少年
+countYearDiffer = function (yearnow, countyear){
+  return yearnow - countyear
+}
+
+//判断头像
+judgeHeadUrl = function (e,etype) {
+  e = [e].toString()
+  if (e == '') {
+    return '../../images/icon/icon_headdefault.jpg'
+  } else {
+    var thisindexof = 'http'
+    if (e.indexOf(thisindexof) > -1) {
+      return e
+    } else {
+      if(etype == 'qa'){
+        return 'http://www.taoraise.com' + e
+      }else{
+        return 'http://www.taoraise.com/' + etype + '/' + e
+      }
+    }
+  }
+}
+
+changeBackBr = function (e){
+  e = [e].toString()
+  //需要将对象转变为string类型
+  if (e.indexOf('this_is.abr') > -1){
+    var reg = getRegExp("this_is.abr","g")
+    return e.replace(reg,'\n')
+  }else{
+    return e
+  }
+}
+
+toFixedNum = function (value){
+  if(value){
+    //这里会强制增加两位小数，判断如果小数点后都0，则返回本身
+    if (value == value.toFixed(2)) {
+      return value
+    } else {
+      return value.toFixed(2);
+    }
+  }else{
+    return ''
+  }
+}
+
+module.exports = {
+  indexOfInsLogoBg: setCountIndex.indexOfInsLogoBg,
+  substringTitle: substringTitle,
+  mathFeeRound: mathFeeRound,
+  countYearDiffer: countYearDiffer,
+  judgeHeadUrl: judgeHeadUrl,
+  changeBackBr: changeBackBr,
+  toFixedNum: toFixedNum,
+}

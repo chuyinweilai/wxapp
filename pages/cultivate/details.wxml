@@ -1,0 +1,69 @@
+<!--pages/cultivate/detail.wxml-->
+<wxs module="CulWxs" src='../../wxs/cul.wxs' ></wxs>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·'+culdetail.CultivateName,fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<view class='cul_detail_view'>
+  <view class="cul_detail_head{{culbanner.length==0?' defaultbanner':''}}">
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="500"circular="true">
+      <block wx:for="{{culbanner}}" wx:key="item"> <!-- 循环数据-->
+        <swiper-item><image src="{{item}}" class='cul_detail_bannerimg'></image></swiper-item>
+      </block>
+    </swiper>
+    <!-- <view class='cul_head_intro'>
+      <view class='cul_head_title'>益博国际教育</view>
+      <view class='cul_head_slogon'>中国最具前瞻性的留学及教育咨询机构</view>
+      <view class='cul_head_other'>
+        服务费 <text class='word_heighlight'>1654</text> 元起 成立 <text class='word_heighlight'>4</text> 年
+      </view>
+    </view> -->
+  </view>
+  <view class='cul_detail_intro'>
+    <view class='cul_intro_title'>{{culdetail.CultivateName}}</view>
+    <view class='cul_intro_details'>{{culdetail.CultivateIntro}}</view>
+    <view class='cul_intro_address'>
+      <view class='cul_address_title'>上课地点：</view>
+      <view class='cul_address_detail'>
+        <view class="cul_address_group{{culaddress.length>1!=''?' oneline':''}}">{{culaddress[0].Address}}</view>
+        <view style='{{moreaddress}}' wx:for="{{culaddress}}" wx:key="culaddress" wx:for-index="culaddressindex" wx:if="{{culaddressindex != 0}}">
+          <view class='cul_address_group'>{{item.Address}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="cul_address_showmore{{culaddress.length>1?'':' display'}}" bindtap='showmoreaddress'>
+      展开{{culaddress.length==1?'地址详情':'其它'+(culaddress.length-1)+'个地址'}}
+      <image src='/images/icon/icon_down.jpg' class='cul_address_showmoreimg'></image>
+    </view>
+  </view>
+  <view class='cul_detail_nav'>
+    <view class='cul_nav_title'>
+      <view class="cul_title_view{{culdetailnav=='dt'?' selected':''}}" data-nav='dt' bindtap='selectDetailNav'>老师团队</view>
+      <view class="cul_title_view{{culdetailnav=='dc'?' selected':''}}" data-nav='dc' bindtap='selectDetailNav'>课程详情</view>
+      <view class="cul_title_view{{culdetailnav=='dts'?' selected':''}}" data-nav='dts' bindtap='selectDetailNav'>最新高分</view>
+    </view>
+    <view class='cul_title_bottom'>
+      <!-- 宽度每增加33.33%表示第几个导航，占位view -->
+      <view style="width:{{CulWxs.countDetailNavWidth(culdetailnav)}};"></view>
+      <view class='cul_title_bottomline'><view class='cul_bottomline_view'></view></view>
+    </view>
+  </view>
+  <view class='cul_detail_content'>
+    <view class='cul_detail_viewbreak'></view>
+    <import src="ascx/detail_teacherlist.wxml" /><!-- dt -->
+    <import src="ascx/detail_course.wxml" /><!-- dc -->
+    <import src="ascx/detail_topscore.wxml" /><!-- dts -->
+    <template is="{{culdetailnav}}" data="{{culdetail:culdetail,teacherslist:teacherslist,courselist:courselist,commentlist:commentlist,audiostatus:audiostatus,defaultImageGroup:defaultImageGroup}}" />
+    <view class='cul_detail_viewbreak_bottom'></view>
+  </view>
+</view>
+
+<import src="ascx/culfoot.wxml" />
+<template is="{{culfoot}}" data="{{isIphoneX:isIphoneX}}" />
+
+<import src="/ascx/foot.wxml" />
+<template is="footnav" data="{{foottype:'signup',selectnav:'cul',collect:culdetail.Collect,orderbtnstatus:orderbtnstatus,isIphoneX:isIphoneX}}" />

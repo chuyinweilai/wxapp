@@ -1,0 +1,44 @@
+<!--organization/bind/cultivate.wxml-->
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·语培绑定',fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<view class='cul_bind_view'>
+  <view class='cul_main_view'>
+
+    <view class="cul_bind_group{{name!=''?' inputWriten':''}}">
+      <view class='cul_bind_left'>
+        <image src="../../images/icon/icon_name{{name!=''?'_inp':''}}.jpg" class='cul_bind_img' mode='widthFix'></image>
+      </view>
+      <view class='cul_bind_right'>
+        <input class='cul_bind_input' placeholder='点击输入姓名' value="{{name}}" data-input='name' bindinput='inputValue'></input>
+      </view>
+    </view>
+    <view class="cul_bind_group{{phone!=''?' inputWriten':''}}">
+      <view class='cul_bind_left'>
+        <image src="../../images/icon/icon_phone{{phone!=''?'_inp':''}}.jpg" class='cul_bind_phoneimg'></image>
+      </view>
+      <view class='cul_bind_right'>
+        <input class='cul_bind_input' placeholder='点击输入手机号' value="{{phone}}" data-input='phone' bindinput='inputValue'></input>
+      </view>
+    </view>
+    <view class="cul_bind_group{{organization!=''?' inputWriten':''}}">
+      <view class='cul_bind_left'>
+        <image src="../../images/icon/icon_org{{organization!=''?'_inp':''}}.jpg" class='cul_bind_img' mode='widthFix'></image>
+      </view>
+      <view class='cul_bind_right'>
+        <input class='cul_bind_input' placeholder='绑定机构的名称' value="{{organization}}" data-input='organization' bindinput='inputValue'></input>
+      </view>
+    </view>
+
+    <view class='cul_bind_button'>
+      <view class="cul_button_view{{name!=''&&phone!=''&&organization!=''?' canPost':''}}" bindtap="{{name!=''&&phone!=''&&organization!=''?'postBind':''}}">提交</view>
+    </view>
+
+  </view>
+</view>
+
+

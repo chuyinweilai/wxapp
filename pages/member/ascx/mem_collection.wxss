@@ -1,0 +1,49 @@
+.mem_ascx_collection_view{
+  width: 100%;
+}
+.mem_ascx_collection_main{
+  width: 90%;
+  margin: 0px auto;
+}
+.mem_ascx_collection_group{
+  display: flex;
+  margin-top: 30rpx;
+  padding-bottom: 25rpx;
+  border-bottom: solid 1px #f8f9fa;
+}
+.mem_ascx_colgroup_left{
+  
+}
+.mem_ascx_colgroup_logo{
+  width: 194rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.mem_ascx_colgroup_logoimg{
+  width: 194rpx;
+  height: 150rpx;
+}
+.mem_ascx_colgroup_right{
+  margin-left: 30rpx;
+  width: 430rpx;
+  font-size: 14px;
+}
+.mem_ascx_colgroup_title{
+  font-size: 16px;
+  font-weight: bold;
+  height: 60rpx;
+  line-height: 70rpx;
+}
+.mem_ascx_colgroup_detail{
+  color: #545454;
+  line-height: 50rpx;
+}
+.mem_ascx_colgroup_type{
+  color: #ff6900;
+}
+.mem_ascx_collection_viewbreak{
+  width: 100%;
+  height: 30rpx;
+  background: #f8f9fa;
+}

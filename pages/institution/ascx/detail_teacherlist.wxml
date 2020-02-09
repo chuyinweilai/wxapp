@@ -1,0 +1,86 @@
+<wxs module="InsWxs" src='../../../wxs/ins.wxs' ></wxs>
+<wxs module="CommonWxs" src='../../../wxs/common.wxs' ></wxs>
+
+<template name="dt">
+  <view class='ins_ascx_teacherlist_view'>
+    <!-- <view class='ins_ascx_teacherlist_condition'>
+      <view class="ins_ascx_teacherlist_conditiontitle{{InsWxs.setConditionTitle(conditiontitle,'[1]')}}" data-conditiontitle='[1]' bindtap='openCondition'>
+        教师学历
+        <image class='ins_ascx_teacherlist_iconimg' src="/images/icon/icon_{{InsWxs.setConditionIcon(conditiontitle,'[1]')}}.jpg"></image>
+      </view>
+      <view class="ins_ascx_teacherlist_conditiontitle{{InsWxs.setConditionTitle(conditiontitle,'[2]')}}" data-conditiontitle='[2]' bindtap='openCondition'>
+        费用预算
+        <image class='ins_ascx_teacherlist_iconimg' src="/images/icon/icon_{{InsWxs.setConditionIcon(conditiontitle,'[2]')}}.jpg"></image>
+      </view>
+      <view class="ins_ascx_teacherlist_conditiontitle{{InsWxs.setConditionTitle(conditiontitle,'[3]')}}" data-conditiontitle='[3]' bindtap='openCondition'>
+        从业年限
+        <image class='ins_ascx_teacherlist_iconimg' src="/images/icon/icon_{{InsWxs.setConditionIcon(conditiontitle,'[3]')}}.jpg"></image>
+      </view>
+    </view> -->
+    <!-- 搜索条件内容view -->
+    <!-- 如果没有打开分类，这个ins_ascx_screen_view设置display -->
+    <view class="ins_ascx_screen_view{{conditionview=='close'?' display':''}}">
+      <view class='ins_ascx_screen_condition'>
+        <!-- 分类列表设置了display，只能用新的class来起到display:none，要显示，class去掉display -->
+        <view class="ins_ascx_condition_group{{InsWxs.chooseConditionScreen(conditiontitle,'[1]')}}">
+          <view class="ins_ascx_condition_title{{InsWxs.setConditionContentAscx(conditioncontenttemp,'[1]')}}" data-cc='[1]' bindtap='setConditionScreen'>学士</view>
+          <view class="ins_ascx_condition_title{{InsWxs.setConditionContentAscx(conditioncontenttemp,'[2]')}}" data-cc='[2]' bindtap='setConditionScreen'>硕士</view>
+          <view class="ins_ascx_condition_title4{{InsWxs.setConditionContentAscx(conditioncontenttemp,'[3]')}}" data-cc='[3]' bindtap='setConditionScreen'>博士及博士后</view>
+        </view>
+        <view class="ins_ascx_condition_group{{InsWxs.chooseConditionScreen(conditiontitle,'[2]')}}">
+          <view class='ins_ascx_condition_feegroup'>
+            <view class='ins_ascx_condition_fee'>
+              <input name='lowprice' placeholder='最低价' value="{{Lowpricetemp}}" bindinput='getLowprice' />
+            </view>
+            <view class='ins_ascx_condition_fee2'>——</view>
+            <view class='ins_ascx_condition_fee'>
+              <input name='highprice' placeholder='最高价' value="{{Highpricetemp}}" bindinput='getHighprice' />
+            </view>
+          </view>
+        </view>
+        <view class="ins_ascx_condition_group{{InsWxs.chooseConditionScreen(conditiontitle,'[3]')}}">
+          <view class="ins_ascx_condition_title3{{InsWxs.setConditionContentAscx(conditioncontenttemp,'[7]')}}" data-cc='[7]' bindtap='setConditionScreen'>1-5年</view>
+          <view class="ins_ascx_condition_title3{{InsWxs.setConditionContentAscx(conditioncontenttemp,'[8]')}}" data-cc='[8]' bindtap='setConditionScreen'>5-10年</view>
+          <view class="ins_ascx_condition_title3{{InsWxs.setConditionContentAscx(conditioncontenttemp,'[9]')}}" data-cc='[9]' bindtap='setConditionScreen'>11年以上</view>
+        </view>
+      </view>
+      <view class='ins_ascx_condition_bottom'>
+        <view class='ins_ascx_condition_btnview'>
+          <view class='ins_ascx_condition_btn' bindtap='resetConditionContent'>重置</view>
+          <view class='ins_ascx_condition_btn selected' bindtap='confirmConditionContent'>确认</view>
+        </view>
+      </view>
+    </view>
+    <scroll-view scroll-y class="ins_ascx_teacherlist_groupview{{isIphoneX==true?' isIphoneX':''}}">
+      <!-- 筛选条件打开时的背景 -->
+      <view class="ins_ascx_screen_block{{isIphoneX==true?' isIphoneX':''}}{{conditionview=='close'?'  display':''}}" data-conditiontitle='closeCondition' bindtap='openCondition'></view>
+      <view class='ins_ascx_teacherlist_group' wx:for="{{thislistpush}}" wx:key="thislistpush">
+        <view class='ins_ascx_teacherlistgourp_left' data-teacherid="{{item.ID}}" bindtap='turnToTeacher'>
+          <view class='ins_ascx_teacherlistgourp_left_imgview'>
+            <image src="{{item.ImageUrl?'http://www.taoraise.com'+item.ImageUrl:'../../images/logo/logo.png'}}" class='ins_ascx_teacherlistgourp_headurlimg'></image>
+          </view>
+        </view>
+        <view class='ins_ascx_teacherlistgourp_right'>
+          <view class='ins_ascx_teacherlistgourp_title twoline' data-teacherid="{{item.ID}}" bindtap='turnToTeacher'>{{item.Title}}</view>
+          <view class='ins_ascx_teacherlistgourp_detail' data-teacherid="{{item.ID}}" bindtap='turnToTeacher'>
+            <view class='ins_ascx_teacherlistgroup_name oneline'>{{item.Name + ' ' + item.Surname}}</view>
+            <view class='ins_ascx_teacherlistgroup_detailinfo'>
+              <view class='ins_ascx_teacherlistgroup_career'>从业{{item.Years}}年</view>
+              <view class='ins_ascx_teacherlistgroup_education'>{{item.Education}}</view>
+              <view class='ins_ascx_teacherlistgroup_type oneline'>{{item.ClassType}}</view>
+            </view>
+          </view>
+          <view class='ins_ascx_teacherlistgourp_schoole oneline' data-teacherid="{{item.ID}}" bindtap='turnToTeacher'>毕业于：{{item.School}}</view>
+          <view class='ins_ascx_teacherlistgourp_fee'>顾问价格 
+            <block wx-if="{{hasUserPhone=='true'}}">
+              <text class='bold'>￥{{CommonWxs.mathFeeRound(item.ClassFee)}}</text>
+            </block>
+            <block wx-if="{{hasUserPhone!='true'}}">
+              <view class='ins_ascx_teacherlist_unauthorized' bindtap='resetGetPhone'>点击授权查看价格</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

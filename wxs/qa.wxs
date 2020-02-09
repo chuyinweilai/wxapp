@@ -1,0 +1,18 @@
+//qa-list,计算导航下划线的宽度
+countListNavWidth = function (e) {
+  var thiswidth = '';
+  if (e == 3) {
+    thiswidth = '0%';
+  } else if (e == 5) {
+    thiswidth = '16%';
+  } else if (e == 2) {
+    thiswidth = '32%';
+  } else {
+    thiswidth = '48%';
+  }
+  return thiswidth;
+}
+
+module.exports = {
+  countListNavWidth: countListNavWidth,
+}

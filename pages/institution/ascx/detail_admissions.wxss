@@ -1,0 +1,132 @@
+.ins_ascx_admissions_view{
+  width: 100%;
+  background: #f8f9fa;
+  padding-bottom: 30rpx;
+}
+.ins_ascx_admissions_viewbreak{
+  width: 100%;
+  height: 30rpx;
+}
+.ins_ascx_admissions_cases{
+  background: #ffffff;
+  padding: 30rpx 0rpx;
+  font-size: 20px;
+}
+.ins_ascx_admissions_casehead{
+  display: flex;
+}
+.ins_ascx_admissions_headtitleline{
+  width: 8rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_ascx_admissions_headtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.ins_ascx_admissions_case{
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 40rpx;
+  display: flex;
+}
+.ins_ascx_admissions_caseleftview{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  overflow: hidden;
+}
+.ins_ascx_admissions_caseleft{
+  margin-right: 30rpx;
+}
+.ins_ascx_admissions_casehearurl{
+  width: 90rpx;
+  height: 90rpx;
+  justify-content: center;
+  align-items: center;
+}
+.ins_ascx_admissions_caseright{
+  font-size: 16px;
+}
+.ins_ascx_admissions_rightname{
+  font-size: 20px;
+}
+.ins_ascx_admissions_rightschool{
+  color: #ff6900;
+  margin-top: 10rpx;
+}
+.ins_ascx_admissions_righthighschool{
+  color: #888888;
+  margin-top: 20rpx;
+}
+.ins_ascx_admissions_rightexperience{
+  color: #888888;
+  margin-top: 10rpx;
+}
+.ins_ascx_admissions_list{
+  background: #ffffff;
+}
+.ins_ascx_admissions_listhead{
+  display: flex;
+  padding: 30rpx 0rpx;
+}
+.ins_ascx_admissions_listtitleline{
+  width: 8rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.ins_ascx_admissions_listtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.ins_ascx_admissions_groupview{
+  text-align: center;
+}
+.ins_ascx_admissions_group{
+  display: flex;
+  width: 90%;
+  margin: 0px auto;
+  padding-bottom: 20rpx;
+  border-bottom: solid 1px #f8f9fa;
+  font-size: 16px;
+  line-height: 90rpx;
+}
+.ins_ascx_admissions_grouplisttitle{
+  display: flex;
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: solid 1px #f8f9fa;
+  font-size: 14px;
+}
+.ins_ascx_admissions_grouplisticon{
+  width: 130rpx;
+  border-radius: 45rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.ins_ascx_admissions_grouplisticonimg{
+  width: 90rpx;
+  height: 90rpx;
+  justify-content: center;
+  align-items: center;
+}
+.ins_ascx_admissions_grouplistschool{
+  width: 50%;
+}
+.ins_ascx_admissions_grouplistnumber{
+  color: #ff6900;
+  font-weight: bold;
+  width: 90rpx;
+}
+.ins_ascx_admissions_grouplistnumbertitle{
+  width: 90rpx;
+}
+.ins_ascx_admissions_grouplistranking{
+  width: 100rpx;
+}

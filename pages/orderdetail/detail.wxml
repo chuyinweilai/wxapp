@@ -1,0 +1,72 @@
+<!--pages/orderdetail/detail.wxml-->
+<!--pages/member/index.wxml-->
+<wxs module="MemberWxs" src='../../wxs/member.wxs' ></wxs>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·个人中心',slogon:'noslogon',fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<view class='order_detail_view'>
+  <view class='order_detail_head'>
+    <view class="order_detail_mess">
+      <image class="order_detail_headimg" ></image>
+      <view class="order_detail_headcont">
+        <view class="order_detail_headtitle">殊维国际教育托福SAT雅思</view>
+        <view class="order_detail_headpric">
+          <view>单价：￥500</view>
+          <view>x2</view>
+        </view>
+        <view class="order_detail_headsum">￥1000</view>
+      </view>
+    </view>
+
+    <view>
+      <view class="order_detail_headmess">
+        <view>商品总价</view>
+        <view>￥1000.00</view>
+      </view>
+      <view class="order_detail_headmess">
+        <view>运费</view>
+        <view>￥0.00</view>
+      </view>
+      <view class="order_detail_headmess">
+        <view>优惠信息</view>
+        <view>-￥0.00</view>
+      </view>
+      <view class="order_detail_headmess">
+        <view>实付款（含运费）</view>
+        <view class="order_detail_realpay">￥1000.00</view>
+      </view>
+    </view>
+  </view>
+  <view class='order_detail_content'>
+    <view class='order_detail_conttil'>订单详情：</view>
+    <view class="order_detail_contmess">
+        <view>联系人信息：</view>
+        <view class="order_detail_realpay">李老师，1237362513，上海市杨浦区</view>
+    </view>
+    <view class="order_detail_contmess">
+        <view>订单编号：</view>
+        <view class="order_detail_realpay">201863581237362513</view>
+    </view>
+    <view class="order_detail_contmess">
+        <view>发票信息：</view>
+        <view class="order_detail_realpay">不开发票</view>
+    </view>
+    <view class="order_detail_contmess">
+        <view>付款时间：</view>
+        <view class="order_detail_realpay">2019-10-14 21:53:27</view>
+    </view>
+    <view class="order_detail_contmess">
+        <view>支付方式：</view>
+        <view class="order_detail_realpay">支付宝</view>
+    </view>
+    <view class="order_detail_contmess">
+        <view>订单编号：</view>
+        <view class="order_detail_realpay">201863581237362513</view>
+    </view>
+  </view>
+</view>

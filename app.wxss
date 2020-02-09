@@ -1,0 +1,320 @@
+/**app.wxss**/
+@import "ascx/userinfo.wxss";
+@import "ascx/userphone.wxss";
+@import "ascx/foot.wxss";
+@import "ascx/head.wxss";
+@import "ascx/isIphoneX.wxss";
+@import "ascx/isIphoneX_index.wxss";
+
+page{
+  height: 100%;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.display{
+  display: none;
+}
+
+.selected{
+  color: #ff6900;
+}
+
+/* 图片和语音播放页面样式 */
+.function_image_default{
+  margin-top: 15rpx;
+  margin-bottom: 5rpx;
+}
+.function_image_defaultimg{
+  width: 100%;
+  border: solid 2rpx #ff6900;
+}
+.function_video_main{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.function_audio_main{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.function_image_main{
+  display: flex;
+  flex-wrap: wrap;
+}
+.function_image_maindisplay{
+  display: none;
+}
+.function_audio_text{
+  display: flex;
+  height: 50rpx;
+  background: #f8f9fa;
+  border-radius: 15rpx;
+  align-items: center;
+}
+.function_audio_play{
+  margin-left: 20rpx;
+  width: 50rpx;
+  height: 35rpx;
+}
+.function_audio_duration{
+  margin-left: 5rpx;
+  padding-right: 10rpx;
+  font-size: 12px;
+  line-height: 38rpx;
+  height: 35rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #545454;
+}
+.upload_image_group{
+  position: relative;
+  display: flex;
+  height: 120rpx;
+  border:solid 1rpx #f7f9fa;
+  border-radius: 10rpx;
+  margin-right: 5rpx;
+  margin-bottom: 10rpx;
+  background: #ffffff;
+}
+.upload_img{
+  border-radius: 10rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.function_image_group{
+  position: relative;
+  display: flex;
+  height: 116rpx;
+  border:solid 1rpx #f7f9fa;
+  border-radius: 8rpx;
+  margin: 6rpx;
+  background: #ffffff;
+}
+.imageselect{
+  border: solid 2rpx #ff6900;
+}
+.function_img{
+  border-radius: 10rpx;
+  width: 112rpx;
+  height: 112rpx;
+}
+/* 图片和语音上传页面样式 */
+.upload_function_confirm{
+  margin-left: 30rpx;
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #f7f9fa;
+  text-align: center;
+}
+.upload_function_sumbit{
+  width: 180rpx;
+  position: absolute;
+  padding-left: 0rpx;
+  padding-right: 0rpx;
+  font-size: 16px;
+  line-height: 60rpx;
+  background: #f7f9fa;
+}
+.upload_function_button{
+  width: 40%;
+  display: flex;
+}
+.upload_function_audio_function{
+  margin-right: 20rpx;
+}
+.upload_function_audio_functionimg{
+  width: 52rpx;
+  height: 52rpx;
+}
+.upload_function_picture{
+  
+}
+.upload_function_pictureimg{
+  width: 52rpx;
+  height: 52rpx;
+}
+.upload_function_video{
+  
+}
+.upload_function_videoimg{
+  width: 52rpx;
+  height: 52rpx;
+}
+.upload_question_contentinput{
+  width: 100%;
+  height: 400rpx;
+}
+.upload_button_function{
+  width: 90%;
+  margin: 0px auto;
+  height: 100rpx;
+  display: flex;
+  border-top: solid 1px #f7f9fa;
+  padding-top: 10rpx;
+}
+.upload_function_image{
+  width: 40%;
+}
+.upload_function_post{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.upload_question_function{
+  width: 90%;
+  margin: 0px auto;
+  height: 100rpx;
+  display: flex;
+  border-top: solid 1px #f7f9fa;
+  padding-top: 10rpx;
+}
+.audio_function_mainview{
+  height: 60rpx;
+  margin-left: 5%;
+  margin-bottom: 20rpx;
+  display: flex;
+}
+.audio_function_mainviewdisplay{
+  display: none;
+}
+.audio_function_text{
+  display: flex;
+  height: 60rpx;
+  background: #f7f9fa;
+  border-radius: 20rpx;
+  align-items: center;
+}
+.audio_function_play{
+  margin-left: 20rpx;
+  width: 50rpx;
+  height: 35rpx;
+}
+.audio_function_duration{
+  margin-left: 5rpx;
+  padding-right: 10rpx;
+  font-size: 12px;
+  line-height: 40rpx;
+  height: 35rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #545454;
+}
+.audio_function_clearbtn{
+  margin-left: 20rpx;
+  font-size: 18px;
+}
+.video_funcition_view{
+  margin-left: 10rpx;
+  margin-bottom: 5rpx;
+}
+.video_function_main{
+  width: 450rpx;
+  height: 250rpx;
+}
+.functionupload_image_group{
+  position: relative;
+  display: flex;
+  height: 140rpx;
+  border:solid 1rpx #f7f9fa;
+  border-radius: 10rpx;
+  margin-right: 4rpx;
+  margin-bottom: 10rpx;
+  background: #ffffff;
+}
+.functionupload_image_view{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-bottom: 10rpx;
+}
+.functionupload_img{
+  border-radius: 10rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+.functionupload_image_picture{
+  
+}
+.functionupload_image_remove{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 90rpx;
+  font-size: 14px;
+  background: #ffffff;
+  opacity: 0.7;
+}
+
+/* 字体样式 */
+.bold{
+  font-weight: bold;
+}
+.size14{
+  font-size: 14px;
+}
+.size12{
+  font-size: 12px;
+}
+
+/* 机构logo图底图颜色 */
+.bgbrown{
+  background: #f8f3ed;
+}
+.bgviolet{
+  background: #dedddb;
+}
+.bgyellow{
+  background: #e7d9d9;
+}
+.bggray{
+  background: #bdc6d7;
+}
+
+/* switch特殊样式 */
+switch{
+  zoom: .56;
+}
+
+/* list通用样式 */
+.oneline{
+  /* 单行显示超出部分省略——ps:view设定有宽度 */
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.twoline{
+  /* 两行显示超出部分省略——ps:view设定有宽度 */
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.threeline{
+  /* 三行显示超出部分省略——ps:view设定有宽度 */
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+}

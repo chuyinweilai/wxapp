@@ -1,0 +1,6 @@
+<!--testpage/test.wxml-->
+<view style='width:100%; height:600rpx; border:solid 3px #ff0000'>
+  <scroll-view scroll-y style='width:500rpx; height:600rpx; background:#00ffff;'>
+    <view style='width:300rpx; height:2600rpx; background:#000000;'></view>
+  </scroll-view>
+</view>

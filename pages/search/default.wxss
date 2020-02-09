@@ -1,0 +1,160 @@
+/* pages/search/default.wxss */
+.search_default_view{
+  background: #f7f9fa;
+}
+.search_default_inputview{
+  display: flex;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+  background: #ffffff;
+}
+.search_input_view{
+  width: 630rpx;
+  margin: 0px auto;
+}
+.search_input_main{
+  width: 580rpx;
+  margin: 0px auto;
+  display: flex;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #f7f9fa;
+}
+.search_main_inputview{
+  width: 480rpx;
+  font-size: 18px;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  color: #545454;
+}
+.search_icon_search{
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+.search_input_cancel{
+  width: 150rpx;
+  display: flex;
+  height: 80rpx;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+}
+.search_default_result{
+  padding-top: 30rpx;
+  padding-bottom: 1rpx;
+}
+.search_result_group{
+  width: 90%;
+  margin:0px auto;
+  margin-bottom: 30rpx;
+  display: flex;
+  padding: 30rpx 0px 40rpx 20rpx;
+  background: #ffffff;
+  border-radius: 30rpx;
+}
+.search_group_left{
+
+}
+.search_group_logo{
+  width: 240rpx;
+  height: 189rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #f7f9fa;
+  font-size: 42px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_group_logoimg{
+  width: 240rpx;
+  height: 189rpx;
+}
+.search_group_right{
+  /* max宽度435rpx */
+  width: 400rpx;
+  margin-left: 25rpx;
+  font-size: 14px;
+}
+.search_group_righttitle{
+  display: flex;
+  height: 56rpx;
+}
+.search_group_title{
+  width: 300rpx;
+  font-size: 16px;
+}
+.search_group_type{
+  width: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.search_group_typeborder{
+  width: 80rpx;
+  height: 40rpx;
+  background: #f7f9fa;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_group_rightdetail{
+  color: #545454;
+  line-height: 40rpx;
+  margin-bottom: 10rpx;
+  min-height: 72rpx;
+}
+.search_group_rightfee{
+
+}
+.search_group_feecount{
+  font-size: 16px;
+  color: #ff6900;
+  font-weight: bold;
+}
+/* 历史搜索记录 */
+.search_history_view{
+  background: #ffffff;
+  padding-top: 10rpx;
+  font-size: 14px;
+  color: #545454;
+}
+.search_history_main{
+  width: 90%;
+  margin: 0px auto;
+}
+.search_history_title{
+  height: 50rpx;
+  border-bottom: solid 1px #f7f9fa;
+}
+.search_history_content{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  margin-top: 15rpx;
+}
+.search_history_group{
+  display: flex;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  background: #f7f9fa;
+  color: #9d9d9d;
+}
+.search_history_group_confirm{
+  height: 32rpx;
+  line-height: 32rpx;
+  padding: 6rpx 20rpx 6rpx 40rpx;
+}
+.search_history_group_delete{
+  width: 20rpx;
+  height: 32rpx;
+  font-size: 12px;
+  padding: 0rpx 4rpx 0rpx 10rpx;
+  line-height: 29rpx;
+  z-index: 2;
+}

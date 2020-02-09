@@ -1,0 +1,69 @@
+<!--
+footnav包括几种模式：
+1、foottype=='normal'或者不标注foottype，普通的导航模式
+2、foottype=='collection'，底部为收藏的模式
+3、foottype=='signup'，底部为订单的模式，适用cultivate
+4、foottype=='answer'，底部为回答问题，适用qa/detail
+selectnav:ins/qa/member，null默认为ins
+-->
+
+<template name='footnav'>
+  <!-- 这是一个用于填充的view，用于给引用组件的page占位一个等同于组件的view，这样其它页面可以直接引用 -->
+  <view class='ascx_foot_postionview'></view>
+  <view class="ascx_foot_postion{{isIphoneX==true?' isIphoneXfoot':''}}">
+    <view class='ascx_foot_view'>
+      <view class='ascx_foot_left'>
+        <!-- 这是有留学、问答、我的导航按钮的foot，如果不显示需要class=ascx_foot_normalnavdisplay -->
+        <view class="ascx_foot_normalnav{{foottype=='normal'||foottype==null?'':'display'}}">
+          <view class='ascx_right_nav' navTitle='index' data-nav='index' bindtap='navto'>
+            <view class='ascx_nav_icon'>
+              <image class='ascx_nav_iconimg' src="https://testwx.taoraise.com/images/program/icon/icon_foot_liuxue{{selectnav==null||selectnav=='ins'?'_select':''}}.png"></image>
+            </view>
+            <view class="ascx_nav_title{{selectnav==null||selectnav=='ins'?' select':''}}">首页</view>
+          </view>
+          <view class='ascx_right_nav' data-nav='qa' bindtap='navto'>
+            <view class='ascx_nav_icon'>
+              <image class='ascx_nav_iconimg' src="https://testwx.taoraise.com/images/program/icon/icon_foot_wenda{{selectnav=='qa'?'_select':''}}.png"></image>
+            </view>
+            <view class="ascx_nav_title{{selectnav=='qa'?' select':''}}">问答</view>
+          </view>
+          <view class='ascx_right_nav' data-nav='member' bindtap='navto'>
+            <view class='ascx_nav_icon'>
+              <image class='ascx_nav_iconimg' src="https://testwx.taoraise.com/images/program/icon/icon_foot_wode{{selectnav=='member'?'_select':''}}.png"></image>
+            </view>
+            <view class="ascx_nav_title{{selectnav=='member'?' select':''}}">我的</view>
+          </view>
+        </view>
+        <!-- 这是有留学、问答、我的导航按钮的foot——结束 -->
+
+        <!-- 这是一个只有收藏按钮的foot，如果不显示，需要class=ascx_foot_collectionnavdisplay -->
+        <view class="ascx_foot_collectionnav{{foottype=='collection'||foottype=='signup'?'':'display'}}">
+          <!-- 如果已收藏，class加上collected -->
+          <view class="ascx_collection_collect{{foottype=='signup'?' ascxfootcollectsignup':''}}{{collect=='Y'?' acsxfootcollected':''}}" bindtap='clickCollect'>
+            <block wx:if="{{collect=='Y'}}">已收藏</block>
+            <block wx:if="{{collect!='Y'}}">☆收藏</block>
+          </view>
+          <view class="ascx_collection_signup{{foottype!='signup'?' display':''}}{{orderbtnstatus=='confirmOrder'?'':' oderbtnpress'}}" bindtap="{{orderbtnstatus}}">
+            {{orderbtnstatus=='confirmOrder'?'优惠报名':'正在生成订单'}}
+          </view>
+        </view>
+        <!-- 这是一个只有收藏按钮的foot -->        
+      </view>
+      <view class='ascx_foot_right'>
+        <button open-type='contact' bindcontact='handleContact' class='ascx_foot_contactbtn'>
+          <image class='ascx_right_consultation' src='/images/button/btn_consultation.jpg'></image>
+        </button>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 问答详情用foot -->
+<template name='answer'>
+  <view class='ascx_foot_postionview'></view>
+  <view class="ascx_foot_postion{{isIphoneX==true?' isIphoneXfoot':''}}" data-qaid="{{qaid}}" bindtap='turnToAnswer'>
+    <view class='ascx_foot_answer_view'>
+      <view class='ascx_foot_answer_backgroun'>回答</view>
+    </view>
+  </view>
+</template>

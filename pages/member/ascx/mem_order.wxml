@@ -1,0 +1,88 @@
+<template name='mo'>
+  <view class="mem_ascx_order_view">
+    <!-- <view class='mem_ascx_order_group' wx:for="{{orderlist}}" wx:key="orderlist">
+      <view class='mem_ascx_ordergroup_view'>
+        <view class='mem_ascx_ordergroup_info'>
+          <view class='mem_ascx_ordergroup_left'>
+            <view class='mem_ascx_ordergroup_pic'>
+              <image src='/images/order/bg_order.jpg' class='mem_ascx_ordergroup_picimg'></image>
+            </view>
+          </view>
+          <view class='mem_ascx_ordergroup_right'>
+            <view class='mem_ascx_ordergroup_right_title'>
+              <view class='mem_ascx_ordergroup_right_widthfullwidth oneline'>{{item.OrderContent}}</view>
+            </view>
+            <view class='mem_ascx_ordergroup_right_detail'>
+              <view class='mem_ascx_ordergroup_right_widthfullwidth oneline'>
+                订单号：{{item.OrderNumber}}
+              </view>
+            </view>
+            <view class='mem_ascx_ordergroup_right_fee'>
+              <view class='mem_ascx_ordergroup_right_width'>商品总价</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>￥{{item.TotalPrice}}</view>
+            </view>
+            <view class='mem_ascx_ordergroup_right_count'>
+              <view class='mem_ascx_ordergroup_right_width'>淘智折上折</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>-￥{{item.TotalPrice-item.Payment}}</view>
+            </view>
+          </view>
+        </view>
+        <view class='mem_ascx_ordergroup_operation'>
+          <view class='mem_ascx_ordergroup_ope_fee'>实付 
+            <text class='mem_ascx_ordergroup_textcolor'>￥{{item.Payment}}</text>
+          </view>
+          <view class='mem_ascx_ordergroup_ope_time'>订单状态：
+            <text class='mem_ascx_ordergroup_textcolor'>{{item.StatusName}}</text>
+          </view>
+          <view class='mem_ascx_ordergroup_ope_button'>
+            <view class='mem_ascx_ordergroup_ope_btn display'>支付</view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <view class='mem_ascx_order_group'>
+      <view class='mem_ascx_ordergroup_view' data-nav="order" data-objid="123" bindtap="turnToDetail">
+        <view class='mem_ascx_ordergroup_info'>
+          <view class='mem_ascx_ordergroup_left'>
+            <view class='mem_ascx_ordergroup_pic'>
+              <image src='/images/order/bg_order.jpg' class='mem_ascx_ordergroup_picimg'></image>
+            </view>
+          </view>
+          <view class='mem_ascx_ordergroup_right'>
+            <view class='mem_ascx_ordergroup_right_title'>
+              <view class='mem_ascx_ordergroup_right_width'>美哉教育课程</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>￥1000/课时</view>
+            </view>
+            <view class='mem_ascx_ordergroup_right_detail'>
+              <view class='mem_ascx_ordergroup_right_width'>托福/一对多</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>x6</view>
+            </view>
+            <view class='mem_ascx_ordergroup_right_fee'>
+              <view class='mem_ascx_ordergroup_right_width'>商品总价</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>￥2000</view>
+            </view>
+            <view class='mem_ascx_ordergroup_right_count'>
+              <view class='mem_ascx_ordergroup_right_width'>淘智折上折</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>-￥1000</view>
+            </view>
+          </view>
+        </view>
+        <view class='mem_ascx_ordergroup_operation'>
+          <view class='mem_ascx_ordergroup_ope_fee'>实付 
+            <text class='mem_ascx_ordergroup_textcolor'>￥1000</text>
+          </view>
+          <view class='mem_ascx_ordergroup_ope_time'>支付剩余时间 
+            <text class='mem_ascx_ordergroup_textcolor'>11:22:33</text>
+          </view>
+          <view class='mem_ascx_ordergroup_ope_button'>
+            <view class='mem_ascx_ordergroup_ope_btn'>支付</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <block wx-if="{{orderlist.length==0}}">
+    <view class='mem_ascx_order_noorder'>您还没有订单信息……</view>
+  </block> -->
+</template>

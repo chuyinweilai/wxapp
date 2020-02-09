@@ -1,0 +1,33 @@
+/* organization/bind/success.wxss */
+.suc_bind_view{
+  width: 100%;
+  background: url('https://testwx.taoraise.com/images/program/organization/bg_bind.jpg');
+  background-size: 100% auto;
+  padding-top: 120rpx;
+}
+.suc_main_view{
+  width: 80%;
+  margin: 0px auto;
+}
+.suc_binded_icon{
+  width: 110rpx;
+  margin: 0px auto;
+}
+.suc_binded_iconimg{
+  width: 110rpx;
+}
+.suc_bind_textview{
+  text-align: center;
+  margin-top: 28rpx;
+  padding-bottom: 200rpx;
+}
+.suc_bind_text1{
+  color: #999999;
+  font-size: 12px;
+  line-height: 60rpx;
+}
+.suc_bind_text2{
+  color: #333333; 
+  font-size: 16px;
+  font-weight: bold;
+}

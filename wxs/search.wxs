@@ -1,0 +1,26 @@
+//search页面，显示导航分类
+setNavTitle = function (e) {
+  if(e == 'ins'){
+    return '留学'
+  }else if (e == 'cul'){
+    return '语培'
+  } else {
+    return '问答'
+  }
+}
+
+//判断logo图片
+judgeLogoUrl = function (e,navtype){
+  if (navtype == 'ins'){
+    return 'http://www.taoraise.com/images/institution/' + e
+  }else if (navtype == 'cul'){
+    return 'https://testwx.taoraise.com/UploadFiles/cultivate/' + e
+  }else{
+    return ''
+  }
+}
+
+module.exports = {
+  setNavTitle: setNavTitle,
+  judgeLogoUrl: judgeLogoUrl,
+}

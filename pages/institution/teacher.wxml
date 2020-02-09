@@ -1,0 +1,89 @@
+<!--pages/institution/teacher.wxml-->
+<wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
+
+<import src="/wxParse/wxParse.wxml" />
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·'+teacher.Name,fillHeight:fillHeight}}" />
+
+<block wx-if="{{hasUserInfo==false}}">
+  <include src='/ascx/userinfo.wxml'/>
+</block>
+
+<block wx-if="{{hasUserPhone=='false'}}">
+  <include src='/ascx/userphone.wxml'/>
+</block>
+
+<view class='ins_teacher_view'>
+  <view class='ins_teacher_head'>
+    <view class='ins_teacher_headview'>
+      <view class='ins_teacher_headurl'>
+        <image src="http://www.taoraise.com/{{teacher.ImageUrl}}" class='ins_teacher_headurlimg'></image>
+      </view>
+      <view class='ins_teacher_right'>
+        <view class='ins_teacher_name'>{{teacher.Name}} {{teacher.Surname}}</view>
+        <view class='ins_teacher_career'><text class='ins_teacher_headtext'>从业：{{teacher.Years}}年</text>科目：{{teacher.ClassType}}</view>
+        <view class='ins_teacher_education oneline'><text class='ins_teacher_headtext'>学历：{{teacher.Education}}</text>授课：{{teacher.Address}}</view>
+        <view class='ins_teacher_school'>毕业：{{teacher.School}}</view>
+        <view class='ins_teacher_fee'>费用: 
+            <block wx-if="{{hasUserPhone=='true'}}">
+              <text class='bold'>￥{{CommonWxs.mathFeeRound(teacher.ClassFee)}}</text>
+            </block>
+            <block wx-if="{{hasUserPhone!='true'}}">
+              <view class='ins_teacher_unauthorized' bindtap='resetGetPhone'>点击授权查看价格</view>
+            </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='ins_teacher_intro'>
+    <view class='ins_teacher_nav_view'>
+      <view class='ins_teacher_nav_line'></view>
+      <view class='ins_teacher_nav_title'>自我介绍</view>
+    </view>
+    <view class='ins_teacher_content'>
+      <text>{{CommonWxs.changeBackBr(teacher.IntroduceOneself)}}</text>
+      <!-- <template is="wxParse" data="{{wxParseData:teacherIntroduceOneself.nodes}}"/> -->
+    </view>
+  </view>
+  <view class='ins_teacher_field'>
+    <view class='ins_teacher_nav_view'>
+      <view class='ins_teacher_nav_line'></view>
+      <view class='ins_teacher_nav_title'>顾问特点</view>
+    </view>
+    <view class='ins_teacher_content'>
+      <text>{{CommonWxs.changeBackBr(teacher.JGZZ)}}</text>
+      <!-- teacher.GoodFieldWP 擅长领域 -->
+    </view>
+  </view>
+  <view class='ins_teacher_experience'>
+    <view class='ins_teacher_nav_view'>
+      <view class='ins_teacher_nav_line'></view>
+      <view class='ins_teacher_nav_title'>从业经历</view>
+    </view>
+    <view class='ins_teacher_content'>
+      <text>{{CommonWxs.changeBackBr(teacher.PastExperience)}}</text>
+      <!-- <template is="wxParse" data="{{wxParseData:teacherPastExperience.nodes}}"/> -->
+    </view>
+  </view>
+  <view class='ins_teacher_example'>
+    <view class='ins_teacher_nav_view'>
+      <view class='ins_teacher_nav_line'></view>
+      <view class='ins_teacher_nav_title'>顾问案例</view>
+    </view>
+    <view class='ins_teacher_content'>
+
+    </view>
+  </view>
+  <view class='ins_teacher_promise'>
+    <view class='ins_teacher_nav_view'>
+      <view class='ins_teacher_nav_line'></view>
+      <view class='ins_teacher_nav_title'>平台保证</view>
+    </view>
+    <view class='ins_teacher_content'>
+      0加价 返现1000，免费换
+    </view>
+  </view>
+</view>
+
+<import src="/ascx/foot.wxml" />
+<template is="footnav" data="{{foottype:'collection',selectnav:'ins',collect:teacher.Collect,isIphoneX:isIphoneX}}" />

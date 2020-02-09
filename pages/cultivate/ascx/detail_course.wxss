@@ -1,0 +1,91 @@
+.cul_ascx_course_view{
+  background: #f8f9fa;
+}
+.cul_ascx_course_view{
+  background: #ffffff;
+  margin-top: 25rpx;
+  padding-bottom: 20rpx;
+}
+.cul_ascx_course_titleview{
+  display: flex;
+}
+.cul_ascx_course_headtitleline{
+  width: 4rpx;
+  height: 35rpx;
+  background: #ff6900;
+}
+.cul_ascx_course_headtitle{
+  margin-left: 30rpx;
+  line-height: 35rpx;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.cul_ascx_course_purposecontent{
+  width: 90%;
+  margin: 0px auto;
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.cul_ascx_course_group{
+  margin-bottom: 50rpx;
+  font-size: 12px;
+  color: #545454;
+}
+.cul_ascx_course_grouphead{
+  display: flex;
+  height: 50rpx;
+}
+.cul_ascx_course_groupheadtitle{
+  width:70%;
+  font-size: 16px;
+  color: #000000;
+}
+.cul_ascx_course_groupheadfee{
+  width: 30%;
+  color: #ff6900;
+  font-size: 16px;
+}
+.cul_ascx_course_groupheadcount{
+  display: flex;
+  width: 25%;
+  justify-content: flex-end;
+  color: #000000;
+  font-size: 16px;
+  text-align: center;
+}
+.cul_ascx_course_groupheadcountminus{
+  width: 40rpx;
+  height: 40rpx;
+  background: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cul_ascx_course_groupheadcountnumber{
+  font-size: 14px;
+  width: 60rpx;
+  height: 40rpx;
+  margin: 0px 10rpx;
+  border: solid 1px #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cul_ascx_course_groupheadcountplus{
+  width: 40rpx;
+  height: 40rpx;
+  background: #efefef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cul_ascx_course_groupfoot{
+  
+}
+.cul_ascx_course_groupfootintro{
+  
+}
