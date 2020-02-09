@@ -1,7 +1,0 @@
-<!--singlepage/advantage.wxml-->
-<import src="../ascx/head.wxml" />
-<template is="headnav" data="{{title:'·淘智优势',fillHeight:fillHeight}}" />
-
-<view class='advantage_view'>
-  <image mode="widthFix" class='advantage_img' src='https://testwx.taoraise.com/images/program/singlepage/taozhiyoushi.jpg'></image>
-</view>

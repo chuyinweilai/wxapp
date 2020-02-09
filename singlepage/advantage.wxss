@@ -1,7 +1,0 @@
-/* singlepage/advantage.wxss */
-.advantage_img{
-  width: 750rpx;
-}
-.advantage_view{
-  
-}

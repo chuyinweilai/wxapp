@@ -1,8 +1,0 @@
-.isIphoneXfoot{
-  bottom:0;
-}
-.ascx_isIphoneX{
-  width: 100%;
-  height: 56rpx;
-  background: #ffffff;
-}
