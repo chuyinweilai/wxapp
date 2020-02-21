@@ -61,6 +61,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (result) {
+        console.log("detail------>", result.data.detail)
         that.setDataForPage(result.data.detail, 'detail')
       }
     })

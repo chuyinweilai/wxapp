@@ -5,21 +5,16 @@
     "pages/member/index",
     "pages/search/default",
     "pages/comment/default",
-    "pages/webview/webview",
-    "pages/orderdetail/detail"
+    "pages/orderdetail/detail",
+    "pages/webview/webview"
   ],
   "subPackages": [
     {
       "root": "singlepage",
       "pages": [
         "advantage"
-      ]
-    },
-    {
-      "root": "testpage",
-      "pages": [
-        "test"
-      ]
+      ],
+      "independent": true
     },
     {
       "root": "pages/institution",
@@ -75,7 +70,8 @@
       "pages": [
         "bind/cultivate",
         "bind/success"
-      ]
+      ],
+      "independent": true
     },
     {
       "root": "order",
@@ -83,7 +79,8 @@
         "cultivate/generate",
         "user/order",
         "orderdetail/detail"
-      ]
+      ],
+      "independent": true
     }
   ],
   "window": {

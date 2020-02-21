@@ -28,7 +28,7 @@ Page({
     // console.log(e);
     // return
     wx.navigateTo({
-      url: 'detail?id='+e.currentTarget.dataset.id,
+      url: 'detail?id=' + e.currentTarget.dataset.id,
     })
   },
   //ascx/head,顶部两个按钮方法

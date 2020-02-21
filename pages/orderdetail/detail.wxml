@@ -36,7 +36,7 @@
         <view>优惠信息</view>
         <view>-￥0.00</view>
       </view>
-      <view class="order_detail_headmess">
+      <view class="order_detail_truepri">
         <view>实付款（含运费）</view>
         <view class="order_detail_realpay">￥1000.00</view>
       </view>
@@ -45,28 +45,28 @@
   <view class='order_detail_content'>
     <view class='order_detail_conttil'>订单详情：</view>
     <view class="order_detail_contmess">
-        <view>联系人信息：</view>
+        <view class="order_contmess_title">联系人信息：</view>
         <view class="order_detail_realpay">李老师，1237362513，上海市杨浦区</view>
     </view>
     <view class="order_detail_contmess">
-        <view>订单编号：</view>
+        <view class="order_contmess_title">订单编号：</view>
         <view class="order_detail_realpay">201863581237362513</view>
     </view>
     <view class="order_detail_contmess">
-        <view>发票信息：</view>
+        <view class="order_contmess_title">发票信息：</view>
         <view class="order_detail_realpay">不开发票</view>
     </view>
     <view class="order_detail_contmess">
-        <view>付款时间：</view>
+        <view class="order_contmess_title">付款时间：</view>
         <view class="order_detail_realpay">2019-10-14 21:53:27</view>
     </view>
     <view class="order_detail_contmess">
-        <view>支付方式：</view>
+        <view class="order_contmess_title">支付方式：</view>
         <view class="order_detail_realpay">支付宝</view>
     </view>
     <view class="order_detail_contmess">
-        <view>订单编号：</view>
-        <view class="order_detail_realpay">201863581237362513</view>
+        <view class="order_contmess_title">留言：</view>
+        <view class="order_detail_realpay">暂无</view>
     </view>
   </view>
 </view>

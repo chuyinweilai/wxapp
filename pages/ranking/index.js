@@ -7,9 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    yearObject: [
+      {
+        id: 2020,
+        name: '2020'
+      },
+      {
+        id: 2019,
+        name: '2019'
+      },
+      {
+        id: 2018,
+        name: '2018'
+      }
+    ],
+    region: 0,
   },
   
+  bindRegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
+    })
+  },
   previewImg: function (e) {
     var thisurl = 'http://www.taoraise.com/images/ranking/' + e.currentTarget.dataset.url + '.jpg'
     wx.previewImage({

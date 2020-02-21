@@ -273,6 +273,8 @@ page{
 .size12{
   font-size: 12px;
 }
+/*微软雅黑*/
+.yahei{font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif!important}
 
 /* 机构logo图底图颜色 */
 .bgbrown{

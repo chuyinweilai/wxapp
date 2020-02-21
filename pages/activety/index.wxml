@@ -26,7 +26,7 @@
     </view>
     <view class='act_group_bottom'></view>
   </view> -->
-  <view class='act_group_box' wx:for="{{listPart}}" wx:key="listPart" data-id="{{item.id}}" bindtap='gotoDetail'>
+  <view class='act_group_box' wx:for="{{listPart}}" wx:key="listPart" data-id="{{item.id}}">
     <view class="act_group_headtitle">{{item.title}}</view>
     <view class='act_group_list'>
       <view class='act_group_view' wx:for="{{list}}" wx:key="list" data-id="{{item.ID}}" bindtap='gotoDetail'>

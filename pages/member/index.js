@@ -130,7 +130,17 @@ Page({
           'content-type': 'application/json'
         },
         success: function (result) {
-          that.setDataForPage(result.data)
+          console.log("success", result)
+          that.setDataForPage({
+            collectlist: [],
+            orderlist: [],
+            qalist: [],
+            member:'',
+          })
+          // that.setDataForPage(result.data)
+        },
+        fail: function(res){
+          console.log("fail", res)
         }
       })
     }else{

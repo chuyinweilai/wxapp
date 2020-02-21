@@ -36,7 +36,8 @@ Page({
   },
   //咨询小管家
   handleContact: function (e){
-    app.HandleContact(e)
+    console.log("咨询")
+    // app.HandleContact(e)
   },
 
   //授权弹窗方法组，onload启动方法this.resetUserInfo()

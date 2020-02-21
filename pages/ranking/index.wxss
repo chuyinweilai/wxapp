@@ -1,31 +1,99 @@
 /* pages/ranking/index.wxss */
 .rank_view_break{
   width: 100%;
-  height: 10rpx;
-  background: #ececec;
+  height: 88rpx;
+  box-sizing: border-box;
+  padding: 16rpx 37rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #CBCBCB;
 }
-.rank_group_view{
-  width: 700rpx;
-  margin: 0px auto;
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-  height: 198rpx;
+.rank_view_search{
+  width: 500rpx;
+  height: 56rpx;
+  background: #F6F6F6;
+  display: flex;
+  align-items: center;
+  border-radius: 56rpx;
+  padding: 0 19rpx;
+}
+.rank_search_input{
+  display: flex;
+  flex: 1;
+  font-size: 24rpx;
+}
+.rank_search_placeholder{
+  font-size: 24rpx;
+  color: #999;
+}
+.picker{
+  width: 100rpx;
+  height: 88rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  font-size: 24rpx;
+}
+.rank_search_icon{
+  width: 11rpx;
+  height: 6rpx;
+}
+
+.rank_group_viewbox{
+  width: 710rpx;
+  height: 151rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background: url('https://testwx.taoraise.com/images/program/ranking/bg_rank_view.jpg');
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;
+  margin: 30rpx auto 30rpx;
+  padding: 10rpx 10rpx 15rpx;
+  box-sizing: border-box;
+}
+.rank_group_image{
+  width:200rpx;
+  height:126rpx;
+}
+.rank_group_view{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: around;
+  margin-left: 21rpx;
+}
+.rank_group_new{
+  width: 73rpx;
+  height: 29rpx;
+  line-height: 29rpx;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 29rpx;
+  background: #56C121;
+  box-sizing: border-box;
+  color: #fff;
+}
+.rank_group_hot{
+  width: 73rpx;
+  height: 29rpx;
+  line-height: 29rpx;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 29rpx;
+  background: #F57424;
+  box-sizing: border-box;
+  color: #fff;
 }
 .rank_group_type{
-  width: 620rpx;
-  margin: 0px auto;
-  height: 78rpx;
-  padding-top: 30rpx;
-  line-height: 80rpx;
+  width: 90%;
+  line-height: 36rpx;
   color: #999999;
-  font-size: 17px;
+  font-size: 20rpx;
 }
 .rank_group_title{
-  width: 620rpx;
-  margin: 0px auto;
+  width: 90%;
   color: #000000;
-  font-size: 18px;
+  font-size: 22rpx;
 }
