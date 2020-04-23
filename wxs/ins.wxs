@@ -49,7 +49,9 @@ countDetailNavWidth = function (e) {
 
 //admissionslist判断icon
 judgeSchoolIcon = function (e) {
-  if (e == '' || e == null) {
+  if (e.indexOf("http") > -1){
+    return e
+  } else if (e == '' || e == null) {
     return '../../images/icon/icon_schooldefault.jpg'
   } else {
     return 'https://testwx.taoraise.com/images/program/school/' + e + '.jpg'

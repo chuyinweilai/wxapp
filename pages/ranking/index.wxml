@@ -9,8 +9,8 @@
 <view class='main_view'>
   <view class='rank_view_break'>
     <view class='rank_view_search'>
-      <input class="rank_search_input" placeholder="请输入关键字搜索" placeholder-class="rank_search_placeholder"></input>
-      <icon type="search" size="15"/>
+      <input class="rank_search_input" placeholder="请输入关键字搜索" placeholder-class="rank_search_placeholder" bindinput="bindSearch"></input>
+      <icon type="search" size="15" bindtap="getRankData"/>
     </view>
     
     <picker mode="selector" bindchange="bindRegionChange" range="{{yearObject}}" range-key="name">
@@ -20,20 +20,13 @@
       </view>
     </picker>
   </view>
-  <view class="rank_group_viewbox">
-    <image src="/images/order/bg_order.jpg" class="rank_group_image" mode="aspectFill"></image>
-    <view class='rank_group_view' data-url='2019zhdx' bindtap='previewImg'>
-      <text class="rank_group_new">NEW</text>
-      <view class='rank_group_type'>2019 US News</view>
-      <view class='rank_group_title oneline'>最佳美国大学TOP100排名（9项数据）</view>
-    </view>
-  </view>
-  <view class="rank_group_viewbox">
-    <image src="/images/order/bg_order.jpg" class="rank_group_image" mode="aspectFill"></image>
-    <view class='rank_group_view' data-url='2019zhdx' bindtap='previewImg'>
-      <text class="rank_group_hot">HOT</text>
-      <view class='rank_group_type'>2019 US News</view>
-      <view class='rank_group_title oneline'>最佳美国大学TOP100排名（9项数据）</view>
+  <view class="rank_group_viewbox" wx:for="{{rankData}}" wx:key="ID">
+    <image src="http://www.taoraise.com/{{item.FilePath}}" class="rank_group_image" mode="aspectFill"></image>
+    <view class='rank_group_view' data-url='{{item.FilePath}}' bindtap='previewImg'>
+      <text class="rank_group_new" wx:if="{{item.IsDisplay == 'True'}}">NEW</text>
+      <text class="rank_group_hot" wx:else>HOT</text>
+      <view class='rank_group_type'>{{item.Year}} US {{item.IsDisplay == 'True'?'News':'Hot'}}</view>
+      <view class='rank_group_title oneline'>{{item.Title}}</view>
     </view>
   </view>
 </view>

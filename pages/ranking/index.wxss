@@ -33,16 +33,16 @@
   display: flex;
   justify-content: space-around;
   align-items:center;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .rank_search_icon{
-  width: 11rpx;
-  height: 6rpx;
+  width: 20rpx;
+  height: 12rpx;
 }
 
 .rank_group_viewbox{
   width: 710rpx;
-  height: 151rpx;
+  /* height: 151rpx; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -88,12 +88,12 @@
 }
 .rank_group_type{
   width: 90%;
-  line-height: 36rpx;
+  line-height: 2;
   color: #999999;
-  font-size: 20rpx;
+  font-size: 24rpx;
 }
 .rank_group_title{
   width: 90%;
   color: #000000;
-  font-size: 22rpx;
+  font-size: 28rpx;
 }

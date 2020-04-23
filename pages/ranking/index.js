@@ -21,16 +21,12 @@ Page({
         name: '2018'
       }
     ],
+    rankData:[],
     region: 0,
-  },
-  
-  bindRegionChange: function (e) {
-    this.setData({
-      region: e.detail.value
-    })
+    key:""
   },
   previewImg: function (e) {
-    var thisurl = 'http://www.taoraise.com/images/ranking/' + e.currentTarget.dataset.url + '.jpg'
+    var thisurl = 'http://www.taoraise.com/' + e.currentTarget.dataset.url;
     wx.previewImage({
       urls: [thisurl],// 预览图片组的url
     })
@@ -60,8 +56,43 @@ Page({
         isIphoneX: true,
       })
     }
+    this.getRankData()
   },
 
+  bindRegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
+    })
+    this.getRankData()
+  },
+  bindSearch: function (e) {
+    this.setData({
+      key: e.detail.value
+    })
+  },
+
+  getRankData: function(e) {
+    const { key = "", region = "0", yearObject } = this.data;
+    const year = yearObject[region].id;
+    let that = this;
+    wx.request({
+      url: getApp().globalData.requestUrl + 'response/data/index.aspx',
+      method: 'get',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        key,
+        licence: app.globalData.requestLicence,
+        year,
+      },
+      success: function (result) {
+        const { data = {} } = result;
+        const { activityList = [] } = data;
+        that.setData({ rankData: activityList[0] || [] })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

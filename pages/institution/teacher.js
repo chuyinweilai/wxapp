@@ -11,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    resumeList:[],
     //登录获取用户信息data组
     userInfo: {},
     hasUserInfo: true,
@@ -117,7 +118,6 @@ Page({
     var that = this
     wx.getSetting({
       success: res => {
-        console.log("getSetting", res)
         if (res.authSetting['scope.userInfo']) {// 已经授权
           that.setData({ hasUserPhone: 'false' })
         } else {//没有授权弹出授权窗口
@@ -144,7 +144,6 @@ Page({
           encryptedData: e.detail.encryptedData,
         }),
         success: function (result) {
-          console.log("result", result)
           jsuserinfo.setUserInfo(app.globalData.userInfo);
           that.setData({ hasUserPhone: 'true' })
         }
@@ -170,6 +169,7 @@ Page({
         isIphoneX: getApp().globalData.isIphoneX,
       })
     }
+    // 获取教师详情
     wx.request({
       url: app.globalData.requestUrl + 'response/institution/teacher.aspx',
       data: {
@@ -180,7 +180,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (result) {
-        that.setDataForPage(result.data.teacherdetail[0])
+        that.setDataForPage(result.data)
       }
     })
   },
@@ -228,8 +228,10 @@ Page({
 
   //页面存储数据
   setDataForPage: function (e) {
+    console.log(e.resumeList[0]);
     this.setData({
-      teacher: e,
+      resumeList: e.resumeList[0] || [],
+      teacher: e.teacherdetail[0],
     })
     WxParse.wxParse('teacherIntroduceOneself', 'html', e.IntroduceOneself, this, 0);
     WxParse.wxParse('teacherPastExperience', 'html', e.PastExperience, this, 0);

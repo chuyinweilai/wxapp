@@ -10,54 +10,44 @@
 <template is="headnav" data="{{title:'·活动详情',slogon:'noslogon',fillHeight:fillHeight}}" />
 
 <view class='main_view'>
-  <!-- <view class='act_detail_head'>
-    <view class='act_head_title'>{{detail[0].Title}}</view>
-    <view class='act_head_info'>
-      <view class='act_head_address oneline'>{{detail[0].Address}}</view>
-      <view class='act_head_address oneline'>{{detail[0].APeople}}</view>
-      <view class='act_head_time oneline'>{{ActWxs.changeTime(detail[0].AddTime)}}</view>
-    </view>
-  </view>
-  <template is="wxParse" data="{{wxParseData:Contents.nodes}}"/> -->
-  <!-- <swiper indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{background}}" wx:key="*this">
-      <swiper-item>
-        <view class="swiper-item {{item}}"></view>
-      </swiper-item>
-    </block>
-  </swiper> -->
-  <image src="{{detail[0].ImageUrl}}" class="act_detail_headimg" mode="asceptFill"></image>
+  <image src="http://www.taoraise.com{{activitydetail.BannerImageUrl}}" class="act_detail_headimg" mode="aspectFill"></image>
   <view class="act_detail_cont">
     <view class="act_detail_top">
-      <view class="act_top_title yahei">蘇富比艺术学院</view>
-      <view class="act_top_price">￥2999<span class="act_price_unit"> 元/人</span></view>
-    </view>
-    <view class="act_detail_time">活动报名时间：2019年7月7日-7月19日</view>
-    <view class="act_cont_title">院校详细信息</view>
-    <view class="act_cont_content">   - 是一所提供专业硕士、研究生文凭和证书课程、艺术鉴赏家职业培训的国际知名学院。\n   - 校区位于伦敦，纽约和洛杉矶，提供与艺术相关的研究课程，培养学生对艺术的深度理解。\n   - 学生直接接触艺术作品是该校的教学基础，37年来，这个独特的教学特点延续至今，且学生享有国际艺术博览会的特殊访问权。\n   - 由著名的曼彻斯特大学授予硕士学位。
+      <view class="act_top_title yahei">{{activitydetail.Title}}</view>
+      <view class="act_top_price">
+        {{activitydetail.Price}}
+        <!-- <span class="act_price_unit"> 元/人</span> -->
+      </view>
     </view>
 
     <view class="act_detail_bottom">
       <view class="act_bottom_title">学期课时</view>：
-      <view class="act_bottom_content">两周</view>
+      <view class="act_bottom_content">{{activitydetail.ClassTime}}</view>
     </view>
     <view class="act_detail_bottom">
       <view class="act_bottom_title">报名截止日期</view>：
-      <view class="act_bottom_content">2019年2月11日（优先录取）\n2019年3月25日（常规录取）</view>
+      <view class="act_bottom_content">{{activitydetail.OffLineTime}}</view>
     </view>
     <view class="act_detail_bottom">
       <view class="act_bottom_title">招收学生</view>：
-      <view class="act_bottom_content">在读高中生(年级 9–12)</view>
+      <view class="act_bottom_content">{{activitydetail.RecruitStudents}}</view>
     </view>
     <view class="act_detail_bottom">
       <view class="act_bottom_title">居住地点</view>：
-      <view class="act_bottom_content">纽约城市的大学宿舍</view>
+      <view class="act_bottom_content">{{activitydetail.ResidencePlace}}</view>
     </view>
     <view class="act_detail_bottom">
       <view class="act_bottom_title">费    用</view>：
-      <view class="act_bottom_content">5,495美元（不包括国际航程费用和保险等）</view>
+      <view class="act_bottom_content">{{activitydetail.Price}}</view>
     </view>
+    <!-- <view class="act_detail_time">活动报名时间：2019年7月7日-7月19日</view> -->
+    <view class="act_cont_title">院校详细信息</view>
+    <view class="act_cont_content">
+      <!-- {{activitydetail.Detail}} -->
+      <wxParse nodes="{{activitydetail.Detail}}"></wxParse>
+    </view>
+    
+
   </view>
 </view>
 

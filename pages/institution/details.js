@@ -13,6 +13,7 @@ Page({
   data: {
     isIphoneX: app.globalData.isIphoneX,
     selectNav: 'dt',
+    sel_admissions: "2019",
     conditiontitle: '[1]',//条件组title的变量
     conditionview: 'close',//打开搜索条件时，覆盖view的变量
     conditioncontent: '[1][2][3]',//实际的搜索条件
@@ -331,18 +332,6 @@ Page({
   },
   //页面存储数据
   setDataForPage: function (e) {
-    //给评论设置默认图
-    // var buildImageGroup = []
-    // for (var imageIndex = 0; imageIndex < e.commentlist.length; imageIndex++) {
-    //   var thisimageurl = {}
-    //   thisimageurl.GroupIndex = imageIndex
-    //   if (e.commentlist[imageIndex].Image.length > 0) {
-    //     thisimageurl.ImageUrl = e.commentlist[imageIndex].Image[0]
-    //   } else {
-    //     thisimageurl.ImageUrl = ''
-    //   }
-    //   buildImageGroup.push(thisimageurl)
-    // }
     this.setData({
       insdetail: e.insdetail[0],
       teacherlist: e.teacherlist,
@@ -355,6 +344,30 @@ Page({
     wx.hideLoading()
   },
 
+  getAdmissions: function(e){
+    const { dataset } = e.currentTarget;
+    let that = this;
+    const { insid } = this.data;
+    wx.request({
+      url: app.globalData.requestUrl + 'response/institution/rank.aspx',
+      data: {
+        licence: app.globalData.requestLicence,
+        insid,
+        year: dataset.type,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (result) {
+        const { data={} } = result;
+        console.log("data", data)
+        that.setData({ 
+          admissionlist: data.admissionlist,
+          sel_admissions: dataset.type
+        })
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

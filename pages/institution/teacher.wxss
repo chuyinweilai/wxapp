@@ -2,6 +2,7 @@
 .ins_teacher_view{
   background: #f8f9fa;
   margin-bottom: 30rpx;
+  font-family:"Microsoft Yahei";
 }
 .ins_teacher_head{
   background: #ffffff;
@@ -98,4 +99,34 @@
   font-size: 12px;
   margin-top: 6rpx;
   margin-left: 10rpx;
+}
+
+.ins_teacher_resume{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: #efefef solid 5rpx;
+}
+.ins_teacher_resume_icon{
+  width: 100rpx;
+  height: 100rpx;
+  /* border: 1rpx solid #000; */
+  margin: 40rpx;
+  border-radius: 50%;
+}
+
+.ins_teacher_exp .name{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.ins_teacher_exp .intro{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 48rpx;
+}
+
+.ins_teacher_exp .time{
+  font-size: 24rpx;
+  color: #999
 }

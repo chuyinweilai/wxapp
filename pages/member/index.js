@@ -59,7 +59,7 @@ Page({
     })
   },
 
-  selectNav: function (e){
+  selectNav: function (e) {
     this.setData({ nav: e.currentTarget.dataset.nav })
   },
   turnToDetail: function (e){
@@ -111,7 +111,7 @@ Page({
    */
   onLoad: function (options) {
     this.resetUserInfo()
-    this.requestDataForPage()
+    // this.requestDataForPage()
   },
 
   requestDataForPage: function (){
@@ -131,13 +131,6 @@ Page({
         },
         success: function (result) {
           console.log("success", result)
-          that.setDataForPage({
-            collectlist: [],
-            orderlist: [],
-            qalist: [],
-            member:'',
-          })
-          // that.setDataForPage(result.data)
         },
         fail: function(res){
           console.log("fail", res)

@@ -26,7 +26,11 @@
     <view class='ins_ascx_admissions_list'>
       <view class='ins_ascx_admissions_listhead'>
         <view class='ins_ascx_admissions_listtitleline'></view>
-        <view class='ins_ascx_admissions_listtitle'>录取榜单<text class='size14'>——2019年</text></view>
+        <view class='ins_ascx_admissions_listtitle'>录取榜单——
+          <text data-type="2019" class='size14 {{sel_admissions==2019?"select":""}}' bindtap="getAdmissions">2019年</text>
+          <text data-type="2018" class='size14 {{sel_admissions==2018?"select":""}}' bindtap="getAdmissions">  2018年</text>
+          <text data-type="2017" class='size14 {{sel_admissions==2017?"select":""}}' bindtap="getAdmissions">  2017年</text>
+        </view>
       </view>
       <view class='ins_ascx_admissions_groupview'>
         <view class='ins_ascx_admissions_grouplisttitle'>
@@ -40,7 +44,7 @@
         <view class='ins_ascx_admissions_group' wx:for="{{admissionlist}}" wx:key="admissionlist">
           <view class='ins_ascx_admissions_grouplistranking'>{{item.Ranking}}</view>
           <view class='ins_ascx_admissions_grouplisticon'>
-            <!-- <image src='http://www.taoraise.com/UpImage/Relate/20171030152146.jpg' mode='aspectFill' class='ins_ascx_admissions_grouplisticonimg'></image> -->
+            <!-- <image src="{{item.SchoolIcon}}" mode='aspectFit' class='ins_ascx_admissions_grouplisticonimg'></image> -->
             <image src="{{InsWxs.judgeSchoolIcon(item.SchoolIcon)}}" mode='aspectFit' class='ins_ascx_admissions_grouplisticonimg'></image>
           </view>
           <view class='ins_ascx_admissions_grouplistschool oneline'>{{item.School}}</view>

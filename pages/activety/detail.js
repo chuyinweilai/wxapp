@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    activitydetail: {},
   },
   //ascx/head,顶部两个按钮方法
   ReturnHome: function () {
@@ -33,61 +33,37 @@ Page({
     wx.showLoading({
       title: '页面加载中……',
     })
-    var that = this
     this.setData({ fillHeight: app.globalData.fillHeight })
-    if (app.globalData.isIphoneX == true) {
-      this.setData({
-        isIphoneX: true,
-      })
-    }
-    if(options.id){
-      that.requestDataForPage(options.id)
-    }else{
-      wx.navigateTo({
-        url: '../index/index',
-      })
-    }
+    this.requestDetail(options)
   },
 
-  requestDataForPage: function (oid) {
+  // 获取活动列表
+  requestDetail: function (val) {
     var that = this
     wx.request({
-      url: app.globalData.requestUrl + 'response/activety/detail.aspx',
+      url: app.globalData.requestUrl + 'response/improvementactivity/detail.aspx',
       data: {
         licence: app.globalData.requestLicence,
-        id: oid,
+        id: val.id
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (result) {
-        console.log("detail------>", result.data.detail)
-        that.setDataForPage(result.data.detail, 'detail')
+        let { data={} } = result;
+        let { activityList } = data;
+        activityList = activityList[0] || {};
+        let detail = activityList.Detail;
+        if (detail) {
+          // let detail = data.activityList[0];
+          detail = detail.replace(/\t+/g, "");
+          detail = detail.replace(/[\r\n]/g, "");
+        }
+        activityList.Detail = detail;
+        that.setData({ activitydetail: activityList || {} })
+        wx.hideLoading()
       }
     })
-    wx.request({
-      url: app.globalData.requestUrl + 'response/activety/contents.aspx',
-      data: {
-        licence: app.globalData.requestLicence,
-        id: oid,
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (result) {
-        that.setDataForPage(result.data, 'contents')
-      }
-    })
-  },
-  //页面存储数据
-  setDataForPage: function (e, objdata) {
-    this.setData({
-      [objdata]: e
-    })
-    if(objdata == 'contents'){
-      WxParse.wxParse('Contents', 'html', e, this, 0);
-      wx.hideLoading()
-    }
   },
   //小程序里的转义方法
   escape2Html: function (str) {

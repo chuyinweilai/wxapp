@@ -9,27 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    activetyList: {},
+    activetyType:[],
     requestUrl: app.globalData.requestUrl,
-    listPart: [
-      // 人文社会、STEM、艺术音乐、商科、其他综合
-      { id: 1, title: "人文社会" },
-      { id: 2, title: "STEM" },
-      { id: 3, title: "艺术音乐" },
-      { id: 4, title: "商科" },
-      { id: 5, title: "其他综合" }
-    ]
-  },
-  gotoNav: function (e) {
-    wx.navigateTo({
-      url: '../../' + e.currentTarget.dataset.nav,
-    })
-  },
-  gotoDetail: function(e){
-    // console.log(e);
-    // return
-    wx.navigateTo({
-      url: 'detail?id=' + e.currentTarget.dataset.id,
-    })
+    listPart: []
   },
   //ascx/head,顶部两个按钮方法
   ReturnHome: function () {
@@ -51,32 +34,51 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    wx.showLoading({
-      title: '数据加载中……',
-    })
+    // wx.showLoading({
+    //   title: '数据加载中……',
+    // })
     this.setData({ fillHeight: app.globalData.fillHeight })
     if (app.globalData.isIphoneX == true) {
       this.setData({
         isIphoneX: true,
       })
     }
+
+    this.requestDataForType();
+    return 
     //校验数据获取时间，超过间隔时间获取一次新的数据
-    var time = util.formatTime(new Date())
-    that.setData({ time: time })
-    var activetydatatime = wx.getStorageSync('activetylistdatatime')
-    if (!checkdatatime.countDiffer(time, activetydatatime)) {
-      that.requestDataForPage()
-    } else {
-      var activetydata = wx.getStorageSync('activetylistdata')
-      that.setDataForPage(activetydata)
-    }
+    // var time = util.formatTime(new Date())
+    // this.setData({ time: time })
+    // var activetydatatime = wx.getStorageSync('activetylistdatatime')
+    // if (!checkdatatime.countDiffer(time, activetydatatime)) {
+    //   // 获取活动类型列表
+    //   this.requestDataForType();
+    //   // 获取活动列表
+    //   // this.requestDataForPage();
+    // } else {
+    //   var activetyType = wx.getStorageSync('activetyType')
+    //   var activetyList = wx.getStorageSync('activetylistdata')
+    //   this.setData({
+    //     activetyType: activetyType,
+    //     activetyList: activetyList
+    //   })
+    // }
+  },
+  gotoNav: function (e) {
+    wx.navigateTo({
+      url: '../../' + e.currentTarget.dataset.nav,
+    })
+  },
+  gotoDetail: function (e) {
+    wx.navigateTo({
+      url: 'detail?id=' + e.currentTarget.dataset.id,
+    })
   },
 
-  // 获取活动列表
-  requestDataForPage: function () {
+  requestDataForType: function () {
     var that = this
     wx.request({
-      url: app.globalData.requestUrl + 'response/activety/index.aspx',
+      url: app.globalData.requestUrl + 'response/improvementactivity/type.aspx',
       data: {
         licence: app.globalData.requestLicence,
       },
@@ -84,20 +86,50 @@ Page({
         'content-type': 'application/json'
       },
       success: function (result) {
+        const {data={}} = result;
+        let { typeList=[] } = data;
+        typeList = typeList.reverse();
+        wx.setStorageSync('activetyType', typeList);
+        that.setData({ activetyType: typeList });
+        typeList.forEach((val,index) => {
+          that.requestDataForPage(val)
+        })
+      }
+    })
+  },
+
+  // 获取活动列表
+  requestDataForPage: function (val) {
+    let { activetyList } = this.data;
+    var that = this
+    wx.request({
+      url: app.globalData.requestUrl + 'response/improvementactivity/index.aspx',
+      data: {
+        licence: app.globalData.requestLicence,
+        id: val.ID
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (result) {
+        let { data = {} } = result;
+        let { activityList=[{}] } = data;
+        // activetyList[val.ID] = activityList[0].Title ? data.activityList : [];
+        activetyList[val.ID] = activityList;
         wx.setStorageSync('activetylistdatatime', that.data.time)
-        wx.setStorageSync('activetylistdata', result.data)
-        that.setDataForPage(result.data)
+        wx.setStorageSync('activetylistdata', activetyList)
+        that.setData({ activetyList })
       }
     })
   },
   //页面存储数据
-  setDataForPage: function (e) {
-    console.log(e.list)
-    this.setData({
-      list: e.list
-    })
-    wx.hideLoading()
-  },
+  // setDataForPage: function (e) {
+  //   this.setData({
+  //     list: e.list
+  //     // list
+  //   })
+  //   wx.hideLoading()
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

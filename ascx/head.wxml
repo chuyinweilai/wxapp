@@ -13,7 +13,7 @@ slogon表示需不需要使用头部标签中的slogon部分，如不需要，�
       <view class='ascx_head_left'>
         <view class='ascx_head_leftview'>
           <view class='ascx_head_back' bindtap='ReturnBack'>
-            <image class='ascx_head_backimg' src='/images/icon/icon_back.png'></image>
+             <image class='ascx_head_backimg' src='/images/icon/icon_back.png'></image>
           </view>
           <view class='ascx_head_home' bindtap='ReturnHome'>
             <image class='ascx_head_homeimg' src='/images/icon/icon_home.png'></image>

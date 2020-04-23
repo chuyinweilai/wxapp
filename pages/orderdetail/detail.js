@@ -23,7 +23,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.requestDataForPage()
   },
 
   /**
@@ -58,7 +59,7 @@ Page({
         title: '加载中……',
       })
       wx.request({
-        url: app.globalData.requestUrl + 'response/member/index.aspx',
+        url: app.globalData.requestUrl + 'response/order/detial.aspx',
         data: {
           licence: app.globalData.requestLicence,
           taoraiseid: app.globalData.taoraiseid,
@@ -75,6 +76,7 @@ Page({
     }
   },
   setDataForPage: function (e) {
+    console.log(e)
     this.setData({
       collectlist: e.collectlist,
       orderlist: e.orderlist,

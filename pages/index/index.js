@@ -14,7 +14,6 @@ Page({
     qalisttype: 'hits',
     //登录获取用户信息data组
     userInfo: {},
-    hasUserInfo: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     //轮播data组
     indicatorDots: true,
@@ -46,7 +45,6 @@ Page({
       var thisUserinfo = jsuserinfo.getUserInfo(e);
       this.setDataForUser(thisUserinfo)
     } else {
-      this.setData({ hasUserInfo: true })
       app.globalData.finishGetUser = 'finish'
     }
   },
@@ -62,7 +60,7 @@ Page({
           })
         } else {//没有授权弹出授权窗口
           this.setData({
-            hasUserInfo: false,
+            userInfo: {},
           })
         }
       }
@@ -71,7 +69,6 @@ Page({
   setDataForUser(e) {
     this.setData({
       userInfo: e,
-      hasUserInfo: true
     })
   },
 

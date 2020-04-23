@@ -2,9 +2,9 @@
 <wxs module="IndexWxs" src='../../wxs/index.wxs' ></wxs>
 <wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
 
-<block wx-if="{{hasUserInfo==false}}">
+<!-- <block wx-if="{{hasUserInfo==false}}">
   <include src='/ascx/userinfo.wxml'/>
-</block>
+</block> -->
 
 <view class='main_view  '>
 
