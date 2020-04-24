@@ -13,15 +13,15 @@
       <icon type="search" size="15" bindtap="getRankData"/>
     </view>
     
-    <picker mode="selector" bindchange="bindRegionChange" range="{{yearObject}}" range-key="name">
+    <picker mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}" range-key="name">
       <view class="picker">
-        {{yearObject[region].name}}
-        <image src="/images/icon/多边形1.png" class="rank_search_icon"></image>
+        {{yearsRange[region]}}
+        <icon class="iconfont icon-arrow-down"></icon>
       </view>
     </picker>
   </view>
   <view class="rank_group_viewbox" wx:for="{{rankData}}" wx:key="ID">
-    <image src="http://www.taoraise.com/{{item.FilePath}}" class="rank_group_image" mode="aspectFill"></image>
+    <image src="http://www.taoraise.com/{{item.ImageUrl}}" class="rank_group_image" mode="aspectFill"></image>
     <view class='rank_group_view' data-url='{{item.FilePath}}' bindtap='previewImg'>
       <text class="rank_group_new" wx:if="{{item.IsDisplay == 'True'}}">NEW</text>
       <text class="rank_group_hot" wx:else>HOT</text>

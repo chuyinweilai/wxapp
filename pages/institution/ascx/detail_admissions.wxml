@@ -27,9 +27,13 @@
       <view class='ins_ascx_admissions_listhead'>
         <view class='ins_ascx_admissions_listtitleline'></view>
         <view class='ins_ascx_admissions_listtitle'>录取榜单——
-          <text data-type="2019" class='size14 {{sel_admissions==2019?"select":""}}' bindtap="getAdmissions">2019年</text>
-          <text data-type="2018" class='size14 {{sel_admissions==2018?"select":""}}' bindtap="getAdmissions">  2018年</text>
-          <text data-type="2017" class='size14 {{sel_admissions==2017?"select":""}}' bindtap="getAdmissions">  2017年</text>
+        
+          <picker class="ins_ascx_admissions_picker" mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}">
+            <view class="picker">
+              {{yearsRange[region]}}
+              <icon class="iconfont icon-arrow-down"></icon>
+            </view>
+          </picker>
         </view>
       </view>
       <view class='ins_ascx_admissions_groupview'>

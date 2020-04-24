@@ -11,6 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    yearsRange: app.globalData.yearsRange,
+    region:0,
     isIphoneX: app.globalData.isIphoneX,
     selectNav: 'dt',
     sel_admissions: "2019",
@@ -201,7 +203,6 @@ Page({
     })
   },
   getPhoneNumber(e) {
-    console.log("detail",e);
     var that = this
     if (e.detail.iv != undefined) {
       wx.request({
@@ -263,6 +264,14 @@ Page({
     //     blockheight: res[0].height,
     //   })
     // })
+  },
+
+  // 榜单年份选择
+  bindRegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
+    })
+    this.getAdmissions()
   },
 
   //等待授权状态结束后，更新collect
@@ -344,8 +353,8 @@ Page({
     wx.hideLoading()
   },
 
-  getAdmissions: function(e){
-    const { dataset } = e.currentTarget;
+  getAdmissions: function(){
+    const { yearsRange, region=0 } = this.data;
     let that = this;
     const { insid } = this.data;
     wx.request({
@@ -353,7 +362,7 @@ Page({
       data: {
         licence: app.globalData.requestLicence,
         insid,
-        year: dataset.type,
+        year: yearsRange[region],
       },
       header: {
         'content-type': 'application/json'

@@ -20,9 +20,10 @@ function substringTitle(title) {
 }
 // 机构费用美金换算
 mathFeeRound = function (val) {
-  val = val * 6.8 / 1000 //为了保留千位，除以1000
+  val = val * 6.8 / 1000 // 为了保留千位，除以1000
   val = Math.ceil(val) //保留整数
-  val = val * 1000 //返回千位
+  // val = val * 1000 //返回千位
+  val = val/10; // 以万为单位
   return val
 }
 // 计算成立年限或其它计算多少年

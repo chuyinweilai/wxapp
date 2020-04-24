@@ -82,9 +82,18 @@
   line-height: 35rpx;
   font-weight: bold;
   font-size: 35rpx;
+  display: flex;
+  align-items: center;
 }
-.ins_ascx_admissions_listtitle .select{
-  color:#569CD6
+
+.ins_ascx_admissions_listtitle .picker{
+  display: flex;
+  align-items: center;
+  height: 42rpx;
+  margin-left: 14rpx;
+}
+.ins_ascx_admissions_picker{
+  font-weight: 500;
 }
 .ins_ascx_admissions_groupview{
   text-align: center;

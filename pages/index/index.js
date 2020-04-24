@@ -20,6 +20,8 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    hasUserPhone: true,
+    hasUserInfo: true,
   },
 
   //ascx/head,顶部两个按钮方法
@@ -38,38 +40,81 @@ Page({
     console.log("咨询")
     // app.HandleContact(e)
   },
-
   //授权弹窗方法组，onload启动方法this.resetUserInfo()
+  //如果需要确认授权状态再进行请求数据的话
+  //jsuserinfo.setUserInfo的方法会设置finishiGetUser，所以无需在调用这个方法的情况设置finishiGetUser
   bindGetUserInfo(e) {//授权弹窗点击授权后
+    var that = this
     if (e.detail.userInfo) {
       var thisUserinfo = jsuserinfo.getUserInfo(e);
-      this.setDataForUser(thisUserinfo)
+      that.setDataForUser(thisUserinfo);
+      that.checkUserPhone()//处理手机号授权
     } else {
+      that.setData({ hasUserInfo: true })
       app.globalData.finishGetUser = 'finish'
     }
   },
   resetUserInfo() {
+    var that = this
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {// 已经授权
           wx.getUserInfo({
             success: res => {
               jsuserinfo.setUserInfo(res.userInfo)
-              this.setDataForUser(res.userInfo)
+              that.setDataForUser(res.userInfo)
             }
           })
+          that.checkUserPhone()//处理手机号授权
         } else {//没有授权弹出授权窗口
-          this.setData({
-            userInfo: {},
+          that.setData({
+            userInfo: {}
           })
         }
       }
     })
   },
+  //手机号授权窗口
+  checkUserPhone() {
+    var that = this
+    var hasuserphone = app.globalData.hasUserPhone
+    if (hasuserphone != 'notsure') {
+      that.setData({ hasUserPhone: hasuserphone })
+    } else {
+      setTimeout(function () {
+        that.checkUserPhone()
+      }, 300)//间隔0.3秒
+    }
+  },
   setDataForUser(e) {
     this.setData({
       userInfo: e,
+      hasUserInfo: true
     })
+  },
+  getPhoneNumber(e) {
+    var that = this
+    if (e.detail.iv != undefined) {
+      wx.request({
+        url: getApp().globalData.requestUrl + 'ashx/getPostPhoneNumber.ashx',
+        method: 'post',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: util.json2Form({
+          openid: app.globalData.wxopenid,
+          iv: e.detail.iv,
+          encryptedData: e.detail.encryptedData,
+        }),
+        success: function (result) {
+          jsuserinfo.setUserInfo(app.globalData.userInfo);
+          that.setData({ hasUserPhone: 'true' })
+        }
+      })
+    } else {
+      //未同意授权
+      that.setData({ hasUserPhone: 'unauthorized' })
+    }
   },
 
   gotoNav: function (e){
@@ -179,6 +224,26 @@ Page({
           key: 'index-' + nav,
           data: result.data,
         })
+      }
+    })
+  },
+  resetGetPhone() {
+    var that = this
+    wx.getSetting({
+      success: res => {
+        console.log("res.authSetting['scope.userInfo']", res.authSetting['scope.userInfo'])
+        if (res.authSetting['scope.userInfo']) {// 已经授权
+          console.log("hasUserPhone", true)
+          that.setData({
+            hasUserInfo: true,
+            hasUserPhone: true
+          })
+        } else {//没有授权弹出授权窗口
+          that.setData({
+            hasUserInfo: false,
+            hasUserPhone: false,//没有授权时，同时弹出手机授权窗
+          })
+        }
       }
     })
   },

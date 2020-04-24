@@ -6,10 +6,37 @@
 @import "ascx/isIphoneX.wxss";
 @import "ascx/isIphoneX_index.wxss";
 
+@font-face {
+  font-family: 'iconfont';  /* project id 1434840 */
+  src: url('//at.alicdn.com/t/font_1434840_g89qchaldhl.eot');
+  src: url('//at.alicdn.com/t/font_1434840_g89qchaldhl.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1434840_g89qchaldhl.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1434840_g89qchaldhl.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1434840_g89qchaldhl.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1434840_g89qchaldhl.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:42rpx;
+  line-height: 42rpx;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*本项目使用的18个图标  */
+.icon-arrow-down:before{content: '\e658';}
+
 page{
   height: 100%;
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+.main_view{
+  /* display: flex; */
+  height: 100%;
+  /* flex: 1; */
+  overflow: auto
 }
 
 .container {

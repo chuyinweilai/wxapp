@@ -25,6 +25,10 @@
       <view class="act_bottom_content">{{activitydetail.ClassTime}}</view>
     </view>
     <view class="act_detail_bottom">
+      <view class="act_bottom_title">活动时间</view>：
+      <view class="act_bottom_content">{{activitydetail.ApplictionData}}</view>
+    </view>
+    <view class="act_detail_bottom">
       <view class="act_bottom_title">报名截止日期</view>：
       <view class="act_bottom_content">{{activitydetail.OffLineTime}}</view>
     </view>

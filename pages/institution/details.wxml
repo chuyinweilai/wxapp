@@ -45,7 +45,7 @@
     <import src="ascx/detail_admissions.wxml" /><!-- da -->
     <import src="ascx/detail_intro.wxml" /><!-- di -->
     <import src="ascx/detail_comment.wxml" /><!-- dc -->
-    <template is="{{selectNav}}" data="{{getAdmissions,sel_admissions,isIphoneX:isIphoneX,insdetail:insdetail,conditiontitle:conditiontitle,conditionview:conditionview,conditioncontent:conditioncontent,conditioncontenttemp:conditioncontenttemp,thislistpush:thislistpush,outstandingcase:outstandingcase,admissionlist:admissionlist,commentlist:commentlist,collect:insdetail.Collect,hasUserPhone:hasUserPhone,audiostatus:audiostatus,defaultImageGroup:defaultImageGroup}}" />
+    <template is="{{selectNav}}" data="{{yearsRange,region,getAdmissions,sel_admissions,isIphoneX:isIphoneX,insdetail:insdetail,conditiontitle:conditiontitle,conditionview:conditionview,conditioncontent:conditioncontent,conditioncontenttemp:conditioncontenttemp,thislistpush:thislistpush,outstandingcase:outstandingcase,admissionlist:admissionlist,commentlist:commentlist,collect:insdetail.Collect,hasUserPhone:hasUserPhone,audiostatus:audiostatus,defaultImageGroup:defaultImageGroup}}" />
   </view>
 </view>
 

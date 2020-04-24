@@ -27,6 +27,15 @@ App({
       },
     })
   },
+  GetYearRange: function(){
+    let years = new Date().getFullYear();
+    let yearsRange = [];
+    for(let i = 0; i < 10; i++){
+      yearsRange.push(years);
+      years--;
+    }
+    this.globalData.yearsRange = yearsRange;
+  },
   //foot控件的按钮
   navto: function(e){
     var navTitle = e.currentTarget.dataset.nav
@@ -38,6 +47,7 @@ App({
       url: navUrl
     })
   },
+  
   clickCollect: function(objnav, objid,value){
     var nav = ''
     if(objnav == 'ins'){
@@ -65,6 +75,7 @@ App({
       }
     })
   },
+
   //咨询小管家
   HandleContact: function (e) {
 
@@ -75,7 +86,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    this.GetYearRange()
     //检测是否为iphonex或尺寸相符的机型
     wx.getSystemInfo({
       success: res => {
@@ -92,6 +103,7 @@ App({
         } else {
           this.globalData.isIphoneX = false
         }
+        // this.globalData.isIphoneX = true
         var menuData = wx.getMenuButtonBoundingClientRect()
         this.globalData.fillHeight = menuData.top + 1 * res.windowWidth / res.windowHeight
         this.globalData.windowHeight = mobileheight
@@ -112,9 +124,11 @@ App({
     })
     this.SystemCheck.apply(this)
   },
+
   globalData: {
     isIphoneX: '',
     isIOS: 'false',
+    yearsRange:[],  // 最近的十年范围
     differForTakingDataTime: '1',//间隔分钟数，更新storage
     //timestamp: (new Date()).valueOf(),
     userInfo: null,

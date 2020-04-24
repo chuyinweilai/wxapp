@@ -7,20 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    yearObject: [
-      {
-        id: 2020,
-        name: '2020'
-      },
-      {
-        id: 2019,
-        name: '2019'
-      },
-      {
-        id: 2018,
-        name: '2018'
-      }
-    ],
+    yearsRange: [],
     rankData:[],
     region: 0,
     key:""
@@ -50,7 +37,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ fillHeight: app.globalData.fillHeight })
+    this.setData({ 
+      fillHeight: app.globalData.fillHeight,
+      yearsRange: app.globalData.yearsRange,
+    })
     if (app.globalData.isIphoneX == true) {
       this.setData({
         isIphoneX: true,
@@ -72,8 +62,8 @@ Page({
   },
 
   getRankData: function(e) {
-    const { key = "", region = "0", yearObject } = this.data;
-    const year = yearObject[region].id;
+    const { key = "", region = "0", yearsRange } = this.data;
+    const year = yearsRange[region];
     let that = this;
     wx.request({
       url: getApp().globalData.requestUrl + 'response/data/index.aspx',
@@ -89,6 +79,7 @@ Page({
       success: function (result) {
         const { data = {} } = result;
         const { activityList = [] } = data;
+        console.log(activityList)
         that.setData({ rankData: activityList[0] || [] })
       }
     })

@@ -71,7 +71,7 @@
             </view>
           </view>
           <view class='ins_ascx_teacherlistgourp_schoole oneline' data-teacherid="{{item.ID}}" bindtap='turnToTeacher'>毕业于：{{item.School}}</view>
-          <view class='ins_ascx_teacherlistgourp_fee'>顾问价格 
+          <view class='ins_ascx_teacherlistgourp_fee'>顾问价格
             <block wx-if="{{hasUserPhone=='true'}}">
               <text class='bold'>￥{{CommonWxs.mathFeeRound(item.ClassFee)}}</text>
             </block>

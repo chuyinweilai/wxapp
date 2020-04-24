@@ -141,9 +141,9 @@
   border-top-right-radius: 15rpx;
 }
 .recommend_ins_logoimg{
-  width: 90%;
-  height: 90%;
-  padding-top: 10rpx;
+  width: 100%;
+  height: 100%;
+  border-bottom: 8rpx solid #f7f9fa;
 }
 .recommend_ins_titleword{
   font-size: 50px;
@@ -152,28 +152,44 @@
   padding-left: 3%;
   padding-right: 3%;
   padding-top: 10rpx;
-  padding-bottom: 30rpx;
   font-size: 14px;
   line-height: 46rpx;
   background: #ffffff;
-  height: 190rpx;
+  height: 180rpx;
   border-bottom-left-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
 }
 .recommend_title{
   font-size: 16px;
   font-weight: bold;
-  line-height: 55rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
 }
 .recommend_type{
   color: #545454;
   font-size: 12px;
-  line-height: 32rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  white-space: nowrap;
+}
+.recommend_ins_fee{
+  border-top: 5rpx solid #f7f9fa;
+  /* background: #ffffff; */
+  font-size: 26rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
 }
 .recommend_fee{
   color: #ff6900;
 }
+.recommend_ins_fee .ins_ascx_teacherlist_unauthorized{
+  color: #545454;
+}
 .recommend_fee_number{
+  font-size: 34rpx;
   font-weight: bold;
 }
 .recommend_intro{
