@@ -32,7 +32,7 @@ function getTaoraiseID(e) {
           'content-type': 'application/json'
         },
         success: function (result) {
-          app.globalData.taoraiseid = result.data.  
+          app.globalData.taoraiseid = result.data.taoraiseid
           app.globalData.taouserInfo = result.data
           app.globalData.finishGetUser = 'got'
           //根据用户手机信息，设置手机号授权窗

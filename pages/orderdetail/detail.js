@@ -9,6 +9,14 @@ Page({
    */
   data: {
     // search
+    payWay: {
+      "none":"自有支付",
+      "original_wechat":"平台代收",
+      "virtual_coin":"虚拟币支付"
+    },
+    data: {},
+    buyer: {},
+    orderitems: {},
   },
 
   //ascx/head,顶部两个按钮方法
@@ -24,7 +32,33 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    this.requestDataForPage()
+    this.requestDetailForOrder()
+  },
+
+  requestDetailForOrder: function () {
+    const that = this;
+    wx.request({
+      url: app.globalData.requestUrl + 'response/order/info.aspx',
+      data: {
+        licence: app.globalData.requestLicence,
+        orderNo: "VzR7V8qRZiFbRwbZTaE7oRqyfT0g7i"
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (result) {
+        const data = result.data.dataList[0] || {};
+        const orderitems = result.data.dataList[0].orderitems[0] || {};
+        const buyer = result.data.dataList[0].buyer || {};
+        console.log("data --------> ", data)
+        console.log("orderitems --------> ", orderitems)
+        console.log("buyer --------> ", buyer)
+        that.setData({ buyer, data, orderitems })
+      },
+      fail: function (res) {
+        console.log("fail", res)
+      }
+    })
   },
 
   /**

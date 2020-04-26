@@ -81,14 +81,20 @@
       <view class="ins_screen_block{{isIphoneX==true?' inslistscrollviewblock':''}}{{conditionview=='close'?'  display':''}}" data-conditiontitle='closeCondition' bindtap='openCondition'></view>
       <view class='ins_list_gourp'>
         <view class="ins_group_{{inslistindex%2==0?'left':'right'}}" wx:for-index="inslistindex" wx:for="{{thislistpush}}" wx:key="thislistpush" data-insid="{{item.ID}}" bindtap='gotoNav'>
-          <view class="ins_ins_logo {{CommonWxs.indexOfInsLogoBg(inslistindex)}}">
+          <!-- <view class="ins_ins_logo {{CommonWxs.indexOfInsLogoBg(inslistindex)}}"> -->
+          <view class="ins_ins_logo">
             <image src="{{item.InstitutionNewLogoWP?'https://testwx.taoraise.com/UploadFiles/institution/logo/'+item.InstitutionNewLogoWP:'../../images/logo/logo.png'}}" class='ins_ins_logoimg' mode='aspectFit'></image>
+            <image hidden="{{item.InstitutionTaozhiIdentified}}" class="recommend_verification" mode="widthFix" src="../../images/icon/taoraise_unverified.png"></image>
+          <image hidden="{{!item.InstitutionTaozhiIdentified}}" class="recommend_verification" mode="widthFix" src="../../images/icon/taoraise_verified.png"></image>
           </view>
-          <view class='ins_ins_content'>
+          <view class='ins_ins_content text-center'>
             <view class='ins_title oneline'>{{item.InstitutionName}}</view>
-            <view class='ins_type'>科目：{{item.ClassTypeWP}}</view>
-            <view class='ins_fee'>费用 ￥<text class='ins_fee_number'>{{CommonWxs.mathFeeRound(item.Fee)}}</text><text class='size14 selected'> 起</text></view>
-            <view class='ins_intro twoline'>{{item.InstitutionIntroWP}}</view>
+            <!-- <view class='ins_type'>科目：{{item.ClassTypeWP}}</view> -->
+            <view class="ins_type mt-xs">{{item.InstitutionCityRegion}}</view>
+            <!-- <divider></divider> -->
+            <view class='ins_fee mt-sm'>当季费用<text class='ins_fee_number'>{{CommonWxs.mathFeeRound(item.Fee,10000)}}</text>万起</view>
+            <!-- <view class='ins_fee'>费用 ￥<text class='ins_fee_number'>{{CommonWxs.mathFeeRound(item.Fee)}}</text><text class='size14 selected'> 起</text></view> -->
+            <!-- <view class='ins_intro twoline'>{{item.InstitutionIntroWP}}</view> -->
           </view>
         </view>
       </view>

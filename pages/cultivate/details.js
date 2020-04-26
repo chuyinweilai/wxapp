@@ -165,30 +165,6 @@ Page({
     wx.navigateTo({
       url: '../../order/cultivate/generate?fromuser=self' + fromCourse,
     })
-    // var that = this
-    // if (app.globalData.finishGetUser != 'got') {
-    //   that.showNeedAuthorization()
-    // } else {
-    //   that.setData({ orderbtnstatus: 'buildOrder' })
-    //   wx.request({
-    //     url: getApp().globalData.requestUrl + 'ashx/getPostOrder.ashx',
-    //     method: 'post',
-    //     header: {
-    //       'content-type': 'application/x-www-form-urlencoded'
-    //     },
-    //     data: util.json2Form({
-    //       licence: getApp().globalData.requestLicence,
-    //       taoraiseid: getApp().globalData.taoraiseid,
-    //       order: JSON.stringify(that.data.courselist),
-    //     }),
-    //     success: function (result) {
-    //       //走向支付订单页面，result.data即为订单id
-    //       wx.navigateTo({
-    //         url: '../order/payment?orderid=' + result.data,
-    //       })
-    //     }
-    //   })
-    // }
   },
   buildOrder: function(){
     wx.showModal({

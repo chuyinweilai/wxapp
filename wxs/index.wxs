@@ -32,6 +32,7 @@ var dateFormat = function (timestamp, format) {
   if (!format) {
     format = "yyyy-MM-dd hh:mm:ss";
   }
+  console.log("timestamp", timestamp)
   timestamp = parseInt(timestamp);
   var realDate = getDate(timestamp);
   function timeFormat(num) {
@@ -67,4 +68,5 @@ var dateFormat = function (timestamp, format) {
 
 module.exports = {
   exchangeTime: exchangeTime,
+  dateFormat: dateFormat,
 }

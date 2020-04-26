@@ -40,7 +40,7 @@
         </view>
       </view>
     </view>
-    <!-- <view class='mem_ascx_order_group'>
+    <view class='mem_ascx_order_group'>
       <view class='mem_ascx_ordergroup_view' data-nav="order" data-objid="123" bindtap="turnToDetail">
         <view class='mem_ascx_ordergroup_info'>
           <view class='mem_ascx_ordergroup_left'>
@@ -79,7 +79,7 @@
           </view>
         </view>
       </view>
-    </view> -->
+    </view>
   </view>
 
   <!-- <block wx-if="{{orderlist.length==0}}">

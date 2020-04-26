@@ -155,7 +155,7 @@ Page({
             success: res => {
               jsuserinfo.setUserInfo(res.userInfo);
               that.setDataForUser(res.userInfo);
-              that.requestDataAgain(e,'got');//默认已授权，再请求collect
+              that.requestDataAgain(e, 'got');//默认已授权，再请求collect
             }
           })
           that.checkUserPhone()//处理手机号授权
@@ -178,7 +178,7 @@ Page({
   //手机号授权窗口
   checkUserPhone(){
     var that = this
-    var hasuserphone = app.globalData.hasUserPhone
+    var hasuserphone = app.globalData.hasUserPhone;
     if(hasuserphone != 'notsure'){
       that.setData({ hasUserPhone: hasuserphone })
     }else{
@@ -217,6 +217,7 @@ Page({
           encryptedData: e.detail.encryptedData,
         }),
         success: function (result) {
+          console.log(result);
           jsuserinfo.setUserInfo(app.globalData.userInfo);
           that.setData({ hasUserPhone: 'true' })
         }

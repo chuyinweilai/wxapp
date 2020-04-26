@@ -85,7 +85,7 @@ Page({
     })
   },
   //上传文件方法组
-  uploadShedule: function (e){
+  uploadShedule: function (e) {
     var that = this
     wx.chooseImage({
       count: 1,
@@ -123,7 +123,7 @@ Page({
   inputValue: function (e) {
     this.compareValue(e.currentTarget.dataset.input, e.detail.value)
   },
-  compareValue: function(datacol,value){
+  compareValue: function (datacol, value) {
     this.setData({ [datacol]: value })
     if (datacol == 'fee' && value != '') {
       if (value > 36000) {
@@ -142,7 +142,7 @@ Page({
     }
   },
   //提交订单
-  confirmPostOrder: function (e){
+  confirmPostOrder: function (e) {
     var that = this
     wx.showModal({
       title: '提交订单',
@@ -160,7 +160,7 @@ Page({
     var thiscontent = that.data.content
     thiscontent = replaceStr.filterEmoji(thiscontent)
     //候补js认证，输入类型等
-    if (that.data.selectins != '请选择机构' && that.data.content != '' && that.data.ctime != '' && that.data.fee != ''){
+    if (that.data.selectins != '请选择机构' && that.data.content != '' && that.data.ctime != '' && that.data.fee != '') {
       wx.request({
         url: getApp().globalData.requestUrl + 'ashx/getPostOrder.ashx',
         method: 'post',
@@ -179,7 +179,7 @@ Page({
           selectins: that.data.selectins,
         }),
         success: function (result) {
-          var turnurl = '/order/user/order?id=' + result.data
+          var turnurl = '../user/order?id=' + result.data
           var thisModalContent = '请在跳转后，将页面转发给用户'
           if (that.data.fromuser == 'self') {
             thisModalContent = '请跳转后，在页面验证身份支付订单'
@@ -199,14 +199,14 @@ Page({
           })
         }
       })
-    }else{
+    } else {
       wx.showModal({
         title: '未填写完整信息',
         content: '机构、课程内容、课程时间与课程总价不能为空！',
         showCancel: false,
         success(res) {
           if (res.confirm) {
-            
+
           }
         }
       })
@@ -217,11 +217,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.fromuser == undefined){
+    if (options.fromuser == undefined) {
       this.setData({
         fillHeight: app.globalData.fillHeight,
       })
-    }else{
+    } else {
       this.setData({
         fillHeight: app.globalData.fillHeight,
         fromuser: options.fromuser
@@ -267,12 +267,12 @@ Page({
                 }
               }
             })
-          }else if (result.data.length > 0 && result.data != 'N'){
+          } else if (result.data.length > 0 && result.data != 'N') {
             var cularray = result.data
             that.setData({
               cularray: cularray
             })
-            if(opt.cultivate){//如果用户带着机构参数
+            if (opt.cultivate) {//如果用户带着机构参数
               var culindex = 0
               var coursetime = 1
               var coursetitle = opt.coursename
@@ -280,7 +280,7 @@ Page({
               that.compareValue('fee', coursefee)//执行对比折扣的js
               var cultivate = opt.cultivate
               for (var icul = 0; icul < cularray.length; icul++) {
-                if(cularray[icul] == opt.cultivate){
+                if (cularray[icul] == opt.cultivate) {
                   culindex = icul
                 }
               }

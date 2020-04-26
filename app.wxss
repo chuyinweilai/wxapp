@@ -57,6 +57,46 @@ page{
   color: #ff6900;
 }
 
+/*微调间距用*/
+.mt-xs{
+  margin-top:10rpx;
+}
+.mt-sm{
+  margin-top:20rpx;
+}
+.mb-xs{
+  margin-bottom: 10rpx;
+}
+
+/* 字体样式 */
+.bold{
+  font-weight: bold;
+}
+.size14{
+  font-size: 14px;
+}
+.size12{
+  font-size: 12px;
+}
+
+/* 机构logo图底图颜色 */
+.bgbrown{
+  background: #f8f3ed;
+}
+.bgviolet{
+  background: #dedddb;
+}
+.bgyellow{
+  background: #e7d9d9;
+}
+.bggray{
+  background: #bdc6d7;
+}
+
+/* switch特殊样式 */
+switch{
+  zoom: .56;
+}
 /* 图片和语音播放页面样式 */
 .function_image_default{
   margin-top: 15rpx;
@@ -302,25 +342,6 @@ page{
 }
 /*微软雅黑*/
 .yahei{font-family: 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif!important}
-
-/* 机构logo图底图颜色 */
-.bgbrown{
-  background: #f8f3ed;
-}
-.bgviolet{
-  background: #dedddb;
-}
-.bgyellow{
-  background: #e7d9d9;
-}
-.bggray{
-  background: #bdc6d7;
-}
-
-/* switch特殊样式 */
-switch{
-  zoom: .56;
-}
 
 /* list通用样式 */
 .oneline{

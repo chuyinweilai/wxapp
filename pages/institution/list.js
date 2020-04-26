@@ -33,21 +33,21 @@ Page({
     app.HandleContact(e)
   },
 
-  gotoNav: function(e){
+  gotoNav: function (e) {
     wx.navigateTo({
       url: 'details?insid=' + e.currentTarget.dataset.insid,
     })
   },
 
 
-  selectCondition: function(e){
-    if (this.data.conditiontype == e.currentTarget.dataset.screen){
+  selectCondition: function (e) {
+    if (this.data.conditiontype == e.currentTarget.dataset.screen) {
       //再次点击取消筛选条件
       this.setData({
         conditiontype: '',
         conditioncontent: '[1][2][3]',
       })
-    }else{
+    } else {
       this.setData({
         conditiontype: e.currentTarget.dataset.screen,
         conditioncontent: e.currentTarget.dataset.screen,
@@ -56,8 +56,8 @@ Page({
     this.pushNewList()//根据条件输出list
   },
   // 条件筛选方法组 —— 开始
-  getSearchWord: function (e){
-    this.setData({ 
+  getSearchWord: function (e) {
+    this.setData({
       searchWord: e.detail.value,
       getSearchWordNotNull: 'y',
     })
@@ -67,14 +67,14 @@ Page({
       getSearchWordNotNull: 'y',
     })
   },
-  confirmSearchWord: function(){
+  confirmSearchWord: function () {
     var searchword = this.data.searchWord
     if (searchword == "" || searchword == null) {
       this.setData({ getSearchWordNotNull: '' })
     }
     this.pushNewList()
   },
-  openCondition: function(e){
+  openCondition: function (e) {
     var thisconditiontitle = e.currentTarget.dataset.conditiontitle
     if (thisconditiontitle == 'closeCondition') {
       //如果用户没有点击确认和重置按钮，直接点击了覆盖view，希望关掉条件搜索时
@@ -102,18 +102,18 @@ Page({
       })
     }
   },
-  setConditionScreen: function(e){
+  setConditionScreen: function (e) {
     var thiscc = e.currentTarget.dataset.cc
     var tempccgroup = this.data.conditioncontenttemp
-    if(tempccgroup.indexOf(thiscc) > -1){
-      tempccgroup = tempccgroup.replace(thiscc,'')
+    if (tempccgroup.indexOf(thiscc) > -1) {
+      tempccgroup = tempccgroup.replace(thiscc, '')
       this.setData({ conditioncontenttemp: tempccgroup })
     } else {
       tempccgroup = tempccgroup + thiscc
       this.setData({ conditioncontenttemp: tempccgroup })
     }
   },
-  resetConditionContent: function(){
+  resetConditionContent: function () {
     this.setData({
       conditiontitle: '[1]',
       conditionview: 'close',
@@ -127,7 +127,7 @@ Page({
   },
   confirmConditionContent: function () {
     var confirmtitle = ''
-    if (this.data.conditioncontenttemp.indexOf('[1]') > -1 || this.data.conditioncontenttemp.indexOf('[2]') > -1 || this.data.conditioncontenttemp.indexOf('[3]') > -1){
+    if (this.data.conditioncontenttemp.indexOf('[1]') > -1 || this.data.conditioncontenttemp.indexOf('[2]') > -1 || this.data.conditioncontenttemp.indexOf('[3]') > -1) {
       confirmtitle += '[1]'
     }
     if (this.data.Lowpricetemp != "" && this.data.Lowpricetemp != null && this.data.Highpricetemp != "" && this.data.Highpricetemp != null) {
@@ -138,7 +138,7 @@ Page({
       //必须单独分开定义正则式
       if (rexNumLow && rexNumHigh && this.data.Highpricetemp >= this.data.Lowpricetemp) {
         confirmtitle += '[2]'
-      }else{
+      } else {
         var that = this
         wx.showModal({
           title: '输入有误',
@@ -173,7 +173,7 @@ Page({
     this.setData({ Highpricetemp: e.detail.value })
   },
   //筛选后，重新组合数组
-  pushNewList: function(){
+  pushNewList: function () {
     var thislist = this.data.inslist
     var result;
     var containid_123 = ''
@@ -184,12 +184,12 @@ Page({
       var thiscondition = this.data.conditioncontent
       var regex = /\[(.+?)\]/g;
       //筛选条件组1
-      if (thiscondition.indexOf('[1]') <= -1 && thiscondition.indexOf('[2]') <= -1 && thiscondition.indexOf('[3]') <= -1){//如果没有选择任何一个条件，则id都符合条件
+      if (thiscondition.indexOf('[1]') <= -1 && thiscondition.indexOf('[2]') <= -1 && thiscondition.indexOf('[3]') <= -1) {//如果没有选择任何一个条件，则id都符合条件
         containid_123 += '[' + thislist[ilist].ID + ']'
-      }else{
+      } else {
         while ((result = regex.exec(thiscondition)) != null) {
           if (result[1] == 1) {
-            if (thislist[ilist].ClassTypeWP.indexOf('美研') > -1) { containid_123 += '['+thislist[ilist].ID+']' }
+            if (thislist[ilist].ClassTypeWP.indexOf('美研') > -1) { containid_123 += '[' + thislist[ilist].ID + ']' }
           }
           if (result[1] == 2) {
             if (thislist[ilist].ClassTypeWP.indexOf('美本') > -1) { containid_123 += '[' + thislist[ilist].ID + ']' }
@@ -202,7 +202,7 @@ Page({
       //筛选条件组2
       if ((this.data.Lowpricetemp == "" || this.data.Lowpricetemp == null) && (this.data.Highpricetemp == "" || this.data.Highpricetemp == null)) {
         containid_456 += '[' + thislist[ilist].ID + ']'
-      }else{
+      } else {
         if (util.mathFeeRound(thislist[ilist].Fee) >= parseInt(this.data.Lowpricetemp) && util.mathFeeRound(thislist[ilist].Fee) <= parseInt(this.data.Highpricetemp)) {
           //需要转化为数字才能计算，或者通过进行计算转化为数字
           containid_456 += '[' + thislist[ilist].ID + ']'
@@ -225,9 +225,9 @@ Page({
         }
       }
       //筛选条件组4
-      if(this.data.searchWord == "" || this.data.searchWord == null){
+      if (this.data.searchWord == "" || this.data.searchWord == null) {
         containid_searchword += '[' + thislist[ilist].ID + ']'
-      }else{
+      } else {
         if (thislist[ilist].InstitutionName.indexOf(this.data.searchWord) > -1) {
           containid_searchword += '[' + thislist[ilist].ID + ']'
         }
@@ -288,6 +288,12 @@ Page({
 
   //页面存储数据
   setDataForPage: function (e) {
+    e.inslist.map((item) => {
+      if (item.InstitutionCityRegion != "") {
+        item.InstitutionCityRegion = item.InstitutionCityRegion.split(';').join('、');
+      }
+      item.InstitutionTaozhiIdentified = item.InstitutionTaozhiIdentified == "0" ? false : true;
+    })
     this.setData({
       inslist: e.inslist,
       thislistpush: e.inslist,

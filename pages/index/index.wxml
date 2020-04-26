@@ -22,7 +22,7 @@
         </view>
         <image class='head_search' src='/images/bg/searchimg.png'></image>
       </view>
-      <view class='head_banner_tap' data-nav='singlepage/advantage' bindtap=' '></view>
+      <view class='head_banner_tap' data-nav='singlepage/advantage' bindtap='gotoNav'></view>
       <!-- banner图文字部分 -->
       <!-- <view class='head_content'>
         <view class='head_content_1'>留学行业</view>
@@ -82,28 +82,29 @@
         </view>
       </view>
       <view class='recommend_mainview'>
-
         <view class="recommend_group_{{inslistindex%2==0?'left':'right'}}" wx:for="{{inslist}}" wx:key="inslist" wx:for-index="inslistindex">
-          <view class='recommend_ins_logo {{CommonWxs.indexOfInsLogoBg(inslistindex)}}' data-nav="pages/institution/details?insid={{item.ID}}" bindtap='gotoNav'>
-            <image src="{{item.InstitutionNewLogoWP!=''?'https://testwx.taoraise.com/UploadFiles/institution/logo/'+item.InstitutionNewLogoWP:''}}" class="recommend_ins_logoimg{{item.InstitutionNewLogoWP==''||item.InstitutionNewLogoWP==null?' display':''}}" mode='aspectFill'></image>
+          <view class='recommend_ins_logo' data-nav="pages/institution/details?insid={{item.ID}}" bindtap='gotoNav'>
+            <image src="{{item.InstitutionNewLogoWP!=''?'https://testwx.taoraise.com/UploadFiles/institution/logo/'+item.InstitutionNewLogoWP:''}}" class="recommend_ins_logoimg{{item.InstitutionNewLogoWP==''||item.InstitutionNewLogoWP==null?' display':''}}" mode='aspectFit'></image>
             <view class="recommend_ins_titleword{{item.InstitutionNewLogoWP==''||item.InstitutionNewLogoWP==null?' ':' display'}}">
               {{CommonWxs.substringTitle(item.InstitutionName)}}
             </view>
+            <image hidden="{{item.InstitutionTaozhiIdentified}}" class="recommend_verification" mode="widthFix" src="../../images/icon/taoraise_unverified.png"></image>
+            <image hidden="{{!item.InstitutionTaozhiIdentified}}" class="recommend_verification" mode="widthFix" src="../../images/icon/taoraise_verified.png"></image>
           </view>
           <view class='recommend_ins_content'>
             <view class='recommend_title oneline' data-nav="pages/institution/details?insid={{item.ID}}" bindtap='gotoNav'>{{item.InstitutionName}}</view>
-            <view class='recommend_type' data-nav="pages/institution/details?insid={{item.ID}}" bindtap='gotoNav'>所在地区：{{item.InstitutionCityRegion}}</view>
+            <view class='recommend_type mt-xs' data-nav="pages/institution/details?insid={{item.ID}}" bindtap='gotoNav'>{{item.InstitutionCityRegion}}</view>
             <view class="recommend_ins_fee">
-              <block wx-if="{{hasUserPhone==true}}">
-                <view class='recommend_fee'>当即费用 ￥<text class='recommend_fee_number'>{{CommonWxs.mathFeeRound(item.Fee)}} </text>万起</view>
+              <block wx-if="{{textUserPhone==true}}">
+                <view class='recommend_fee'>当季费用<text class='recommend_fee_number'>{{CommonWxs.mathFeeRound(item.Fee,10000)}}</text>万起</view>
               </block>
-              <block wx-if="{{hasUserPhone!=true}}">
+              <block wx-if="{{textUserPhone!=true}}">
                 <view class='ins_ascx_teacherlist_unauthorized' bindtap='resetGetPhone'>点击授权查看价格</view>
+                <!-- <view class='ins_ascx_teacherlist_unauthorized' bindtap='resetGetPhone'>点击授权查看价格</view> -->
               </block>
             </view>
           </view>
         </view>
-
       </view>
     </view>
 
@@ -121,7 +122,9 @@
         </view>
       </view>
       <view class='cultivate_mainview'>
-        <view class='cultivate_group' wx:for="{{cullist}}" wx:key="cullist" data-nav="pages/cultivate/details?culid={{item.ID}}" bindtap='gotoNav'>
+        <!-- <view class='cultivate_group' wx:for="{{cullist}}" wx:key="cullist" data-nav="pages/cultivate/details?culid={{item.ID}}" bindtap='gotoNav'> -->
+        <view class='cultivate_group' wx:for="{{cullist}}" wx:key="cullist" data-nav='pages/cultivate/list' bindtap='gotoNav'>
+         
           <view class='cultivate_group_logo'>
             <image class='cultivate_group_logoimg' src="https://testwx.taoraise.com/UploadFiles/cultivate/{{item.CultivateLogo}}"></image>
           </view>

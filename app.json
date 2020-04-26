@@ -70,17 +70,14 @@
       "pages": [
         "bind/cultivate",
         "bind/success"
-      ],
-      "independent": true
+      ]
     },
     {
       "root": "order",
       "pages": [
         "cultivate/generate",
-        "user/order",
-        "orderdetail/detail"
-      ],
-      "independent": true
+        "user/order"
+      ]
     }
   ],
   "window": {

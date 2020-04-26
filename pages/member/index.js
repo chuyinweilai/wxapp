@@ -111,7 +111,31 @@ Page({
    */
   onLoad: function (options) {
     this.resetUserInfo()
-    // this.requestDataForPage()
+    this.requestDataForOrder()
+    this.requestDataForPage()
+  },
+
+  requestDataForOrder: function(){
+    wx.request({
+      url: app.globalData.requestUrl + 'response/member/test.aspx',
+      data: {
+        licence: app.globalData.requestLicence,
+        page: 1,
+        size: 15,
+        mobile: 18621639139
+      },
+      // mobile: 18621639139
+      // "13817837669"
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (result) {
+        console.log("order success", result)
+      },
+      fail: function (res) {
+        console.log("fail", res)
+      }
+    })
   },
 
   requestDataForPage: function (){

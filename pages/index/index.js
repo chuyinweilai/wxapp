@@ -20,6 +20,7 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    textUserPhone: false,
     hasUserPhone: true,
     hasUserInfo: true,
   },
@@ -65,7 +66,7 @@ Page({
               that.setDataForUser(res.userInfo)
             }
           })
-          that.checkUserPhone()//处理手机号授权
+          that.checkUserPhone() //处理手机号授权
         } else {//没有授权弹出授权窗口
           that.setData({
             userInfo: {}
@@ -77,13 +78,17 @@ Page({
   //手机号授权窗口
   checkUserPhone() {
     var that = this
-    var hasuserphone = app.globalData.hasUserPhone
+    var hasuserphone = app.globalData.hasUserPhone;
     if (hasuserphone != 'notsure') {
-      that.setData({ hasUserPhone: hasuserphone })
+      that.setData({
+        textUserPhone: true,
+        hasUserPhone: hasuserphone
+      })
     } else {
+      // that.setData({ hasUserPhone: false })
       setTimeout(function () {
         that.checkUserPhone()
-      }, 300)//间隔0.3秒
+      }, 500)//间隔0.3秒
     }
   },
   setDataForUser(e) {
@@ -108,7 +113,10 @@ Page({
         }),
         success: function (result) {
           jsuserinfo.setUserInfo(app.globalData.userInfo);
-          that.setData({ hasUserPhone: 'true' })
+          that.setData({ 
+            textUserPhone: true,
+            hasUserPhone: true
+          })
         }
       })
     } else {
@@ -231,9 +239,7 @@ Page({
     var that = this
     wx.getSetting({
       success: res => {
-        console.log("res.authSetting['scope.userInfo']", res.authSetting['scope.userInfo'])
         if (res.authSetting['scope.userInfo']) {// 已经授权
-          console.log("hasUserPhone", true)
           that.setData({
             hasUserInfo: true,
             hasUserPhone: true
