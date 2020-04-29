@@ -45,7 +45,7 @@
       <view class="act_bottom_content">{{activitydetail.Price}}</view>
     </view>
     <!-- <view class="act_detail_time">活动报名时间：2019年7月7日-7月19日</view> -->
-    <view class="act_cont_title">院校详细信息</view>
+    <view class="act_cont_title"><view class="title_icon"></view>院校详细信息</view>
     <view class="act_cont_content">
       <!-- {{activitydetail.Detail}} -->
       <wxParse nodes="{{activitydetail.Detail}}"></wxParse>

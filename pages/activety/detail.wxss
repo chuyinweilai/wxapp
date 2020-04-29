@@ -30,6 +30,8 @@
 .act_top_price{
   color:#ff7220;
   flex-wrap: nowrap;
+  width: 350rpx;
+  text-align: right;
 }
 .act_price_unit{
   font-size: 20rpx;
@@ -42,10 +44,17 @@
   color:#f87423;
 }
 .act_cont_title{
+  display: flex;
   font-size: 32rpx;
   font-weight:bold;
   color:#333333;
-  margin: 29rpx 0 12rpx;
+  margin: 50rpx 0 30rpx;
+}
+.title_icon{
+  margin-right: 4px;
+  width: 7rpx;
+  height: 42rpx;
+  background: #ff6b00;
 }
 .act_cont_content{
   font-size:28rpx;
@@ -57,7 +66,7 @@
 .act_detail_bottom{
   display: flex;
   flex-direction: row;
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #999;
   line-height: 2.2;
 }

@@ -11,11 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    yearsRange: app.globalData.yearsRange,
+    yearsRange:[],
     region:0,
     isIphoneX: app.globalData.isIphoneX,
     selectNav: 'dt',
-    sel_admissions: "2019",
     conditiontitle: '[1]',//条件组title的变量
     conditionview: 'close',//打开搜索条件时，覆盖view的变量
     conditioncontent: '[1][2][3]',//实际的搜索条件
@@ -233,6 +232,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({ fillHeight: app.globalData.fillHeight })
+    let yersarr = [].concat(app.globalData.yearsRange);
     var that = this
     wx.showLoading({
       title: '加载中……',
@@ -248,7 +248,12 @@ Page({
 
     var yearnow = new Date().getFullYear()
     var time = util.formatTime(new Date())
-    that.setData({ yearnow: yearnow, insid: options.insid, time:time })
+    that.setData({ 
+      yearnow: yearnow, 
+      insid: options.insid, 
+      time:time,
+      yearsRange: yersarr.splice(0, 3)
+    })
     //校验数据获取时间，超过间隔时间获取一次新的数据
     var insdetailtime = wx.getStorageSync('insdetailtime_' + options.insid)
     if (!checkdatatime.countDiffer(time, insdetailtime)) {
@@ -323,7 +328,8 @@ Page({
   },
   //实际数据请求，可以先执行，授权后更新collect
   requestDataForPage: function (e) {
-    var that = this
+    var that = this;
+    this.getAdmissions()
     wx.request({
       url: app.globalData.requestUrl + 'response/institution/detail.aspx',
       data: {
@@ -347,13 +353,13 @@ Page({
       teacherlist: e.teacherlist,
       thislistpush: e.teacherlist,
       outstandingcase: e.outstandingcase,
-      admissionlist: e.admissionlist,
       commentlist: e.commentlist,
       // defaultImageGroup: buildImageGroup,
     })
     wx.hideLoading()
   },
 
+  // 录取榜单
   getAdmissions: function(){
     const { yearsRange, region=0 } = this.data;
     let that = this;
@@ -373,7 +379,6 @@ Page({
         console.log("data", data)
         that.setData({ 
           admissionlist: data.admissionlist,
-          sel_admissions: dataset.type
         })
       }
     })

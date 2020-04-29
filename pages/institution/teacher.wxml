@@ -1,4 +1,5 @@
 <!--pages/institution/teacher.wxml-->
+<wxs module="InsWxs" src='../../wxs/ins.wxs' ></wxs>
 <wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
 
 <import src="/wxParse/wxParse.wxml" />
@@ -64,7 +65,7 @@
     <view class='ins_teacher_content'>
       <view wx:for="{{resumeList}}" wx:for-item="resume" wx:key="ID" class="ins_teacher_resume">
         <!-- <view class="ins_teacher_resume_icon"></view> -->
-        <image src="http://www.taoraise.com{{resume.ResumeIcon}}" mode="aspectFill" class="ins_teacher_resume_icon"></image>
+        <image src="{{InsWxs.judgeSchoolIcon(resume.ResumeName)}}" mode="aspectFill" class="ins_teacher_resume_icon"></image>
         <view class="ins_teacher_exp">
           <view class="name">{{resume.ResumeName}}</view>
           <view class="intro">{{resume.Introduction}}</view>
