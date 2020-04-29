@@ -15,7 +15,7 @@
 
 <view class='main_view act_view'>
   <view class='act_group_box' wx:for="{{activetyType}}" wx:key="listPart" data-id="{{item.ID}}">
-    <view class="act_group_headtitle">{{item.TypeName}}</view>
+    <view class="act_group_headtitle"><view class="title_icon"></view>{{item.TypeName}}</view>
     <view class='act_group_list'>
       <view class='act_group_view' wx:for="{{activetyList[item.ID]}}" wx:key="list" data-id="{{item.ID}}" bindtap='gotoDetail'>
         <image class='act_group_img' src="{{item.BannerImageUrl}}" mode="aspectFill"></image>

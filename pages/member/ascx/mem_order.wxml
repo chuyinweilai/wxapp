@@ -1,47 +1,47 @@
 <template name='mo'>
   <view class="mem_ascx_order_view">
     <view class='mem_ascx_order_group' wx:for="{{orderlist}}" wx:key="orderlist">
-      <view class='mem_ascx_ordergroup_view'>
+      <view class='mem_ascx_ordergroup_view' data-nav="order" data-objid="{{item.order_no}}" bindtap="turnToDetail">
         <view class='mem_ascx_ordergroup_info'>
           <view class='mem_ascx_ordergroup_left'>
             <view class='mem_ascx_ordergroup_pic'>
-              <image src='/images/order/bg_order.jpg' class='mem_ascx_ordergroup_picimg'></image>
+              <image src='{{item.orderitems[0].product_img}}' class='mem_ascx_ordergroup_picimg' mode="aspectFit"></image>
             </view>
           </view>
           <view class='mem_ascx_ordergroup_right'>
             <view class='mem_ascx_ordergroup_right_title'>
-              <view class='mem_ascx_ordergroup_right_widthfullwidth oneline'>{{item.OrderContent}}</view>
+              <view class='mem_ascx_ordergroup_right_widthfullwidth oneline'>{{item.orderitems[0].product_name}}</view>
             </view>
             <view class='mem_ascx_ordergroup_right_detail'>
               <view class='mem_ascx_ordergroup_right_widthfullwidth oneline'>
-                订单号：{{item.OrderNumber}}
+                订单号：{{item.order_no}}
               </view>
             </view>
             <view class='mem_ascx_ordergroup_right_fee'>
               <view class='mem_ascx_ordergroup_right_width'>商品总价</view>
-              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>￥{{item.TotalPrice}}</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>￥{{item.orderitems[0].unit_price * item.orderitems[0].quantity / 100 || 0}}</view>
             </view>
             <view class='mem_ascx_ordergroup_right_count'>
               <view class='mem_ascx_ordergroup_right_width'>淘智折上折</view>
-              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>-￥{{item.TotalPrice-item.Payment}}</view>
+              <view class='mem_ascx_ordergroup_right_width ordergroupwidthright'>-￥{{(item.orderitems[0].unit_price - item.orderitems[0].promotion_price) * item.orderitems[0].quantity / 100 || 0}}</view>
             </view>
           </view>
         </view>
         <view class='mem_ascx_ordergroup_operation'>
           <view class='mem_ascx_ordergroup_ope_fee'>实付 
-            <text class='mem_ascx_ordergroup_textcolor'>￥{{item.Payment}}</text>
+            <text class='mem_ascx_ordergroup_textcolor'>￥{{item.orderitems[0].promotion_price * item.orderitems[0].quantity / 100 || 0}}</text>
           </view>
           <view class='mem_ascx_ordergroup_ope_time'>订单状态：
-            <text class='mem_ascx_ordergroup_textcolor'>{{item.StatusName}}</text>
+            <text class='mem_ascx_ordergroup_textcolor'>{{statusList[item.status]}}</text>
           </view>
-          <view class='mem_ascx_ordergroup_ope_button'>
+          <!-- <view class='mem_ascx_ordergroup_ope_button'>
             <view class='mem_ascx_ordergroup_ope_btn display'>支付</view>
-          </view>
+          </view> -->
         </view>
       </view>
     </view>
-    <view class='mem_ascx_order_group'>
-      <view class='mem_ascx_ordergroup_view' data-nav="order" data-objid="123" bindtap="turnToDetail">
+    <!-- <view class='mem_ascx_order_group'>
+      <view class='mem_ascx_ordergroup_view'>
         <view class='mem_ascx_ordergroup_info'>
           <view class='mem_ascx_ordergroup_left'>
             <view class='mem_ascx_ordergroup_pic'>
@@ -79,7 +79,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
   </view>
 
   <!-- <block wx-if="{{orderlist.length==0}}">

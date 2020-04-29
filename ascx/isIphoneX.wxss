@@ -1,5 +1,5 @@
 .isIphoneXfoot{
-  bottom: 68rpx;
+  bottom: 0;
 }
 .ascx_isIphoneX{
   width: 100%;

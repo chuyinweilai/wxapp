@@ -14,6 +14,7 @@ Page({
       "original_wechat":"平台代收",
       "virtual_coin":"虚拟币支付"
     },
+    orderNo:"",
     data: {},
     buyer: {},
     orderitems: {},
@@ -31,17 +32,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    this.setData({ orderNo: options.orderNo })
     this.requestDetailForOrder()
   },
 
   requestDetailForOrder: function () {
+    wx.showLoading({
+      title: '加载中……',
+    })
     const that = this;
+    const { orderNo } = that.data;
     wx.request({
       url: app.globalData.requestUrl + 'response/order/info.aspx',
       data: {
         licence: app.globalData.requestLicence,
-        orderNo: "VzR7V8qRZiFbRwbZTaE7oRqyfT0g7i"
+        orderNo,
       },
       header: {
         'content-type': 'application/json'
@@ -50,10 +55,8 @@ Page({
         const data = result.data.dataList[0] || {};
         const orderitems = result.data.dataList[0].orderitems[0] || {};
         const buyer = result.data.dataList[0].buyer || {};
-        console.log("data --------> ", data)
-        console.log("orderitems --------> ", orderitems)
-        console.log("buyer --------> ", buyer)
-        that.setData({ buyer, data, orderitems })
+        that.setData({ buyer, data, orderitems });
+        wx.hideLoading()
       },
       fail: function (res) {
         console.log("fail", res)
@@ -83,32 +86,32 @@ Page({
         })
       }
     }, 600)
-    that.requestDataForPage()
+    that.requestDetailForOrder()
   },
 
-  requestDataForPage: function () {
-    var that = this
-    if (app.globalData.taoraiseid != '') {
-      wx.showLoading({
-        title: '加载中……',
-      })
-      wx.request({
-        url: app.globalData.requestUrl + 'response/order/detial.aspx',
-        data: {
-          licence: app.globalData.requestLicence,
-          taoraiseid: app.globalData.taoraiseid,
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (result) {
-          that.setDataForPage(result.data)
-        }
-      })
-    } else {
-      setTimeout(function () { that.requestDataForPage() }, 300)
-    }
-  },
+  // requestDetailForOrder: function () {
+  //   var that = this
+  //   if (app.globalData.taoraiseid != '') {
+  //     wx.showLoading({
+  //       title: '加载中……',
+  //     })
+  //     wx.request({
+  //       url: app.globalData.requestUrl + 'response/order/detial.aspx',
+  //       data: {
+  //         licence: app.globalData.requestLicence,
+  //         taoraiseid: app.globalData.taoraiseid,
+  //       },
+  //       header: {
+  //         'content-type': 'application/json'
+  //       },
+  //       success: function (result) {
+  //         that.setDataForPage(result.data)
+  //       }
+  //     })
+  //   } else {
+  //     setTimeout(function () { that.requestDetailForOrder() }, 300)
+  //   }
+  // },
   setDataForPage: function (e) {
     console.log(e)
     this.setData({

@@ -112,6 +112,7 @@ Page({
           encryptedData: e.detail.encryptedData,
         }),
         success: function (result) {
+          console.log("result", result)
           jsuserinfo.setUserInfo(app.globalData.userInfo);
           that.setData({ 
             textUserPhone: true,

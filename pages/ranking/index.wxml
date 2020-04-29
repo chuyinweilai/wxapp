@@ -13,22 +13,24 @@
       <icon type="search" size="15" bindtap="getRankData"/>
     </view>
     
-    <picker mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}" range-key="name">
+    <picker mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}">
       <view class="picker">
         {{yearsRange[region]}}
         <icon class="iconfont icon-arrow-down"></icon>
       </view>
     </picker>
   </view>
-  <view class="rank_group_viewbox" wx:for="{{rankData}}" wx:key="ID">
+  <navigator class="rank_group_viewbox" wx:for="{{rankData}}" wx:key="ID" url="/pages/ranking/detail?index={{index}}" hover-class="navigator-hover">
+  <!-- <view wx:key="ID" bindtap="toRankDetail"> -->
     <image src="http://www.taoraise.com/{{item.ImageUrl}}" class="rank_group_image" mode="aspectFill"></image>
-    <view class='rank_group_view' data-url='{{item.FilePath}}' bindtap='previewImg'>
+    <view class='rank_group_view'>
+    <!-- <view class='rank_group_view' data-url='{{item.FilePath}}' bindtap='previewImg'> -->
       <text class="rank_group_new" wx:if="{{item.IsDisplay == 'True'}}">NEW</text>
       <text class="rank_group_hot" wx:else>HOT</text>
       <view class='rank_group_type'>{{item.Year}} US {{item.IsDisplay == 'True'?'News':'Hot'}}</view>
       <view class='rank_group_title oneline'>{{item.Title}}</view>
     </view>
-  </view>
+  </navigator>
 </view>
 
 <import src="/ascx/foot.wxml" />

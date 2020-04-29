@@ -45,7 +45,7 @@
   color:#ff7220;
 }
 .order_detail_headmess{
-  font-size: 24rpx;
+  font-size: 26rpx;
   color:#333333;
   display: flex;
   flex-direction: row;
@@ -59,7 +59,7 @@
   align-items: center;
   justify-content: space-between;
   line-height: 2;
-  font-size:24rpx;
+  font-size:26rpx;
   font-family:PingFangSC;
   font-weight:400;
   color:#333333;
@@ -72,14 +72,13 @@
 }
 
 .order_detail_conttil{
-  height: 56rpx;
   color:orange;
   font-size: 26rpx;
   line-height: 56rpx;
   font-weight: 600;
   font-family:Microsoft YaHei;
   border-bottom: 2rpx solid #E5E5E5;
-  padding: 0 30rpx;
+  padding: 10rpx 30rpx;
   box-sizing: border-box;
   margin-bottom: 8rpx;
 }
@@ -87,7 +86,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #bbb;
   padding: 15rpx 30rpx;
 }

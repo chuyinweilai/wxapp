@@ -7,7 +7,7 @@
 
 .act_detail_headimg{
   width: 100%;
-  /* height: 300rpx; */
+  height: 480rpx;
 }
 
 .act_detail_cont{

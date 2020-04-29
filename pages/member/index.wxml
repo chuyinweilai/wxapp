@@ -51,7 +51,7 @@
     <import src="ascx/mem_order.wxml" /><!-- mo -->
     <import src="ascx/mem_collection.wxml" /><!-- mc -->
     <import src="ascx/mem_qa.wxml" /><!-- mq -->
-    <template is="{{nav}}" data="{{collectlist:collectlist,orderlist:orderlist,qalist:qalist}}" />
+    <template is="{{nav}}" data="{{collectlist:collectlist,orderlist:orderlist, statusList ,qalist:qalist}}" />
   </view>
 </view>
 

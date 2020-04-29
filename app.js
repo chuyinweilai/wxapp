@@ -135,6 +135,7 @@ App({
     hasUserInfo: 'notsure',//用于判定页面是否需要弹出授权窗口
     finishGetUser: 'notyet',//用于判定小程序是否已确认用户授权状态，notyet/finish
     hasUserPhone: 'notsure',//用于判断是否需要弹出获取手机号窗口
+    userPhoneNum: 0,
     wxopenid: '',
     taoraiseid: '',
     taouserInfo: [],//存储网站用户的部分信息，userInfo中没有的

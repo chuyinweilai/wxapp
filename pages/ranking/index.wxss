@@ -42,7 +42,7 @@
 
 .rank_group_viewbox{
   width: 710rpx;
-  /* height: 151rpx; */
+  height: 180rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;

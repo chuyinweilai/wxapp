@@ -209,6 +209,10 @@
   margin-top: 35rpx;
   border-bottom: solid 1px #e2e2e2;
 }
+.cultivate_image{
+  width: 100%;
+  height: 390rpx;
+}
 .cultivate_mainview{
   margin-bottom: 50rpx;
 }

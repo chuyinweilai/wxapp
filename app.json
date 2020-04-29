@@ -56,7 +56,8 @@
     {
       "root": "pages/ranking",
       "pages": [
-        "index"
+        "index",
+        "detail"
       ]
     },
     {

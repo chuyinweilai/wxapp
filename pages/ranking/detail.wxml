@@ -1,0 +1,18 @@
+<!--pages/ranking/detail.wxml--><!--pages/ranking/index.wxml-->
+<block wx-if="{{isIphoneX==true}}">
+  <include src='/ascx/isIphoneX_index.wxml'/>
+</block>
+
+<import src="/ascx/head.wxml" />
+<template is="headnav" data="{{title:'·学校排名',slogon:'noslogon',fillHeight:fillHeight}}" />
+
+<view class='main_view'>
+  <view class="rank_detail_content">
+    <wxParse nodes="{{data.Description}}"></wxParse>
+    <view class="rank_detail_headtitle">
+      <view class="title_icon"></view>
+      <view class="title_text">其他信息</view>
+    </view>
+    <image src="http://www.taoraise.com/{{data.FilePath}}" class="rank_detail_image" mode="aspectFill"></image>
+  </view>
+</view>

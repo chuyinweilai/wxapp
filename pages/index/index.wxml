@@ -109,7 +109,7 @@
     </view>
 
     <!-- 推荐语培 -->
-    <view class='cultivate_view'>
+    <!-- <view class='cultivate_view'>
       <view class='common_title'>
         <view class='title_icon'></view>
         <view class='title_group'>
@@ -122,7 +122,6 @@
         </view>
       </view>
       <view class='cultivate_mainview'>
-        <!-- <view class='cultivate_group' wx:for="{{cullist}}" wx:key="cullist" data-nav="pages/cultivate/details?culid={{item.ID}}" bindtap='gotoNav'> -->
         <view class='cultivate_group' wx:for="{{cullist}}" wx:key="cullist" data-nav='pages/cultivate/list' bindtap='gotoNav'>
          
           <view class='cultivate_group_logo'>
@@ -138,6 +137,34 @@
           </view>
         </view>
       </view>
+    </view> -->
+    <!-- <view class='cultivate_view' data-nav="pages/cultivate/list" bindtap='gotoNav'>
+      <view class='common_title'>
+        <view class='title_icon'></view>
+        <view class='title_group'>
+          <text class='title_word'>语培商城</text>
+          <text class='title_more' data-nav="pages/cultivate/list" bindtap='gotoNav'>更多
+          </text>
+        </view>
+        <view class='title_more_view'>
+          <image src='../../images/icon/icon_more.jpg' class='title_moreimg' mode='widthFix'></image>
+        </view>
+      </view>
+      <image class="cultivate_image" mode="aspectFit" src="../../images/bg/yupei2.png"></image>
+    </view> -->
+    <view class='cultivate_view' data-nav="pages/cultivate/list" bindtap='gotoNav'>
+      <view class='common_title'>
+        <view class='title_icon'></view>
+        <view class='title_group'>
+          <text class='title_word'>语培商城</text>
+          <text class='title_more' data-nav="pages/cultivate/list" bindtap='gotoNav'>更多
+          </text>
+        </view>
+        <view class='title_more_view'>
+          <image src='../../images/icon/icon_more.jpg' class='title_moreimg' mode='widthFix'></image>
+        </view>
+      </view>
+      <image class="cultivate_image" mode="aspectFit" src="../../images/bg/yupei1.png"></image>
     </view>
 
     <view class='qa_view'>

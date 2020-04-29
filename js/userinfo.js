@@ -37,6 +37,7 @@ function getTaoraiseID(e) {
           app.globalData.finishGetUser = 'got'
           //根据用户手机信息，设置手机号授权窗
           if (app.globalData.taouserInfo.phone != '') {
+            app.globalData.userPhoneNum = app.globalData.taouserInfo.phone
             app.globalData.hasUserPhone = 'true'
           } else {
             app.globalData.hasUserPhone = 'false'

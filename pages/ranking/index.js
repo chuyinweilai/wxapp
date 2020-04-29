@@ -37,6 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.yearsRange)
     this.setData({ 
       fillHeight: app.globalData.fillHeight,
       yearsRange: app.globalData.yearsRange,
@@ -80,6 +81,7 @@ Page({
         const { data = {} } = result;
         const { activityList = [] } = data;
         console.log(activityList)
+        wx.setStorageSync("ranklist", activityList[0])
         that.setData({ rankData: activityList[0] || [] })
       }
     })

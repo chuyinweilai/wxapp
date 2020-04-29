@@ -13,7 +13,7 @@
 <view class='order_detail_view'>
   <view class='order_detail_head'>
     <view class="order_detail_mess">
-      <image class="order_detail_headimg" src="{{orderitems.product_img}}" mode="asceptFill"></image>
+      <image class="order_detail_headimg" src="{{orderitems.product_img}}" mode="aspectFill"></image>
       <view class="order_detail_headcont">
         <view class="order_detail_headtitle">{{orderitems.product_name}}</view>
         <view class="order_detail_headpric">

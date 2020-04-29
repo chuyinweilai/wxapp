@@ -12,6 +12,13 @@ Page({
     //登录获取用户信息data组
     userInfo: {},
     hasUserInfo: true,
+    statusList: {
+      "unpaid":"未支付",
+      "paying":"支付中",
+      "confirming":"待确认",
+      "success":"成功",
+      "closed":"关闭"
+    },
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
@@ -56,7 +63,7 @@ Page({
     this.setData({
       userInfo: e,
       hasUserInfo: true,
-    })
+    });
   },
 
   selectNav: function (e) {
@@ -69,7 +76,7 @@ Page({
     } else if (e.currentTarget.dataset.nav == '3'){
       nav = '../cultivate/details?culid='
     } else if (e.currentTarget.dataset.nav == 'order') {
-      nav = '../orderdetail/detail?orderid='
+      nav = '../orderdetail/detail?orderNo='
     } else{
       nav = '../institution/teacher?teacherid='
     }
@@ -115,14 +122,23 @@ Page({
     this.requestDataForPage()
   },
 
-  requestDataForOrder: function(){
+  // 获取用户订单列表
+  requestDataForOrder: function(obj = {page:1, size: 15}, type="new"){
+    const that = this;
+    const { orderlist } = that.data;
+    const mobile = app.globalData.userPhoneNum;
+    const { page, size } = obj;
+    console.log("mobile", mobile)
+    wx.showLoading({
+      title: '加载中……',
+    })
+
     wx.request({
       url: app.globalData.requestUrl + 'response/member/test.aspx',
       data: {
         licence: app.globalData.requestLicence,
-        page: 1,
-        size: 15,
-        mobile: 18621639139
+        page, size,
+        mobile,
       },
       // mobile: 18621639139
       // "13817837669"
@@ -130,9 +146,21 @@ Page({
         'content-type': 'application/json'
       },
       success: function (result) {
-        console.log("order success", result)
+        const { dataList = [{}] } = result.data;
+        if (!dataList[0]) {
+          wx.hideLoading();
+          return false
+        };
+        let new_orderlist = dataList[0].data || [];
+        if (type == "add"){
+          new_orderlist = orderlist.concat(new_orderlist);
+        }
+        wx.setStorageSync('oredrResult', new_orderlist);
+        that.setData({ oredrResult: dataList[0], orderlist: new_orderlist, })
+        wx.hideLoading();
       },
       fail: function (res) {
+        wx.hideLoading();
         console.log("fail", res)
       }
     })
@@ -154,9 +182,10 @@ Page({
           'content-type': 'application/json'
         },
         success: function (result) {
-          console.log("success", result)
+          wx.hideLoading();
         },
-        fail: function(res){
+        fail: function (res) {
+          wx.hideLoading();
           console.log("fail", res)
         }
       })
@@ -167,7 +196,6 @@ Page({
   setDataForPage: function(e){
     this.setData({
       collectlist: e.collectlist,
-      orderlist: e.orderlist,
       qalist: e.qalist,
       member: '',
     })
@@ -228,9 +256,20 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function (e) {
+    const { oredrResult } = this.data;
+    let { current_page, last_page } = oredrResult.page;
+    if ( current_page < last_page){
+      this.requestDataForOrder({
+        page: current_page + 1,
+        size: 15,
+      }, "add" )
+    }
   },
+
+  // onPageScroll: function(e){
+  //   console.log("onPageScroll------->", e);
+  // },
 
   /**
    * 用户点击右上角分享
