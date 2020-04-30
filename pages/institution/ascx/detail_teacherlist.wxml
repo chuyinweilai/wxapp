@@ -51,7 +51,7 @@
         </view>
       </view>
     </view>
-    <scroll-view scroll-y class="ins_ascx_teacherlist_groupview{{isIphoneX==true?' isIphoneX':''}}">
+    <view class="ins_ascx_teacherlist_groupview{{isIphoneX==true?' isIphoneX':''}}">
       <!-- 筛选条件打开时的背景 -->
       <view class="ins_ascx_screen_block{{isIphoneX==true?' isIphoneX':''}}{{conditionview=='close'?'  display':''}}" data-conditiontitle='closeCondition' bindtap='openCondition'></view>
       <view class='ins_ascx_teacherlist_group' wx:for="{{thislistpush}}" wx:key="thislistpush">
@@ -81,6 +81,6 @@
           </view>
         </view>
       </view>
-    </scroll-view>
+    </view>
   </view>
 </template>

@@ -10,16 +10,16 @@
 <template is="headnav" data="{{title:'·活动详情',slogon:'noslogon',fillHeight:fillHeight}}" />
 
 <view class='main_view'>
-  <image src="http://www.taoraise.com{{activitydetail.BannerImageUrl}}" class="act_detail_headimg" mode="aspectFill"></image>
-  <view class="act_detail_cont">
+  <!-- <view class="act_detail_head" > -->
+    <image src="http://www.taoraise.com{{activitydetail.BannerImageUrl}}" class="act_detail_headimg" mode="aspectFill"></image>
+  <!-- </view> -->
+  <view class="act_detail_mess">
     <view class="act_detail_top">
       <view class="act_top_title yahei">{{activitydetail.Title}}</view>
       <view class="act_top_price">
         {{activitydetail.Price}}
-        <!-- <span class="act_price_unit"> 元/人</span> -->
       </view>
     </view>
-
     <view class="act_detail_bottom">
       <view class="act_bottom_title">学期课时</view>：
       <view class="act_bottom_content">{{activitydetail.ClassTime}}</view>
@@ -44,8 +44,10 @@
       <view class="act_bottom_title">费    用</view>：
       <view class="act_bottom_content">{{activitydetail.Price}}</view>
     </view>
+  </view>
+  <view class="act_detail_cont">
     <!-- <view class="act_detail_time">活动报名时间：2019年7月7日-7月19日</view> -->
-    <view class="act_cont_title"><view class="title_icon"></view>院校详细信息</view>
+    <view class="act_cont_title"><view class="title_icon"></view>项目详情</view>
     <view class="act_cont_content">
       <!-- {{activitydetail.Detail}} -->
       <wxParse nodes="{{activitydetail.Detail}}"></wxParse>

@@ -128,7 +128,8 @@ Page({
 
   gotoNav: function (e){
     const { nav } = e.currentTarget.dataset;
-    const { isIOS } = this.data;
+    // const { isIOS } = this.data;
+    const isIOS = false;
     if (nav == "pages/cultivate/list") {
       if (isIOS){
         wx.navigateTo({

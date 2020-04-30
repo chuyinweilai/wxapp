@@ -1,4 +1,5 @@
 .ins_ascx_teacherlist_view{
+  height: 100%;
   margin-top: 20rpx;
 }
 .ins_ascx_teacherlist_condition{
@@ -20,7 +21,7 @@
   width: 100%;
   padding-top: 1rpx;
   background: #f8f9fa;
-  height: 578rpx;
+  height: 100%!important;
   padding-bottom: 20rpx;
 }
 .ins_ascx_teacherlist_group{

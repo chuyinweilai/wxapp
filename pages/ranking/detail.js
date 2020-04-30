@@ -15,6 +15,7 @@ Page({
   onLoad: function (options) {
     const rankList = wx.getStorageSync("ranklist") || [];
     const { index } = options;
+    console.log("rankList[index]", rankList[index])
     this.setData({
       fillHeight: app.globalData.fillHeight,
       yearsRange: app.globalData.yearsRange,

@@ -44,6 +44,17 @@ Component({
     },
 
     /**
+     * onPreviewImage
+     * 展示图片预览
+     */
+
+    onPreviewImage(e){
+      console.log(e.currentTarget.dataset.src);
+      wx.previewImage({
+        urls: ["http://www.taoraise.com/" + e.currentTarget.dataset.src],
+      })
+    },
+    /**
      * 图片视觉宽高计算函数区
      * @param {*} e 
      */

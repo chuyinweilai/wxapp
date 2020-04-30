@@ -101,11 +101,9 @@
 }
 .act_group_list{
   display: grid;
-  grid-template-columns: 48% 48%;
-  text-align: center;
-  justify-items: space-between;
-  grid-gap: 10rpx 1rpx ;
-  /* grid-template-rows: auto auto; */
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+  grid-row-gap: 10rpx;
 }
 .act_group_box{
   margin-bottom: 31rpx;
@@ -117,7 +115,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
+  width: 96%;
   min-height:390rpx;
   background:#ffffff;
   box-shadow:0px 0px 10px 0px rgba(64, 64, 64, 0.102);
@@ -146,8 +144,8 @@
 
 }
 .act_group_price{
-  font-size:26rpx;
-  line-height: 26rpx;
+  font-size:24rpx;
+  line-height: 24rpx;
   font-family:Microsoft YaHei;
   font-weight:400;
   color:#f57424;

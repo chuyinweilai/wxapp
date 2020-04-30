@@ -20,7 +20,7 @@
       <view class='act_group_view' wx:for="{{activetyList[item.ID]}}" wx:key="list" data-id="{{item.ID}}" bindtap='gotoDetail'>
         <image class='act_group_img' src="{{item.BannerImageUrl}}" mode="aspectFill"></image>
         <view class='act_group_title'>{{item.Title}}</view>
-        <view class='act_group_price'><span style="font-size: 24rpx;">￥</span>{{item.Price}}</view>
+        <view class='act_group_price'><span style="font-size: 20rpx;">￥</span>{{item.Price}}</view>
         <view class="act_group_time">活动时间:{{item.ApplictionData}}</view>
         <view class="act_group_time">报名截止时间:{{item.OffLineTime}}</view>
         <!-- <view class="act_group_time">{{item.ApplictionData}}</view> -->

@@ -83,6 +83,10 @@ view{
   width:100%;
 }
 
+.wxParse-p {
+  min-height: 24rpx;
+}
+
 .wxParse-img{
   /*background-color: #efefef;*/
   overflow: hidden;
