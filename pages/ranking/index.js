@@ -60,6 +60,7 @@ Page({
     this.setData({
       key: e.detail.value
     })
+    this.getRankData();
   },
 
   getRankData: function(e) {

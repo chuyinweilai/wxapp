@@ -26,12 +26,11 @@
     <view class='ins_ascx_admissions_list'>
       <view class='ins_ascx_admissions_listhead'>
         <view class='ins_ascx_admissions_listtitleline'></view>
-        <view class='ins_ascx_admissions_listtitle'>录取榜单——
-        
+        <view class='ins_ascx_admissions_listtitle'>录取榜单
           <picker class="ins_ascx_admissions_picker" mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}">
             <view class="picker">
               {{yearsRange[region]}}
-              <icon class="iconfont icon-arrow-down"></icon>
+              <!-- <icon class="iconfont icon-arrow-down"></icon> -->
             </view>
           </picker>
         </view>

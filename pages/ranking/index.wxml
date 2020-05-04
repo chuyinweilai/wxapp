@@ -9,14 +9,23 @@
 <view class='main_view'>
   <view class='rank_view_break'>
     <view class='rank_view_search'>
+      <image class='icon_search' src='/images/icon/iconsearch.png'></image>
+      <!-- <icon type="search" size="15" bindtap="getRankData"/> -->
       <input class="rank_search_input" placeholder="请输入关键字搜索" placeholder-class="rank_search_placeholder" bindinput="bindSearch"></input>
-      <icon type="search" size="15" bindtap="getRankData"/>
     </view>
     
+    <!-- <view class='head_view'> 
+      <view class='text_search'>
+          <image class='icon_search' src='/images/icon/iconsearch.png'></image>
+          <input bindfocus='reset_search' bindblur='check_search' bindconfirm='bc_search' value='{{searchvalue}}'></input>
+      </view>
+      <image class='head_search' src='/images/bg/searchimg.png'></image>
+    </view> -->
+
     <picker mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}">
       <view class="picker">
         {{yearsRange[region]}}
-        <icon class="iconfont icon-arrow-down"></icon>
+        <!-- <icon class="iconfont icon-arrow-down"></icon> -->
       </view>
     </picker>
   </view>
