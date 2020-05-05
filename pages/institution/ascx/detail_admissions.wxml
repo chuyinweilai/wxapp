@@ -27,12 +27,14 @@
       <view class='ins_ascx_admissions_listhead'>
         <view class='ins_ascx_admissions_listtitleline'></view>
         <view class='ins_ascx_admissions_listtitle'>录取榜单
-          <picker class="ins_ascx_admissions_picker" mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}">
+          <view class="picker {{region == '0'? 'picker-select': null}}" data-index="0" bindtap="bindRegionChange" >2020</view>
+          <view class="picker {{region == '1'? 'picker-select': null}}" data-index="1" bindtap="bindRegionChange">2019</view>
+          <view class="picker {{region == '2'? 'picker-select': null}}" data-index="2" bindtap="bindRegionChange">2018</view>
+          <!-- <picker class="ins_ascx_admissions_picker" mode="selector" bindchange="bindRegionChange" range="{{yearsRange}}">
             <view class="picker">
               {{yearsRange[region]}}
-              <!-- <icon class="iconfont icon-arrow-down"></icon> -->
             </view>
-          </picker>
+          </picker> -->
         </view>
       </view>
       <view class='ins_ascx_admissions_groupview'>

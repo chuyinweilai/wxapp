@@ -93,10 +93,14 @@
   height: 46rpx;
   margin-left: 14rpx;
   line-height: 46rpx;
-  border: 1rpx solid #F57424;
+  border: 1rpx solid #888;
   border-radius: 23rpx;
   text-align: center;
+  color: #888;
+}
+.ins_ascx_admissions_listtitle .picker-select{
   color: #F57424;
+  border: 1rpx solid #F57424;
 }
 .ins_ascx_admissions_picker{
   font-weight: 500;

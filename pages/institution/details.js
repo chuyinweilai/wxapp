@@ -274,8 +274,9 @@ Page({
 
   // 榜单年份选择
   bindRegionChange: function (e) {
+    const { index } = e.currentTarget.dataset;
     this.setData({
-      region: e.detail.value
+      region: index
     })
     this.getAdmissions()
   },

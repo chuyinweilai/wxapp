@@ -156,6 +156,8 @@ Page({
           new_orderlist = orderlist.concat(new_orderlist);
         }
         wx.setStorageSync('oredrResult', new_orderlist);
+        console.log("dataList[0]", dataList[0])
+        console.log("new_orderlist", new_orderlist)
         that.setData({ oredrResult: dataList[0], orderlist: new_orderlist, })
         wx.hideLoading();
       },
