@@ -1,4 +1,5 @@
 /* pages/search/default.wxss */
+
 .search_default_view{
   background: #f7f9fa;
 }
@@ -16,7 +17,7 @@
   width: 580rpx;
   margin: 0px auto;
   display: flex;
-  height: 80rpx;
+  height: 58rpx;
   border-radius: 40rpx;
   background: #f7f9fa;
 }
@@ -36,7 +37,7 @@
 .search_input_cancel{
   width: 150rpx;
   display: flex;
-  height: 80rpx;
+  height: 58rpx;
   font-size: 18px;
   justify-content: center;
   align-items: center;

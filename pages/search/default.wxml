@@ -2,8 +2,10 @@
 <wxs module="CommonWxs" src='../../wxs/common.wxs' ></wxs>
 <wxs module="SearchWxs" src='../../wxs/search.wxs' ></wxs>
 
+<!-- <import src="/ascx/head.wxml" />
+<template is="headnav" data="{{slogon:'noslogon',title:'.搜索结果',isIphoneX:isIphoneX,isIphoneXandNoslogonHeight:isIphoneXandNoslogonHeight}}" /> -->
 <import src="/ascx/head.wxml" />
-<template is="headnav" data="{{slogon:'noslogon',title:'.搜索结果',isIphoneX:isIphoneX,isIphoneXandNoslogonHeight:isIphoneXandNoslogonHeight}}" />
+<template is="headnav" data="{{title:'搜索结果',slogon:'noslogon',fillHeight:fillHeight}}" />
 
 <view class='search_default_view' style="min-height:{{miniheight}}rpx;">
   <view class='search_default_inputview'>
@@ -51,7 +53,7 @@
         <block wx-if="{{SearchWxs.judgeLogoUrl(item.LogoUrl,item.Stype)!=''}}">
           <view class='search_group_rightfee'>费用 
             <text class='search_group_feecount'>
-              ￥{{item.Stype=='cul'?item.Fee+'/小时':item.Fee}}<text class='size14 selected'> 起</text>
+              ￥{{item.Stype=='cul'?CommonWxs.mathFeeRound(item.Fee)+'/小时':CommonWxs.mathFeeRound(item.Fee)}}<text class='size14 selected'> 起</text>
             </text>
           </view>
         </block>

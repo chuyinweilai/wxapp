@@ -330,7 +330,8 @@ Page({
   //实际数据请求，可以先执行，授权后更新collect
   requestDataForPage: function (e) {
     var that = this;
-    this.getAdmissions()
+    console.log(1)
+    that.getAdmissions()
     wx.request({
       url: app.globalData.requestUrl + 'response/institution/detail.aspx',
       data: {
@@ -349,6 +350,7 @@ Page({
   },
   //页面存储数据
   setDataForPage: function (e) {
+    console.log("teacherlist", e.teacherlist)
     this.setData({
       insdetail: e.insdetail[0],
       teacherlist: e.teacherlist,
@@ -365,6 +367,7 @@ Page({
     const { yearsRange, region=0 } = this.data;
     let that = this;
     const { insid } = this.data;
+    console.log(region)
     wx.request({
       url: app.globalData.requestUrl + 'response/institution/rank.aspx',
       data: {
@@ -591,6 +594,7 @@ Page({
         pushlist.push(thislist[ipush])
       }
     }
+    console.log("pushlist------>", pushlist)
     this.setData({
       thislistpush: pushlist,
     })

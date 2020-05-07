@@ -18,6 +18,7 @@ var setCountIndex = {
 function substringTitle(title) {
   return title.substring(0, 1)
 }
+// 对美元汇率
 mathFeeRound = function (val, unit) {
   val = val * 6.8 / 1000 //为了保留千位，除以1000
   val = Math.ceil(val) //保留整数

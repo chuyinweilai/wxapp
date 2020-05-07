@@ -92,8 +92,7 @@
             <!-- <view class='ins_type'>科目：{{item.ClassTypeWP}}</view> -->
             <view class="ins_type mt-xs">{{item.InstitutionCityRegion}}</view>
             <!-- <divider></divider> -->
-            <view class='ins_fee mt-sm'>当季费用<text class='ins_fee_number'>{{CommonWxs.mathFeeRound(item.Fee,10000)}}</text>万起</view>
-            <!-- <view class='ins_fee'>费用 ￥<text class='ins_fee_number'>{{CommonWxs.mathFeeRound(item.Fee)}}</text><text class='size14 selected'> 起</text></view> -->
+            <view class='ins_fee'>费用 ￥<text class='ins_fee_number'>{{CommonWxs.mathFeeRound(item.Fee)}}</text><text class='size14 selected'> 起</text></view>
             <!-- <view class='ins_intro twoline'>{{item.InstitutionIntroWP}}</view> -->
           </view>
         </view>

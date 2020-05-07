@@ -128,7 +128,6 @@ Page({
     const { orderlist } = that.data;
     const mobile = app.globalData.userPhoneNum;
     const { page, size } = obj;
-    console.log("mobile", mobile)
     wx.showLoading({
       title: '加载中……',
     })
@@ -156,8 +155,6 @@ Page({
           new_orderlist = orderlist.concat(new_orderlist);
         }
         wx.setStorageSync('oredrResult', new_orderlist);
-        console.log("dataList[0]", dataList[0])
-        console.log("new_orderlist", new_orderlist)
         that.setData({ oredrResult: dataList[0], orderlist: new_orderlist, })
         wx.hideLoading();
       },
@@ -185,6 +182,7 @@ Page({
         },
         success: function (result) {
           wx.hideLoading();
+          that.setDataForPage(result.data)
         },
         fail: function (res) {
           wx.hideLoading();

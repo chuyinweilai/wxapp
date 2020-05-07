@@ -49,7 +49,6 @@ function mathFeeRound(val){
   val = val * 1000 //返回千位
   return val
 }
-
 function createCode() {//随机字符串
   var code;
   //首先默认code为空字符串

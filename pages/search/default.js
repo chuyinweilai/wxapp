@@ -43,6 +43,7 @@ Page({
   onLoad: function (options) {
     var that = this
     //判断手机型号，加载填充view
+    this.setData({ fillHeight: app.globalData.fillHeight })
     if (getApp().globalData.isIphoneX != '') {
       that.setData({
         isIphoneX: getApp().globalData.isIphoneX,
@@ -75,6 +76,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (result) {
+        console.log("result", result)
         that.setData({ 
           list: result.data.list,
           searchvalue: value,
