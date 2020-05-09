@@ -13,6 +13,6 @@
       <view class="title_icon"></view>
       <view class="title_text">其他信息</view>
     </view>
-    <image src="http://www.taoraise.com/{{data.FilePath}}" class="rank_detail_image" mode="aspectFill"></image>
+    <image wx:if="{{data.FilePath}}" src="http://www.taoraise.com/{{data.FilePath}}" class="rank_detail_image" mode="aspectFill"></image>
   </view>
 </view>
