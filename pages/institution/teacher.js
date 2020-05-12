@@ -228,7 +228,7 @@ Page({
 
   //页面存储数据
   setDataForPage: function (e) {
-    console.log(e.resumeList[0]);
+    console.log(e.teacherdetail[0]);
     this.setData({
       resumeList: e.resumeList[0] || [],
       teacher: e.teacherdetail[0],

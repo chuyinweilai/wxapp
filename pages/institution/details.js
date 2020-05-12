@@ -216,7 +216,6 @@ Page({
           encryptedData: e.detail.encryptedData,
         }),
         success: function (result) {
-          console.log(result);
           jsuserinfo.setUserInfo(app.globalData.userInfo);
           that.setData({ hasUserPhone: 'true' })
         }
@@ -259,7 +258,7 @@ Page({
     if (!checkdatatime.countDiffer(time, insdetailtime)) {
       that.requestDataForPage(options)
     } else {
-      var insdetaildata = wx.getStorageSync('insdetaildata_' + options.insid)
+      var insdetaildata = wx.getStorageSync('insdetaildata_' + options.insid);
       that.setDataForPage(insdetaildata)
     }
     // var that = this
@@ -330,7 +329,6 @@ Page({
   //实际数据请求，可以先执行，授权后更新collect
   requestDataForPage: function (e) {
     var that = this;
-    console.log(1)
     that.getAdmissions()
     wx.request({
       url: app.globalData.requestUrl + 'response/institution/detail.aspx',
@@ -350,7 +348,6 @@ Page({
   },
   //页面存储数据
   setDataForPage: function (e) {
-    console.log("teacherlist", e.teacherlist)
     this.setData({
       insdetail: e.insdetail[0],
       teacherlist: e.teacherlist,
@@ -367,7 +364,6 @@ Page({
     const { yearsRange, region=0 } = this.data;
     let that = this;
     const { insid } = this.data;
-    console.log(region)
     wx.request({
       url: app.globalData.requestUrl + 'response/institution/rank.aspx',
       data: {
@@ -380,7 +376,6 @@ Page({
       },
       success: function (result) {
         const { data={} } = result;
-        console.log("data", data)
         that.setData({ 
           admissionlist: data.admissionlist,
         })
@@ -594,7 +589,6 @@ Page({
         pushlist.push(thislist[ipush])
       }
     }
-    console.log("pushlist------>", pushlist)
     this.setData({
       thislistpush: pushlist,
     })
