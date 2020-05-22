@@ -49,6 +49,7 @@ App({
   },
   
   clickCollect: function(objnav, objid,value){
+    console.log("clickCollect", getApp())
     var nav = ''
     if(objnav == 'ins'){
       nav = 1
@@ -104,8 +105,9 @@ App({
           this.globalData.isIphoneX = false
         }
         // this.globalData.isIphoneX = true
-        var menuData = wx.getMenuButtonBoundingClientRect()
-        this.globalData.fillHeight = menuData.top + 1 * res.windowWidth / res.windowHeight
+        var menuData = wx.getMenuButtonBoundingClientRect();
+        const fillHeight = menuData.top + 1 * res.windowWidth / res.windowHeight;
+        this.globalData.fillHeight = fillHeight || 52;
         this.globalData.windowHeight = mobileheight
       }
     })
@@ -142,7 +144,6 @@ App({
     requestUrl: 'https://testwx.taoraise.com/',
     requestLicence: 'taozhitianxia2019',
     myappid: 'wx5e53c54fb839b923',
-    myappsecret: '611bbfe8bb1eca0f0d1eddb91ec938b1',
     myplatformkey: 'Taoraise2017WechatPayTengXun0602',
   }
 })

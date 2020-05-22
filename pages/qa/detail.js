@@ -164,9 +164,9 @@ Page({
     this.setData({ isOrderByLike: listorderby })
     this.sortOrderList(listorderbyproperty)
   },
-  clickIlick: function (e){
+  clickIlick: function (e) {
     if (e.currentTarget.dataset.isliked != 'Y'){
-      var that = this
+      var that = this;
       var userid = app.globalData.taoraiseid
       if (userid == '') {
         wx.showModal({
