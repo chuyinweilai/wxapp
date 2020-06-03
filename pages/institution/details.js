@@ -340,6 +340,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function (result) {
+        console.log("result", result)
         wx.setStorageSync('insdetailtime_' + e.insid, that.data.time)
         wx.setStorageSync('insdetaildata_' + e.insid, result.data)
         that.setDataForPage(result.data)

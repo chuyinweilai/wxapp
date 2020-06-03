@@ -66,15 +66,13 @@
       <!-- teacher.GoodFieldWP 擅长领域 -->
     </view>
   </view>
-  <view class='ins_teacher_experience'>
+  <!-- <view class='ins_teacher_experience'>
     <view class='ins_teacher_nav_view'>
       <view class='ins_teacher_nav_line'></view>
       <view class='ins_teacher_nav_title'>从业经历</view>
-      <!-- <view class='ins_teacher_nav_title'>从业经历</view> -->
     </view>
     <view class='ins_teacher_content'>
       <view wx:for="{{resumeList}}" wx:for-item="resume" wx:key="ID" class="ins_teacher_resume">
-        <!-- <view class="ins_teacher_resume_icon"></view> -->
         <image src="{{InsWxs.judgeSchoolIcon(resume.ResumeName)}}" mode="aspectFill" class="ins_teacher_resume_icon"></image>
         <view class="ins_teacher_exp">
           <view class="name">{{resume.ResumeName}}</view>
@@ -83,7 +81,7 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class='ins_teacher_example'>
     <view class='ins_teacher_nav_view'>
       <view class='ins_teacher_nav_line'></view>
